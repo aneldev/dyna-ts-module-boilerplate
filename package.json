@@ -14,7 +14,7 @@
     "debug-inspector": "node-debug ./debug-ground/debug-on-nodejs/index.js  && npm run debug-devtools2",
     "debug-inspector-brk": "node-debug --debug-brk ./debug-ground/debug-on-nodejs/index.js  && npm run debug-devtools2",
     "debug-tsc": "rimraf temp && tsc ./debug/index.ts --outDir ./temp --w",
-    "dist": "rimraf dist && set NODE_ENV=production && webpack -p --config webpack.dist.config.js",
+    "dist": "rimraf dist && set NODE_ENV=production && webpack --config webpack.dist.config.js",
     "release": "npm run dist",
     "install-typings": "./installTypings.sh",
     "test": "jest --coverage",
@@ -22,7 +22,7 @@
   },
   "keywords": [],
   "author": "Anel dev",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "babel-preset-stage-2": "^6.24.1",

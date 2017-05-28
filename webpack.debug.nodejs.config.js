@@ -1,12 +1,14 @@
-﻿var path = require('path');
-var webpack = require('webpack');
+﻿// help: http://webpack.github.io/docs/configuration.html
+
+let path = require('path');
+let webpack = require('webpack');
 
 console.log('');
 console.log('DEBUG with devtools in nodeJs ');
 console.log('WARNING: yous should run the `npm run debug-build` in order to debug your latest changes!');
 console.log('');
 
-var config = {
+let config = {
   entry: [
     // the entry application code
     path.resolve(__dirname, 'debug/index.ts')
@@ -17,7 +19,7 @@ var config = {
   },
   resolve: {
     alias: {},
-    extensions: [".webpack.js", ".web.js", ".ts", ".js"]
+    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
     // help: http://webpack.github.io/docs/tutorials/getting-started/

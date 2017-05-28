@@ -1,7 +1,9 @@
-﻿var path = require('path');
-var webpack = require('webpack');
+﻿// help: http://webpack.github.io/docs/configuration.html
 
-var config = {
+let path = require('path');
+let webpack = require('webpack');
+
+let config = {
   entry: [
     // the entry application code
     path.resolve(__dirname, 'src/index.ts')
@@ -12,7 +14,7 @@ var config = {
   },
   resolve: {
     alias: {},
-    extensions: [".webpack.js", ".web.js", ".ts", ".js"]
+    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
     // help: http://webpack.github.io/docs/tutorials/getting-started/
@@ -31,7 +33,7 @@ var config = {
         loader: 'awesome-typescript-loader',
         query: {
           ignoreDiagnostics: [
-            // for codes see at: https://github.com/Microsoft/TypeScript/blob/master/src/compiler/diagnosticMessages.json
+            // for codes see at:https://github.com/Microsoft/TypeScript/blob/master/src/compiler/diagnosticMessages.json
             2304, // Cannot find name '{0}
             2305, // '{0}' has no exported member '{1}'
             2307, // Cannot find module '{0}'
@@ -47,6 +49,16 @@ var config = {
       {test: /\.js$/, loader: "source-map-loader"}
     ]
   },
+  plugins: [
+    // todo: UglifyJsPlugin is not compatible at the moment with ES6
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   },
+    //   sourceMap: true
+    // })
+  ]
+
 };
 
 module.exports = config;

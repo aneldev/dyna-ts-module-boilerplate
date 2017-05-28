@@ -36,14 +36,16 @@ let config = {
         // typescript loader
         test: /\.(tsx|ts)$/,
         loader: 'awesome-typescript-loader',
-        query: {ignoreDiagnostics: [
-          // for codes see at:https://github.com/Microsoft/TypeScript/blob/master/src/compiler/diagnosticMessages.json
-          2304, // Cannot find name '{0}
-          2305, // '{0}' has no exported member '{1}'
-          2307, // Cannot find module '{0}'
-          //2339, // Property '{0}' does not exist on type '{1}'
-          //2346, //Supplied parameters do not match any signature of call target.
-        ]}
+        query: {
+          ignoreDiagnostics: [
+            // for codes see at:https://github.com/Microsoft/TypeScript/blob/master/src/compiler/diagnosticMessages.json
+            2304, // Cannot find name '{0}
+            2305, // '{0}' has no exported member '{1}'
+            2307, // Cannot find module '{0}'
+            //2339, // Property '{0}' does not exist on type '{1}'
+            //2346, //Supplied parameters do not match any signature of call target.
+          ]
+        }
       },
       {	// json loader
         test: /\.json$/, loader: "json-loader"
