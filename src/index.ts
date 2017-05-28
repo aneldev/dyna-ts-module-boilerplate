@@ -1,3 +1,7 @@
+export interface IPerson {
+  name: string;
+  age: number;
+}
 export class Person {
   private name: string;
   private age: number;
@@ -13,5 +17,12 @@ export class Person {
 
   getAge(): number {
     return this.age;
+  }
+
+  get(): IPerson {
+    return {
+      name: this.name,
+      age: this.age
+    }
   }
 }

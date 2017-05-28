@@ -2,7 +2,7 @@
   "name": "dyna-typescript-application",
   "version": "1.0.0",
   "description": "About",
-  "main": "./dist/index.js",
+  "main": "./index.js",
   "scripts": {
     "//help": "https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli",
     "clear": "rimraf coverage build temp",
