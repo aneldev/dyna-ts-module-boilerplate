@@ -50,13 +50,12 @@ let config = {
     ]
   },
   plugins: [
-    // todo: UglifyJsPlugin is not compatible at the moment with ES6
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   },
-    //   sourceMap: true
-    // })
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: true
+    })
   ]
 
 };
