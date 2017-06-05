@@ -69,3 +69,11 @@ Call `npm run test-watch` to run your tests on change of your script.
 # Build
 
 To build call `npm run build`, the output will be at build/ folder. You can use build for debugging.
+
+# Others
+
+## Link your modules easily
+
+Npm offers out of the box, link on development time of your project and of your own packages. 
+
+Instead of use in packages `"my-lovely-component": "file_./../../../myPackages/my-lovely-component"` try https://docs.npmjs.com/cli/link
