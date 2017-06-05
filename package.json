@@ -5,7 +5,7 @@
   "main": "./index.js",
   "scripts": {
     "//help": "https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli",
-    "clear": "rimraf coverage build temp",
+    "clear": "rimraf build temp",
     "build": "rimraf build && webpack --config webpack.config.js",
     "debug-build": "rimraf build && webpack --config webpack.debug.nodejs.config.js --watch",
     "debug-browser": "webpack-dev-server --config webpack.debug.browser.config.js --port 8027 --devtool eval --progress --hot --content-base debug-ground/debug-on-browser --host 0.0.0.0",
@@ -14,9 +14,10 @@
     "debug-inspector": "node-debug ./debug-ground/debug-on-nodejs/index.js  && npm run debug-devtools2",
     "debug-inspector-brk": "node-debug --debug-brk ./debug-ground/debug-on-nodejs/index.js  && npm run debug-devtools2",
     "debug-tsc": "rimraf temp && tsc ./debug/index.ts --outDir ./temp --w",
-    "dist": "rimraf dist && set NODE_ENV=production && webpack --config webpack.dist.config.js",
     "release": "npm run dist",
-    "install-typings": "./installTypings.sh",
+    "dist": "npm run .dist && npm run .build-index.d.ts",
+    ".dist": "rimraf dist && set NODE_ENV=production && webpack --config webpack.dist.config.js",
+    ".build-index.d.ts": "dts-generator --name dyna-ts-module-boilerplate --project ./ --out ./dist/index.d.ts",
     "test": "jest --coverage",
     "test-watch": "jest --watch"
   },
@@ -26,7 +27,8 @@
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "babel-preset-stage-2": "^6.24.1",
-    "react": "^15.5.4"
+    "react": "^15.5.4",
+    "dyna-cache": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^19.2.2",
@@ -66,7 +68,7 @@
       "js",
       "jsx"
     ],
-    "coverageDirectory": "coverage",
+    "coverageDirectory": "temp/coverage",
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx,js,jsx}",
       "!src/**/*.d.ts"

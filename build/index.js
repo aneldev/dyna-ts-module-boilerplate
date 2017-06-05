@@ -84,6 +84,12 @@ class Person {
     getAge() {
         return this.age;
     }
+    get() {
+        return {
+            name: this.name,
+            age: this.age
+        };
+    }
 }
 exports.Person = Person;
 

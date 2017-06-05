@@ -1,8 +1,6 @@
-import {Person as PersonTs, IPerson} from './src';
-
-import * as Person from './dist/index';
+import {Person, IPerson} from './src';
 
 export {
-  PersonTs, IPerson,
   Person
+  IPerson,
 }

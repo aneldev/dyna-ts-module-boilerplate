@@ -8,23 +8,19 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 
 **Have fun!**
 
-# Release
-
-Call `npm run dist` or `npm run release` 
-to create a distributable version of your project 
-under the dist/ folder.
-
 # Develop
 
 ## General
 
 The source code your project is under the src/ folder only.
 
-To developer (or to debug) write your debug code in the debug/index.ts, where is the "user" of your project in src/.
+To developer (or to debug) write your debug code in the `debug/index.ts`, where is the "user" of your project in src/.
  
 ## Debug
 
-There are several options how to debug your application. You can debug it on nodeJs or in any browser. So you can test your module how much compatible is in different enviroments.  
+There are several options where to debug your application. You can debug it on nodeJs or in any web browser. 
+
+So you can test your module how much compatible is in different environments.  
 
 ### Debug on any web browser with browser's debugger
 
@@ -33,6 +29,8 @@ Call `npm run debug-browser` to start the builder and open a dev server (via web
 Open http://localhost:8027/ address in any browser. 
 
 _In this case there is no need to start additionally a builder as the other options, webpack takes care of it._
+
+You can use any web browser to test it.
 
 ### Debug on nodeJs with devTools (via node --inpector)
 
@@ -44,13 +42,19 @@ Alternatively, can call `npm run debug-devtools-brk` (with -brk at the end) to p
 
 Open chrome://inspect/#devices to list the debuggable instances in your localhost, you should see your app there to debug it. 
 
-Alternatively, copy paste the link generated from `debug-devtools` call. it is something like this: chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/659747f3-20d7-45d9-8f8d-48c707d6f5eb 
+Alternatively, copy paste the link generated from `debug-devtools` call;
+it is something like this: chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/659747f3-20d7-45d9-8f8d-48c707d6f5eb 
  
-### Debug on nodeJs with node-debug (you have to `npm install -g node-inspector`)
+The debugger works **only** in Chrome. 
+
+### Debug on nodeJs with node-debug
+
+**Dependency**, you have to `npm install -g node-inspector`
 
 Call `npm run debug-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 
 Call `npm run debug-inspector` to start and node-debug your app.
+
 You can close the devTools and this script will be called again to instantiate new devTools (changes in your code will be loaded at this point).
 
 Alternatively, can call `npm run debug-inspector-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
@@ -59,16 +63,49 @@ The debugger will start automatically (as web page) in your default browser. The
 
 # Test
 
-The test are running only under nodeJs enviroment. 
-Test files can be anywhere in the module and should have name *.(test|spec).(ts|tsx|js|jsx) 
+## Write tests
 
-Call `npm run test` to run your tests under \__test\__/ folder (using the Jest test framework).
+For tests the (Jest)[https://facebook.github.io/jest/] is used, check the documentation.
+
+Test files can be anywhere in the but should have name *.(test|spec).(ts|tsx|js|jsx) . There is `tests/` folder if you want to use but this is not a limitation.
+ 
+You can debug a test file as describe in Debug section, with few limitations.
+
+## Run tests
+
+Call `npm run test` to run your tests.
 
 Call `npm run test-watch` to run your tests on change of your script.
 
+## Debug tests (experimental)
+
+Through `debug/index.ts` you can load and debug also tests! 
+
+There is a small mock library where works like Jest but supports only some of the Jest functions. This is the `debug/mock-jest.js` file where behave like Jest and can run on any browser. 
+
+It doesn't support all the comparisons and features of the Jest but it helps to debug the test files with some limitations. Feel free to fork it or suggest another way hot to debug test files. 
+
+# Dist / release
+
+Call `npm run dist` or `npm run dist` 
+to create a distributable version of your project 
+under the dist/ folder.
+
+The package configuration exports the `dist/` folder so you have call `npm run dist` every time you want to publish this package.
+
+**Tip 1:** During development, there is no need to call `dist` on any code change, you can import the `src/` folder of this module like this: `import {MyModule} from 'my-module/src';` instead of `import {MyModule} from 'my-module';`.
+
+**Tip 2:** You can link this module with your main application using the `npm link` for more read https://docs.npmjs.com/cli/link
+
+**Warning** *At the moment, dist is not compressing the code while the UglifyJsPlugin is not compatible with ES6.*
+
 # Build
 
-To build call `npm run build`, the output will be at build/ folder. You can use build for debugging.
+The build compiles and builds a version under the `build/`. 
+
+The built code is not exported or used from the package itself!
+
+The built code is exactly the same as the code generated by `npm run dist` but it is not compressed and it can run on any javascript runtimer.
 
 # Others
 
