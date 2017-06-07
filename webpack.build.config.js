@@ -1,4 +1,8 @@
-﻿var path = require('path');
+﻿// help: http://webpack.github.io/docs/configuration.html
+
+const libraryName = 'dyna-cache';
+
+var path = require('path');
 var webpack = require('webpack');
 
 var config = {
@@ -8,8 +12,12 @@ var config = {
 	],
 	output: {
 		path: path.resolve(__dirname, 'build'),
-		filename: 'index.js'
-	},
+		filename: 'index.js',
+    publicPath: '/dist/',
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true
+  },
 	resolve: {
 		alias: {},
     extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]

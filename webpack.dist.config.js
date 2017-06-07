@@ -1,5 +1,7 @@
 ﻿// help: http://webpack.github.io/docs/configuration.html
 
+const libraryName = 'dyna-cache';
+
 let path = require('path');
 let webpack = require('webpack');
 
@@ -10,7 +12,11 @@ let config = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    publicPath: '/dist/',
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   resolve: {
     alias: {},
@@ -18,7 +24,7 @@ let config = {
   },
   module: {
     // help: http://webpack.github.io/docs/tutorials/getting-started/
-    loaders: [
+    rules: [
       {
         // Javascript and JSX loader
         test: /\.(jsx|js)$/,
@@ -56,6 +62,7 @@ let config = {
     //     warnings: false
     //   },
     //   sourceMap: true
+    // })
   ]
 
 };
