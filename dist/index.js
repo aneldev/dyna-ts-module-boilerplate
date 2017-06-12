@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("dyna-cache", [], factory);
+		define("dyna-ts-module-boilerplate", [], factory);
 	else if(typeof exports === 'object')
-		exports["dyna-cache"] = factory();
+		exports["dyna-ts-module-boilerplate"] = factory();
 	else
-		root["dyna-cache"] = factory();
+		root["dyna-ts-module-boilerplate"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache

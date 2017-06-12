@@ -72,7 +72,7 @@
       "js",
       "jsx"
     ],
-    "coverageDirectory": "temp/coverage",
+    "coverageDirectory": "coverage",
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx,js,jsx}",
       "!src/**/*.d.ts"
