@@ -1,6 +1,6 @@
 ﻿// help: http://webpack.github.io/docs/configuration.html
 
-const libraryName = 'dyna-cache';
+const libraryName = 'dyna-ts-module-boilerplate';
 
 let path = require('path');
 let webpack = require('webpack');

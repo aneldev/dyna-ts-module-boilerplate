@@ -2,6 +2,10 @@
   "name": "dyna-ts-module-boilerplate",
   "version": "1.0.0",
   "description": "About",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aneldev/dyna-ts-module-boilerplate"
+  },
   "main": "./dist",
   "scripts": {
     "//help": "https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli",
@@ -28,8 +32,7 @@
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "babel-preset-stage-2": "^6.24.1",
-    "react": "^15.5.4",
-    "dyna-cache": "^1.0.0"
+    "react": "^15.5.4"
   },
   "devDependencies": {
     "@types/jest": "^19.2.2",
