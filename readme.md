@@ -87,17 +87,17 @@ It doesn't support all the comparisons and features of the Jest but it helps to 
 
 # Dist / release
 
-Call `npm run dist` or `npm run dist` 
+Call `npm run dist` or `npm run release` 
 to create a distributable version of your project 
-under the dist/ folder.
+under the `dist/` folder.
 
-The package configuration exports the `dist/` folder so you have call `npm run dist` every time you want to publish this package.
+The package configuration exports the `dist/` folder so you have call `npm run dist` every time you want to publish this package. The typescript declarations are there out of the box.
 
 **Tip 1:** During development, there is no need to call `dist` on any code change, you can import the `src/` folder of this module like this: `import {MyModule} from 'my-module/src';` instead of `import {MyModule} from 'my-module';`.
 
-**Tip 2:** You can link this module with your main application using the `npm link` for more read https://docs.npmjs.com/cli/link
+**Tip 2:** You can link this module with your main application using the `npm link` for more read https://docs.npmjs.com/cli/link.
 
-**Warning** *At the moment, dist is not compressing the code while the UglifyJsPlugin is not compatible with ES6.*
+**Tip 2.1:** With npm > 5.0.0 the above link can be made defining the "file:xxx" instead of version number.
 
 # Build
 
