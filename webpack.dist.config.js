@@ -35,8 +35,10 @@ const config = {
     //   },
     //   sourceMap: true
     // })
-  ]
-
+  ],
+  node: {
+    fs: "empty"
+  }
 };
 
 module.exports = config;

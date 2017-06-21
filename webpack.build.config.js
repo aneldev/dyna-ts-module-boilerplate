@@ -28,6 +28,9 @@ const config = {
 	module: {
     loaders: loaders
   },
+  node: {
+    fs: "empty"
+  }
 };
 
 module.exports = config;
