@@ -9,12 +9,13 @@ const package = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const loaders = require('./webpack.loaders');
 
 const config = {
-	entry: [
+  target: 'node',
+  entry: [
 		// the entry application code
 		path.resolve(__dirname, 'src/index.ts')
 	],
 	output: {
-		path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'build'),
 		filename: 'index.js',
     publicPath: '/dist/',
     library: package.name,

@@ -8,6 +8,7 @@ const package = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const loaders = require('./webpack.loaders');
 
 const config = {
+  target: 'node',
   entry: [
     // the entry application code
     path.resolve(__dirname, 'src/index.ts')
