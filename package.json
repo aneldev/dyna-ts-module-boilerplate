@@ -18,7 +18,7 @@
     "debug-devtools-brk": "node --inspect --debug-brk ./debug-ground/debug-on-nodejs/index.js  && npm run debug-devtools-brk",
     "debug-inspector": "node-debug ./debug-ground/debug-on-nodejs/index.js  && npm run debug-inspector",
     "debug-inspector-brk": "node-debug --debug-brk ./debug-ground/debug-on-nodejs/index.js  && npm run debug-inspector-brk",
-    "debug-tsc": "rimraf temp && tsc ./debug/index.ts --outDir ./temp --w",
+    "debug-tsc-watch": "rimraf temp && cd debug && tsc --w",
     "release": "npm run dist",
     "dist": "rimraf ./dist/ && npm run .install-tsc && npm run .build-index.d.ts && npm run .build-dist",
     ".install-tsc": "if ! which tsc; then npm install -g typescript; fi",
