@@ -73,9 +73,11 @@ You can debug a test file as it is described in Debug section, with a few limita
  
 ## Run tests
  
-Call `npm run test` to run your tests.
+Call `npm run test` to run your tests and coverage. This test also build your application, ts errors can be shown here.
+
+Call `npm run test-only` to run your tests only including coverage, no build no ts errors.
  
-Call `npm run test-watch` to run your tests on changing of your script.
+Call `npm run test-watch` to run your tests on any changes, no build, no ts errors, no coverage.
  
 ## Debug tests (experimental)
  
