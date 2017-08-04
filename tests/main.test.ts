@@ -1,5 +1,7 @@
-declare let describe:any, expect:any, it: any;
-import {Person} from './../src/index';
+declare let jasmine: any, describe:any, expect:any, it: any;
+jasmine.getEnv().defaultTimeoutInterval  = 5000;
+
+import {Person} from '../src/index';
 
 // help: https://facebook.github.io/jest/docs/expect.html
 
