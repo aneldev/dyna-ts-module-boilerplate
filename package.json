@@ -1,6 +1,6 @@
 {
   "name": "dyna-ts-module-boilerplate",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "About",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "preinstall":{
+  "preinstall": {
     ".install-tsc": "npm install -g typescript"
   },
   "scripts": {
