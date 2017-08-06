@@ -1,7 +1,7 @@
 declare let jasmine: any, describe:any, expect:any, it: any;
-jasmine.getEnv().defaultTimeoutInterval  = 5000;
+if (typeof jasmine !== 'undefined') jasmine.getEnv().defaultTimeoutInterval  = 5000;
 
-import {Person} from '../src/index';
+import {Person} from '../src';
 
 // help: https://facebook.github.io/jest/docs/expect.html
 
