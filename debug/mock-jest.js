@@ -34,24 +34,24 @@ global.it = (description, cbTest) => {
 };
 
 
-global.expect = (valueA) => {
-  return comparisons(valueA);
+global.expect = (expectValue) => {
+  return comparisons(expectValue);
 };
 
-let comparisons = (valueA, not = false) => {
+let comparisons = (expectValue, not = false) => {
   return {
     get not() {
-      return comparisons(valueA, true)
+      return comparisons(expectValue, true)
     },
-    toBe: (valueB) => {
-      let result = valueA === valueB;
+    toBe: (toBeValue) => {
+      let result = expectValue === toBeValue;
       if (not) result = !result;
       if (result) {
-        console.log('        Success, equal value');
+        console.log('        Success, === equal value');
         global._mockJest.passed++;
       }
       else {
-        console.log('        FAILED, equal value');
+        console.log(`        FAILED, expected [${expectValue}] but received [${toBeValue}]`);
         global._mockJest.errors++;
       }
     }
