@@ -61,6 +61,14 @@ Alternatively, can call `npm run debug-inspector-brk` (with -brk at the end) to 
  
 The debugger will start automatically (as web page) in your default browser. The debugger works **only** in Chrome.
  
+### Simply run
+
+Call `npm run debug-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+
+Call `npm run run-debug-build` and will run you debug application on node.js.
+
+The built code, ready to run is under the `debug-ground/debug-on-nodejs` path.  
+ 
 # Test
  
 ## Write tests
@@ -86,6 +94,18 @@ Through `debug/index.ts` you can load and also debug tests!
 There is a small mock library where works like Jest but supports only some of the Jest functions. This is the `debug/mock-jest.js` file where behave like Jest and can run on any browser.
  
 It doesn't support all the comparisons and features of the Jest but it helps to debug the test files with some limitations. Feel free to fork it or suggest another way how to debug Jest test files.
+
+Follow the instructions how to debug your application and now you will debug the test.
+
+## Run the test without Jest!
+
+Note: At the time of writing (Aug 2017) Jest is facing issues with async tests, the dropped messages in console doesn't contain info where these errors occurred. Till this get fixed you can alternatively run your tests without Jest if you use only the Jest methods implemented in `debug/mock-jest.js`. 
+
+If you already debug your tests as described above, you can also simply run the test without Jest.
+
+Call `npm run run-debug-build` and you will see the console messages.
+
+If you debug with the cd 
  
 # Dist / Release
  
