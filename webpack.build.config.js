@@ -30,7 +30,10 @@ const config = {
     loaders: loaders
   },
   node: {
-    fs: "empty"
+    // universal app? place here your conditional imports for node env
+    fs: "empty",
+    path: "empty",
+    child_process: "empty",
   }
 };
 
