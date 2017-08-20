@@ -12,7 +12,7 @@ console.log('WARNING: yous should run the `npm run debug-build` in order to debu
 console.log('');
 
 const config = {
-  target: 'node',
+  target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
   entry: [
     // the entry application code
     path.resolve(__dirname, 'debug/index.ts')
