@@ -4,7 +4,6 @@ const fs = require('fs');
 let reactPresets=[];
 
 if (fs.existsSync('./node_modules/react')) reactPresets.push('react');
-console.log('debug, react presets',JSON.stringify(reactPresets));
 
 module.exports = [
   {
