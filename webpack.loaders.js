@@ -1,12 +1,18 @@
 // help: http://webpack.github.io/docs/tutorials/getting-started/
 
+const fs = require('fs');
+let reactPresets=[];
+
+if (fs.existsSync('./node_modules/react')) reactPresets.push('react');
+console.log('debug, react presets',JSON.stringify(reactPresets));
+
 module.exports = [
   {
     // Javascript and JSX loader
     test: /\.(jsx|js)$/,
     loader: 'babel-loader',
     query: {
-      presets: ['es2015', 'react', 'babel-polyfill', 'stage-2']
+      presets: ['es2015', 'react', 'babel-polyfill', 'stage-2'].concat(reactPresets),
     }
   },
   {

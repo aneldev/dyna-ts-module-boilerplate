@@ -7,6 +7,14 @@ Debug with devTools and test with Jest.
 This boilerplate consist of minimum configuration and dependencies to create a Module written in Typescript.
  
 **Have fun!**
+
+# Install
+
+- Clone this repo
+- Call `npm run --create-module` for TS module **or**
+- Call `npm run --create-module-with-react` for TS module that supports also React components and JSX syntax
+- Update `the package.json` with `name`, `version` and `repository.url`
+- Update `the package.json` deleting the `--create-modulexxxx` scripts
  
 # Develop
  
@@ -81,7 +89,7 @@ You can debug a test file as it is described in Debug section, with a few limita
  
 ## Run tests
  
-Call `npm run test` to run your tests and coverage. This test also build your application, ts errors can be shown here.
+Call `npm run test` to run your tests and coverage. This test also builds your application, ts errors can be shown here.
 
 Call `npm run test-only` to run your tests only including coverage, no build no ts errors.
  

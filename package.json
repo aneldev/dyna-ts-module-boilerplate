@@ -7,12 +7,16 @@
     "url": "http://github.com/aneldev/dyna-ts-module-boilerplate"
   },
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
   "preinstall": {
     ".install-tsc": "npm install -g typescript"
   },
   "scripts": {
     "//help": "https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli",
+    "create-module": "npm uninstall --save react && npm uninstall --save-dev babel-preset-react babel-plugin-react-transform && npm run .creation-prepare",
+    "create-module-with-react": "npm run .creation-prepare",
+    ".creation-prepare": "rm -rf .git && git init && rm -rf package-lock.json && mv README.md README.boilerplate.md && echo # readme > README.md && npm run .creation-install",
+    ".creation-install": "npm install && npm run .creation-done",
+    ".creation-done": "echo --- module created, set the name, version and repo address in package.json",
     "clear": "rimraf build temp",
     "build": "rimraf build && webpack --config webpack.build.config.js",
     "debug-build": "rimraf build && webpack --config webpack.debug.nodejs.config.js --watch",
@@ -47,7 +51,6 @@
     "@types/node": "^7.0.14",
     "awesome-typescript-loader": "^3.1.3",
     "babel-core": "6.11.4",
-    "babel-eslint": "5.0.0-beta4",
     "babel-loader": "6.0.0",
     "babel-plugin-add-module-exports": "0.1.2",
     "babel-plugin-react-transform": "^2.0.2",
@@ -56,7 +59,6 @@
     "babel-preset-es2015": "6.9.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "6.11.6",
-    "concurrently": "^3.4.0",
     "file-loader": "0.9.0",
     "font-awesome": "4.6.3",
     "jest": "^20.0.0",
@@ -65,7 +67,6 @@
     "source-map-loader": "0.1.5",
     "ts-jest": "^20.0.0",
     "typescript": "^2.3.2",
-    "typings": "^2.1.1",
     "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^2.4.5"
