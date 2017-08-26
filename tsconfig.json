@@ -7,9 +7,10 @@
     "noImplicitAny": false,
     "module": "commonjs",
     "target": "es6",
-    "jsx": "react",
     "allowJs": false,
-    "types" : [ "node" ]
+    "types": [
+      "node"
+    ]
   },
   "files": [
     "src/index.ts"

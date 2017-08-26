@@ -11,10 +11,10 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 # Install
 
 - Clone this repo
-- Call `npm run --create-module` for TS module **or**
-- Call `npm run --create-module-with-react` for TS module that supports also React components and JSX syntax
+- Call `npm run create-module` for TS module **or**
+- Call `npm run create-module-with-react` for TS module that supports also React components and JSX syntax
 - Update `the package.json` with `name`, `version` and `repository.url`
-- Update `the package.json` deleting the `--create-modulexxxx` scripts
+- You are ready!
  
 # Develop
  
