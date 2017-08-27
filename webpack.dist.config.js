@@ -29,7 +29,7 @@ const config = {
   module: {
     loaders: loaders
   },
-  plugins: [
+  plugins: plugins.concat([
     // todo: UglifyJsPlugin is not compatible at the moment with ES6 (Array.find && Object.assign are supported from ES6)
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
@@ -37,11 +37,10 @@ const config = {
     //   },
     //   sourceMap: true
     // })
-  ],
+  ]),
   node: {
     fs: "empty"
   },
-  plugins: plugins,
 };
 
 module.exports = config;
