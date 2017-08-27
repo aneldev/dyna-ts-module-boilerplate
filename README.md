@@ -10,7 +10,7 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 
 # Install
 
-- Clone this repo
+- Clone this repo, call `git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module`
 - Call `npm run create-module` for TS module **or**
 - Call `npm run create-module-with-react` for TS module that supports also React components and JSX syntax
 - Update `the package.json` with `name`, `version` and `repository.url`
