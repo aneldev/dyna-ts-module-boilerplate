@@ -5,6 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const loaders = require('./webpack.loaders');
+const plugins = require('./webpack.plugins');
 
 console.log('');
 console.log('DEBUG with devtools in nodeJs ');
@@ -30,7 +31,8 @@ const config = {
   },
   node: {
     fs: "empty"
-  }
+  },
+  plugins: plugins,
 };
 
 module.exports = config;

@@ -4,8 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 
-const package = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const package_ = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const loaders = require('./webpack.loaders');
+const plugins = require('./webpack.plugins');
 
 const config = {
   target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
@@ -17,7 +18,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     publicPath: '/dist/',
-    library: package.name,
+    library: package_.name,
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -39,7 +40,8 @@ const config = {
   ],
   node: {
     fs: "empty"
-  }
+  },
+  plugins: plugins,
 };
 
 module.exports = config;

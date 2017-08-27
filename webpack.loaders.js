@@ -2,7 +2,7 @@
 // help: https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli
 
 const fs = require('fs');
-let reactPresets=[];
+let reactPresets = [];
 
 if (fs.existsSync('./node_modules/react')) reactPresets.push('react');
 

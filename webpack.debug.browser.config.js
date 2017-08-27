@@ -5,6 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const loaders = require('./webpack.loaders');
+const plugins = require('./webpack.plugins');
 
 console.log('To debug open address: http://localhost:8027 on any browser');
 console.log('');
@@ -33,7 +34,8 @@ const config = {
     fs: "empty",
     path: "empty",
     child_process: "empty",
-  }
+  },
+  plugins: plugins,
 };
 
 module.exports = config;
