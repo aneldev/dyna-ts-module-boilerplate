@@ -130,7 +130,7 @@ The package configuration exports the `dist/` folder so you have to call the `np
 **Tip 2.1:** With npm > 5.0.0 the above link can be made defining the "file:xxx" instead of version number.
  
 # Build
- 
+ 	
 The build compiles and builds a version under the `build/`.
  
 The built code is not exported or used from the package itself! Use `npm run build` only to see what the webpack has built for use, for debugging reasons only.
