@@ -1,5 +1,13 @@
 declare let jasmine: any, describe:any, expect:any, it: any;
-if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
+
+const ITEM_TIMEOUT_MS: number = 150;
+
+const STRESS_TEST: boolean = false;
+const STRESS_ITEMS_COUNT: number = 2000;
+const ITEMS_COUNT: number = STRESS_TEST && STRESS_ITEMS_COUNT || 1;
+
+if (typeof jasmine !== 'undefined')
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = (STRESS_TEST && STRESS_ITEMS_COUNT || 1) * ITEM_TIMEOUT_MS;
 
 import {Person} from '../src';
 

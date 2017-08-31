@@ -1,8 +1,9 @@
 // Dev node: Come on!!! this is super ugly...
 // If you find a stable way to debug the jest tests please fork me!
 // As documented here: https://facebook.github.io/jest/docs/troubleshooting.html is not working as far of May/17
-
 if (typeof global === 'undefined' && typeof window !== 'undefined') global = window;
+
+let HIDE_SUCCESS_VALIDATION = true;
 
 global._mockJest = null;
 
@@ -50,7 +51,7 @@ let comparisons = (expectValue, not = false) => {
       let result = expectValue === toBeValue;
       if (not) result = !result;
       if (result) {
-        // console.log('        Success, === equal value');
+        if (!HIDE_SUCCESS_VALIDATION) console.log('        Success, === equal value');
         global._mockJest.passed++;
       }
       else {
