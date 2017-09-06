@@ -149,3 +149,7 @@ Instead of using in packages `"my-lovely-component": "file_./../../../myPackages
 ## React
  
 This boilerplate includes React components, only to support the jsx syntax. This boilerplate is not intended for  React components. You can work with React and export it, JSX syntax is also supported but there is no friendly environment to develop. For React check (dyna-ts-react-module-boilerplate)[https://github.com/aneldev/dyna-ts-react-module-boilerplate]. You can safely remove the react from this boilerplate.
+
+# References
+
+[Webpack configuration](https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli)
