@@ -14,7 +14,7 @@
     "create-module": "./boilerplate/createModule.js",
     "create-module-with-react": "./boilerplate/createModuleWithReact.js"
   },
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "scripts": {
     "clear": "rimraf build temp",
     "build": "rimraf build && webpack --config webpack.build.config.js",
