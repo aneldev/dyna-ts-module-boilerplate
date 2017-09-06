@@ -1,6 +1,6 @@
 {
   "name": "dyna-ts-module-boilerplate",
-  "version": "1.1.1",
+  "version": "1.1.5",
   "description": "About",
   "repository": {
     "type": "git",
@@ -10,12 +10,12 @@
   "preinstall": {
     ".install-tsc": "npm install -g typescript"
   },
-  "bin": {
-    "create-module": "./boilerplate/createModule.js",
-    "create-module-with-react": "./boilerplate/createModuleWithReact.js"
-  },
-  "preferGlobal": "true",
   "scripts": {
+    "create-module": "npm uninstall --save react && npm uninstall --save-dev babel-preset-react babel-plugin-react-transform && npm run .creation-prepare",
+    "create-module-with-react": "npm run .creation-prepare",
+    ".creation-prepare": "rm -rf .git && rm -rf package-lock.json && mv README.md README.boilerplate.md && echo # readme > README.md && npm run .creation-install",
+    ".creation-install": "npm install && npm run .creation-done",
+    ".creation-done": "node boilerplate.js && echo --- module created, set the name, version and repo address in package.json",
     "clear": "rimraf build temp",
     "build": "rimraf build && webpack --config webpack.build.config.js",
     "debug-build": "rimraf build && webpack --config webpack.debug.nodejs.config.js --watch",
@@ -37,8 +37,7 @@
     "publish-push": "npm version patch && npm publish && git push",
     "tpp": "npm run test-publish-push",
     "test-publish-push": "npm test && npm version patch && npm publish && git push",
-    "reinstall": "rm -rf node_modules/ && npm install",
-    "reinstall-hard": "rm package-lock.json && rm -rf node_modules/ && npm install"
+    "reinstall": "rm package-lock.json && rm -rf node_modules/ && npm install"
   },
   "keywords": [],
   "author": "Anel dev",
