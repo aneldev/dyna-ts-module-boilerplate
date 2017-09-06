@@ -1,6 +1,6 @@
 {
   "name": "dyna-ts-module-boilerplate",
-  "version": "1.0.29",
+  "version": "1.1.0",
   "description": "About",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "preinstall": {
     ".install-tsc": "npm install -g typescript"
   },
-  "bin":{
+  "bin": {
     "create-module": "./boilerplate/createModule.js",
     "create-module-with-react": "./boilerplate/createModuleWithReact.js"
   },
