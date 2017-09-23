@@ -1,35 +1,30 @@
 ﻿// help: http://webpack.github.io/docs/configuration.html
-// help: http://webpack.github.io/docs/configuration.html
 // help: https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
 
-const package_ = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const loaders = require('./webpack.loaders');
 const plugins = require('./webpack.plugins');
 
 const config = {
-  target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
+  target: 'web', // help: https://webpack.github.io/docs/configuration.html#target
   entry: [
-		// the entry application code
-		path.resolve(__dirname, 'src/index.ts')
-	],
-  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+    // inject some code in order to enable the auto refresh of the browse in case of a file's change
+    'webpack-dev-server/client?http://localhost:8027',
+    // the entry application code
+    path.resolve(__dirname, 'debug-dev/index.ts')
+  ],
+  externals: [],
   output: {
-    path: path.resolve(__dirname, 'build'),
-		filename: 'index.js',
-    publicPath: '/dist/',
-    library: package_.name,
-    libraryTarget: 'umd',
-    umdNamedDefine: true
+    path: path.resolve(__dirname, 'debug-ground/debug-dev-on-browser'),
+    filename: 'debug-browser.js'
   },
-	resolve: {
-		alias: {},
+  resolve: {
+    alias: {},
     extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
-	},
-	module: {
+  },
+  module: {
     loaders: loaders
   },
   node: {

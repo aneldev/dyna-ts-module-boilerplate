@@ -17,11 +17,11 @@ const config = {
   target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
   entry: [
     // the entry application code
-    path.resolve(__dirname, 'debug/index.ts')
+    path.resolve(__dirname, 'tests/index.ts')
   ],
   externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   output: {
-    path: path.resolve(__dirname, 'debug-ground/debug-on-nodejs'),
+    path: path.resolve(__dirname, 'debug-ground/debug-test-on-nodejs'),
     filename: 'index.js'
   },
   resolve: {
@@ -34,7 +34,7 @@ const config = {
   node: {
     fs: "empty"
   },
-  plugins: plugins,
+  plugins: plugins
 };
 
 module.exports = config;

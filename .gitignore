@@ -1,7 +1,7 @@
 .git/
 .idea/
 coverage/
-debug-ground/debug-on-nodejs/
+debug-ground/debug-dev-on-nodejs/
 node_modules/
 temp/
 npm-debug.log
