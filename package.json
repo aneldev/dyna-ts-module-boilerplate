@@ -39,9 +39,9 @@
     "test": "npm run dist && jest --coverage --no-cache --runInBand",
     "test-only": "jest --coverage --verbose --no-cache --runInBand",
     "test-watch": "jest --watch --verbose --runInBand",
-    "publish-push": "npm version patch && npm publish && git push",
+    "publish-push": "npm version patch && npm publish && git push --tags",
     "tpp": "npm run test-publish-push",
-    "test-publish-push": "npm test && npm version patch && npm publish && git push",
+    "test-publish-push": "npm test && npm version patch && npm publish && git push --tags",
     "reinstall": "rm package-lock.json && rm -rf node_modules/ && npm install"
   },
   "keywords": [],
