@@ -7,6 +7,7 @@
     "url": "http://github.com/aneldev/dyna-ts-module-boilerplate"
   },
   "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "preinstall": {
     ".install-tsc": "npm install -g typescript"
   },
