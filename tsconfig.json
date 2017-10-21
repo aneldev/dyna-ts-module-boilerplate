@@ -6,7 +6,7 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es2015",
     "allowJs": false,
     "types": [
       "node"
