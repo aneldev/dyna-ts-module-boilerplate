@@ -135,7 +135,7 @@ You should `dist` before call this.
  
 # Others
 
-## Link your modules easily
+## Link your modules easily (using npm link)
  
 Npm offers out of the box, link on development time of your project and of your own packages.
  
@@ -146,6 +146,24 @@ Instead of using in packages `"my-lovely-component": "file_./../../../myPackages
 **Tip 2:** You can link this module with your main application using the `npm link` for more read https://docs.npmjs.com/cli/link.
  
 **Tip 2.1:** With npm > 5.0.0 the above link can be made defining the "file:xxx" instead of version number. 
+
+## Link your modules easily (with node.js)
+
+In case that npm link doesn't work correctly this boilerplate offer a ready sync mechanism for such as cases.
+
+0. Copy `./syncExternalsList.sample.js` to `./syncExternalsList.js` once only. 
+1. Update the `./syncExternalsList.js` list with external apps you want to keep sync.
+2. Call `npm run sync-externals`
+
+## Bundle node_modules
+
+By default all node_modules are excluded from the builder. This means that are not in the bundle. 
+
+For debugging reasons... you might want to include them.
+
+In order to include them, edit the webpack.xxx.config.js and comment the `externals: [nodeExternals()]` line.
+
+If you want to exclude specific modules _while are not so clean like `pg`, `helmet`, `express`_, exclude them like this: `externals: ['helmet', 'pg', 'express']`. 
 
 ## React
  
