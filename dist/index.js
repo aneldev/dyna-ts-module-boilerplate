@@ -83,24 +83,25 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-class Person {
-    constructor(name, age) {
+var Person = (function () {
+    function Person(name, age) {
         this.name = name;
         this.age = age;
     }
-    getName() {
+    Person.prototype.getName = function () {
         return this.name;
-    }
-    getAge() {
+    };
+    Person.prototype.getAge = function () {
         return this.age;
-    }
-    get() {
+    };
+    Person.prototype.get = function () {
         return {
             name: this.name,
             age: this.age
         };
-    }
-}
+    };
+    return Person;
+}());
 exports.Person = Person;
 
 
