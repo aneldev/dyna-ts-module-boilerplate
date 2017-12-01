@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,32 +73,38 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(3);
 __webpack_require__(2);
-__webpack_require__(1);
 
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
-const STRESS_TEST = true;
-const ITEM_TIMEOUT_MS = 10;
-const NORMAL_ITEMS_COUNT = 20;
-const STRESS_ITEMS_COUNT = 200;
-const ITEMS_COUNT = STRESS_TEST && STRESS_ITEMS_COUNT || NORMAL_ITEMS_COUNT;
-const timeout = (STRESS_TEST && STRESS_ITEMS_COUNT || 1) * ITEM_TIMEOUT_MS;
+module.exports = require("babel-polyfill");
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var STRESS_TEST = true;
+var ITEM_TIMEOUT_MS = 10;
+var NORMAL_ITEMS_COUNT = 20;
+var STRESS_ITEMS_COUNT = 200;
+var ITEMS_COUNT = STRESS_TEST && STRESS_ITEMS_COUNT || NORMAL_ITEMS_COUNT;
+var timeout = (STRESS_TEST && STRESS_ITEMS_COUNT || 1) * ITEM_TIMEOUT_MS;
 if (typeof jasmine !== 'undefined')
     jasmine.DEFAULT_TIMEOUT_INTERVAL = timeout;
 // help: https://facebook.github.io/jest/docs/expect.html
-describe('Internal module test', () => {
-    it('should do this', () => {
+describe('Internal module test', function () {
+    it('should do this', function () {
         expect(true).toBe(true);
     });
 });
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -249,9 +255,10 @@ function finished() {
 }
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(1);
 module.exports = __webpack_require__(0);
 
 

@@ -31,7 +31,7 @@ So you can test your module on how much compatible is in different environments.
  
 ### Debug on any web browser with browser's debugger
  
-Call `npm run debug-browser` to start the builder and open a dev server (via webpack).
+Call `npm run debug-dev-browser` to start the builder and open a dev server (via webpack).
  
 Open http://localhost:8027/ address in any browser.
  
@@ -41,15 +41,15 @@ You can use any web browser to test it.
  
 ### Debug on nodeJs with devTools (via node --inspector)
  
-Call `npm run debug-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
  
-Call `npm run debug-devtools` to start and debug with the devTools debugger of your Chrome browser.
+Call `npm run debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
  
-Alternatively, you can call `npm run debug-devtools-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
+Alternatively, you can call `npm run debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
  
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost, you should see your app there to debug it.
  
-Alternatively, copy paste the link generated from `debug-devtools`;
+Alternatively, copy paste the link generated from `debug-dev-devtools`;
 it is something like this: chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/659747f3-20d7-45d9-8f8d-48c707d6f5eb
  
 The debugger is the debugger of your Chrome's browser, you should have Chrome to use.
@@ -58,21 +58,21 @@ The debugger is the debugger of your Chrome's browser, you should have Chrome to
  
 **Dependency**, you have to `npm install -g node-inspector`.
  
-Call `npm run debug-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
  
-Call `npm run debug-inspector` to start and node-debug your app.
+Call `npm run debug-dev-inspector` to start and node-debug your app.
  
 You can close the devTools and this script will be called again to instantiate new devTools (changes in your code will be loaded at this point).
  
-Alternatively, can call `npm run debug-inspector-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
+Alternatively, can call `npm run debug-dev-inspector-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
  
 The debugger will start automatically (as web page) in your default browser. The debugger works **only** in Chrome.
  
 ### Run debug code
 
-Call `npm run debug-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 
-Call `npm run run-debug-build` and will run you debug application on node.js.
+Call `npm run run-debug-dev-build` and will run you debug application on node.js.
 
 The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.  
  
@@ -102,18 +102,18 @@ The debug test commands are similar to the debug app commands.
 
 ### Debug test in any browser
 
-- Run `debug-test-browser`
+- Run `debug-tests-browser`
 - The browser will be opened at `http://localhost:8023`
 
 ### Debug test with devtools
 
-- Run `debug-test-build` _where builds your test code_
-- Run `debug-test-devtools` or `debug-test-devtools-brk`
+- Run `debug-tests-build` _where builds your test code_
+- Run `debug-tests-devtools` or `debug-tests-devtools-brk`
 
 ### Debug test with node-inspector
 
-- Run `debug-test-build` _where builds your test code_
-- Run `debug-test-inspector` or `debug-test-inspector-brk`
+- Run `debug-tests-build` _where builds your test code_
+- Run `debug-tests-inspector` or `debug-tests-inspector-brk`
  
 # Dist / Release
  

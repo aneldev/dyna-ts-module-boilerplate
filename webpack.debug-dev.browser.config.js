@@ -19,7 +19,7 @@ const config = {
   externals: [],
   output: {
     path: path.resolve(__dirname, 'debug-ground/debug-dev-on-browser'),
-    filename: 'debug-browser.js'
+    filename: 'debug-dev-browser.js'
   },
   resolve: {
     alias: {},
