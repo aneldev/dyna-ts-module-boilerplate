@@ -16,7 +16,7 @@ const config = {
   entry: [
 	  'babel-polyfill',
 	  // the entry application code
-    path.resolve(__dirname, 'debug-dev/index.ts')
+    path.resolve(__dirname, 'dev/index.ts')
   ],
   externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   output: {

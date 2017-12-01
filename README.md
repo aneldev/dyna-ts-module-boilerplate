@@ -21,13 +21,19 @@ This boilerplate consist of minimum configuration and dependencies to create a M
  
 ## General
  
-The source code of your project is under the `src/` folder.
+The source code of your module is under the `src/` folder.
+
+Under the `dev` folder you create a demo application that uses module.
+
+Under the `tests` folder you create the tests for your module.
+
+You can debug both `dev` and `tests` (the last one with some limitations) on browser and node enviroments. 
  
 ## Debug
  
+Create an demo application under the `dev` folder that uses your module.
+
 There are several options how to debug your application. You can debug it on nodeJs or in any web browser.
- 
-So you can test your module on how much compatible is in different environments. 
  
 ### Debug on any web browser with browser's debugger
  

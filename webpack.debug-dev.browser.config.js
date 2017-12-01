@@ -14,7 +14,7 @@ const config = {
 	  'babel-polyfill',
     'webpack-dev-server/client?http://localhost:8027',
     // the entry application code
-    path.resolve(__dirname, 'debug-dev/index.ts')
+    path.resolve(__dirname, 'dev/index.ts')
   ],
   externals: [],
   output: {
