@@ -11,7 +11,8 @@ const config = {
   target: 'web', // help: https://webpack.github.io/docs/configuration.html#target
   entry: [
     // inject some code in order to enable the auto refresh of the browse in case of a file's change
-    'webpack-dev-server/client?http://localhost:8023',
+	  'babel-polyfill',
+	  'webpack-dev-server/client?http://localhost:8023',
     // the entry application code
     path.resolve(__dirname, 'tests/index.ts')
   ],

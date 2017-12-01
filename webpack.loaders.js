@@ -12,7 +12,7 @@ module.exports = [
     test: /\.(jsx|js)$/,
     loader: 'babel-loader',
     query: {
-      presets: ['es2015', 'babel-polyfill', 'stage-2'].concat(reactPresets),
+      presets: [].concat(reactPresets),
     }
   },
   {
