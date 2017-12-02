@@ -10,12 +10,17 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 
 # Install
 
-- Clone this repo, call `git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module`
-- Change directory to `my-ts-module`
-- Call `npm run create-module` for TS module **or**
-- Call `npm run create-module-with-react` for TS module that supports also React components and JSX syntax
+- `git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module`
+- `cd my-ts-module`
+- `npm run create`
 - Update `the package.json` with `version` and `repository.url`
 - You are ready!
+ 
+# Dependencies
+
+None.
+
+In development time, the `babel-polyfill` is used but it is not included in `dist`ribution script. The reason is that the Application that uses this model should load the polyfills. In order to avoid double load of polyfills in the final Application the polyfills are not included in `dist`.
  
 # Develop
  
@@ -133,12 +138,6 @@ When you deploy your application on server side there is no need to run `npm ins
  	
 Server or Container holders are executing the `npm start`, where in the `package.json` is configured to run the `dist/index.js`.
  
-# Start
- 
-`start` starts the compiled application under the `dist/` folder.
-
-You should `dist` before call this.
- 
 # Others
 
 ## Link your modules easily (using npm link)
@@ -170,10 +169,6 @@ For debugging reasons... you might want to include them.
 In order to include them, edit the webpack.xxx.config.js and comment the `externals: [nodeExternals()]` line.
 
 If you want to exclude specific modules _while are not so clean like `pg`, `helmet`, `express`_, exclude them like this: `externals: ['helmet', 'pg', 'express']`. 
-
-## React
- 
-This boilerplate includes React components, only to support the jsx syntax. This boilerplate is not intended for  React components. You can work with React and export it, JSX syntax is also supported but there is no friendly environment to develop. For React check (dyna-ts-react-module-boilerplate)[https://github.com/aneldev/dyna-ts-react-module-boilerplate]. You can safely remove the react from this boilerplate.
 
 # References
 
