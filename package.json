@@ -1,6 +1,6 @@
 {
   "name": "dyna-ts-module-boilerplate",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "About",
   "repository": {
     "type": "git",
@@ -46,8 +46,7 @@
   "keywords": [],
   "author": "Anel dev",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^20.0.0",
     "@types/node": "^7.0.14",
