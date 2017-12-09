@@ -41,7 +41,8 @@
     "publish-push": "npm version patch && npm publish && git push && git push --tags",
     "tpp": "npm run test-publish-push",
     "test-publish-push": "npm test && npm version patch && npm publish && git push && git push --tags",
-    "reinstall": "rm package-lock.json; rm -rf node_modules/ ; npm install"
+    "clear-npm-cache": "npm cache clear --force",
+    "reinstall": "rm ./package-lock.json; rm -rf ./node_modules; npm install"
   },
   "keywords": [],
   "author": "Anel dev",
