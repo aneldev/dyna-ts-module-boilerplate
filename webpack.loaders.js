@@ -9,7 +9,7 @@ module.exports = [
     test: /\.(jsx|js)$/,
     loader: 'babel-loader',
     query: {
-      presets: [],
+      presets: ["es2015", "stage-2"],
     }
   },
   {
