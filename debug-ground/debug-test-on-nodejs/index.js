@@ -120,138 +120,136 @@ var HIDE_SUCCESS_VALIDATION = true;
 global._mockJest = null;
 
 global.clearTest = function () {
-  global._mockJest = {
-    errors: 0,
-    passed: 0,
-    descriptions: []
-  };
+	global._mockJest = {
+		errors: 0,
+		passed: 0,
+		descriptions: []
+	};
 };
 global.clearTest();
 
 global.describe = function (description, cbDefineIts) {
-  global._mockJest.descriptions.push({
-    description: description,
-    its: []
-  });
+	global._mockJest.descriptions.push({
+		description: description,
+		its: []
+	});
 
-  cbDefineIts();
-  startTests();
+	cbDefineIts();
+	startTests();
 };
 
 global.describe.skip = function () {
-  return undefined;
+	return undefined;
 };
 
 global.it = function (description, cbTest) {
-  global._mockJest.descriptions[global._mockJest.descriptions.length - 1].its.push({
-    description: description,
-    cbTest: cbTest
-  });
-  startTests();
+	global._mockJest.descriptions[global._mockJest.descriptions.length - 1].its.push({
+		description: description,
+		cbTest: cbTest
+	});
+	startTests();
 };
 
 global.it.skip = function () {
-  return undefined;
+	return undefined;
 };
 
 global.expect = function (expectValue) {
-  return comparisons(expectValue);
+	return comparisons(expectValue);
 };
 
 var comparisons = function comparisons(expectValue) {
-  var not = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	var not = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-  return {
-    get not() {
-      return comparisons(expectValue, true);
-    },
-    toBe: function toBe(toBeValue) {
-      var result = expectValue === toBeValue;
-      if (not) result = !result;
-      if (result) {
-        if (!HIDE_SUCCESS_VALIDATION) console.log('        Success, === equal value');
-        global._mockJest.passed++;
-      } else {
-        console.log('        FAILED, expected [' + toBeValue + '] but received [' + expectValue + ']');
-        global._mockJest.errors++;
-      }
-    }
-  };
+	return {
+		get not() {
+			return comparisons(expectValue, true);
+		},
+		toBe: function toBe(toBeValue) {
+			var result = expectValue === toBeValue;
+			if (not) result = !result;
+			if (result) {
+				if (!HIDE_SUCCESS_VALIDATION) console.log('        Success, === equal value');
+				global._mockJest.passed++;
+			} else {
+				console.log('        FAILED, expected [' + toBeValue + '] but received [' + expectValue + ']');
+				global._mockJest.errors++;
+			}
+		}
+	};
 };
 
 var startTimer = null;
 function startTests() {
-  if (startTimer) clearTimeout(startTimer);
-  startTimer = setTimeout(executeTests, 100);
+	if (startTimer) clearTimeout(startTimer);
+	startTimer = setTimeout(executeTests, 100);
 }
 
 function executeTests() {
-  console.log('### TESTs begin');
-  var descriptions = [].concat(global._mockJest.descriptions);
+	console.log('### TESTs begin');
+	var descriptions = [].concat(global._mockJest.descriptions);
 
-  var processTheNextDescription = function processTheNextDescription() {
-    var description = descriptions.shift();
-    if (description) {
-      executeADescription(description, function () {
-        processTheNextDescription();
-      });
-    } else {
-      finished();
-    }
-  };
+	var processTheNextDescription = function processTheNextDescription() {
+		var description = descriptions.shift();
+		if (description) {
+			executeADescription(description, function () {
+				processTheNextDescription();
+			});
+		} else {
+			finished();
+		}
+	};
 
-  // start
-  processTheNextDescription();
+	// start
+	processTheNextDescription();
 }
 
 function executeADescription(description, cbCompleted) {
-  console.log('Description::: Start:', description.description);
-  var its = [].concat(description.its);
+	console.log('Description::: Start:', description.description);
+	var its = [].concat(description.its);
 
-  executeIts(its, function () {
-    console.log('Description::: Finished:', description.description);
-    cbCompleted();
-  });
+	executeIts(its, function () {
+		console.log('Description::: Finished:', description.description);
+		cbCompleted();
+	});
 }
 
 function executeIts(its, cbCompleted) {
-  var it = its.shift();
-  if (!it) {
-    cbCompleted();
-    return;
-  }
+	var it = its.shift();
+	if (!it) {
+		cbCompleted();
+		return;
+	}
 
-  console.log('    it:::', it.description);
-  if (it.cbTest.length === 0) {
-    it.cbTest();
-    executeIts(its, cbCompleted);
-  } else {
-    it.cbTest(function () {
-      executeIts(its, cbCompleted);
-    });
-  }
+	console.log('    it:::', it.description);
+	if (it.cbTest.length === 0) {
+		it.cbTest();
+		executeIts(its, cbCompleted);
+	} else {
+		it.cbTest(function () {
+			executeIts(its, cbCompleted);
+		});
+	}
 }
 
 function finished() {
-  var report = '### All TEST finished, results:' + ' ' + 'errors:' + ' ' + global._mockJest.errors + ' ' + 'passed:' + ' ' + global._mockJest.passed;
-  console.log('');
-  if (global._mockJest.errors) {
-    console.log('xx     xx');
-    console.log(' xx   xx ');
-    console.log('  xx xx  ');
-    console.log('   xxx   ');
-    console.log('  xx xx  ');
-    console.log(' xx   xx ');
-    console.log('xx     xx ' + report);
-  } else {
-    console.log('        vv');
-    console.log('       vv');
-    console.log('      vv');
-    console.log('     vv');
-    console.log('vv  vv');
-    console.log(' vvvv');
-    console.log('  vv      ' + report);
-  }
+	var report = '### All TEST finished, results:' + ' ' + 'errors:' + ' ' + global._mockJest.errors + ' ' + 'passed:' + ' ' + global._mockJest.passed;
+	console.log('');
+	if (global._mockJest.errors) {
+		console.log(' xx   xx ');
+		console.log('  xx xx  ');
+		console.log('   xxx   ');
+		console.log('  xx xx  ');
+		console.log(' xx   xx ' + report);
+		process.exit(100);
+	} else {
+		console.log('      vv');
+		console.log('     vv');
+		console.log('vv  vv');
+		console.log(' vvvv');
+		console.log('  vv      ' + report);
+		process.exit(0);
+	}
 }
 
 /***/ }),

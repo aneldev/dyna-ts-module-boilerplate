@@ -128,16 +128,14 @@ The debug test commands are similar to the debug app commands.
  
 # Dist / Release
  
-Call `npm run dist` or `npm run release`
+Call `npm run build`
 to create a distributable version of your project
 under the `dist/` folder.
  
-The package configuration exports the `dist/` folder so you have to call the `npm run dist` every time you want to publish this package. The typescript declarations are there out of the box.
- 
-When you deploy your application on server side there is no need to run `npm install`. The `dist` folder has everything and it is ready to run. The typescript declaration are useless there (are only for debugging), your whole application is ins the `dist/index.js`.
- 	
-Server or Container holders are executing the `npm start`, where in the `package.json` is configured to run the `dist/index.js`.
- 
+The package configuration exports the `dist/` folder so you have to call the `npm run build` every time you want to publish this package. The typescript declarations are there out of the box.
+
+Call `npm run release` to build, publish to npm and push to your repo.
+  	
 # Others
 
 ## Link your modules easily (using npm link)
@@ -146,7 +144,7 @@ Npm offers out of the box, link on development time of your project and of your 
  
 Instead of using in packages `"my-lovely-component": "file_./../../../myPackages/my-lovely-component"` try https://docs.npmjs.com/cli/link
  
-**Tip 1:** During development, there is no need to call `dist` on any code change, you can import the `src/` folder of this module like this: `import {MyModule} from 'my-module/src';` instead of `import {MyModule} from 'my-module';`.
+**Tip 1:** During development, there is no need to call `build` on any code change, you can import the `src/` folder of this module like this: `import {MyModule} from 'my-module/src';` instead of `import {MyModule} from 'my-module';`.
  
 **Tip 2:** You can link this module with your main application using the `npm link` for more read https://docs.npmjs.com/cli/link.
  
