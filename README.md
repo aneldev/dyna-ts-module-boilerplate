@@ -10,11 +10,11 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 
 # Install
 
-- `git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module`
-- `cd my-ts-module`
-- `npm run create`
-- Update `the package.json` with `version` and `repository.url`
-- You are ready!
+```
+git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
+cd my-ts-module
+npm run create
+```
  
 # Dependencies
 
