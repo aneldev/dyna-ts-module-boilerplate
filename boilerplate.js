@@ -23,4 +23,9 @@ function cleanUpPackage() {
 cleanUpPackage();
 fs.unlinkSync('./boilerplate.js');
 
-console.log('Boilerplate initialization completed');
+console.log('        vv');
+console.log('       vv');
+console.log('      vv');
+console.log('vv   vv');
+console.log(' vv vv');
+console.log('  vvv      module '+projectName+' is created successfully');
