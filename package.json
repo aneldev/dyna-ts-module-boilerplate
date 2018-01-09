@@ -82,7 +82,7 @@
   "jest": {
     "automock": false,
     "collectCoverage": false,
-    "testEnvironment": "node",
+    "testEnvironment": "jest-environment-node",
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
