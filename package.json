@@ -80,6 +80,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "./tests/setup/testSetup.js",
     "automock": false,
     "collectCoverage": false,
     "testEnvironment": "jest-environment-node",
