@@ -51,8 +51,7 @@
   "keywords": [],
   "author": "Anel dev",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^20.0.0",
     "@types/node": "^7.0.14",
@@ -73,14 +72,14 @@
     "rimraf": "^2.6.1",
     "source-map-loader": "0.1.5",
     "ts-jest": "^20.0.0",
-    "typescript": "^2.4.1",
+    "typescript": "^2.7.1",
     "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^2.4.5",
     "webpack-node-externals": "^1.6.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./tests/setup/testSetup.js",
+    "setupTestFrameworkScriptFile": "./tests/setup/testSetup.ts",
     "automock": false,
     "collectCoverage": false,
     "testEnvironment": "jest-environment-node",

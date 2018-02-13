@@ -83,7 +83,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Person = (function () {
+var Person = /** @class */ (function () {
     function Person(name, age) {
         this.name = name;
         this.age = age;
