@@ -29,6 +29,7 @@
     "debug-tests-inspector-brk": "node-debug --debug-brk ./debug-ground/debug-test-on-nodejs/index.js  && npm run debug-tests-inspector-brk",
     "debug-tests-run": "node debug-ground/debug-test-on-nodejs/index.js",
     "sync-externals": "node syncExternals.js",
+    "build-analyze": "set NODE_ENV=production && webpack --config webpack.dist.analyze.config.js",
     "build-watch": "set NODE_ENV=production && webpack --config webpack.dist.config.js --watch",
     "build-tsc-watch": "tsc -w",
     "build": "rimraf ./dist/ && npm run .build-index.d.ts && npm run .build-dist",
@@ -74,6 +75,7 @@
     "ts-jest": "^20.0.14",
     "typescript": "^2.7.1",
     "webpack": "^2.4.1",
+    "webpack-bundle-analyzer": "^2.10.0",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-dev-server": "^2.11.1",
     "webpack-node-externals": "^1.6.0"
