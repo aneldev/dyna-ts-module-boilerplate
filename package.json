@@ -47,6 +47,7 @@
     "tpp": "npm run test-publish-push",
     "test-publish-push": "npm test && npm version patch && npm publish && git push && git push --tags",
     "clear-npm-cache": "npm cache clear --force",
+    "update-release": "npm update && git add -u && git add -A && git commit -m \"update\" && npm run release",
     "reinstall": "rm ./package-lock.json; rm -rf ./node_modules; npm install"
   },
   "keywords": [],
