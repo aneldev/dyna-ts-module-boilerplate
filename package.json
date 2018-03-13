@@ -43,11 +43,11 @@
     "commit": "git add -u && git add -A && git commit -m",
     "commit-amend": "git add -u && git add -A && git commit --amend --no-edit",
     "pp": "npm run publish-push",
-    "publish-push": "npm run commit-amend; npm version patch && npm publish && git push && git push --tags",
+    "publish-push": "git add -u && git add -A && git commit -m \"last minute changes\"; npm version patch && npm publish && git push && git push --tags",
     "tpp": "npm run test-publish-push",
     "test-publish-push": "npm test && npm version patch && npm publish && git push && git push --tags",
     "clear-npm-cache": "npm cache clear --force",
-    "update-release": "npm update && git add -u && git add -A && git commit -m \"update\" && npm run release",
+    "update-release": "npm update && git add -u && git add -A && git commit -m \"last minute update-release changes\"; npm run release",
     "reinstall": "rm ./package-lock.json; rm -rf ./node_modules; npm install"
   },
   "keywords": [],
