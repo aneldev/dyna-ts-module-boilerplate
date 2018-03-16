@@ -138,25 +138,19 @@ Call `npm run release` to build, publish to npm and push to your repo.
   	
 # Others
 
-## Link your modules easily (using npm link)
- 
-Npm offers out of the box, link on development time of your project and of your own packages.
- 
-Instead of using in packages `"my-lovely-component": "file_./../../../myPackages/my-lovely-component"` try https://docs.npmjs.com/cli/link
- 
-**Tip 1:** During development, there is no need to call `build` on any code change, you can import the `src/` folder of this module like this: `import {MyModule} from 'my-module/src';` instead of `import {MyModule} from 'my-module';`.
- 
-**Tip 2:** You can link this module with your main application using the `npm link` for more read https://docs.npmjs.com/cli/link.
- 
-**Tip 2.1:** With npm > 5.0.0 the above link can be made defining the "file:xxx" instead of version number. 
+## Link your modules easily
 
-## Link your modules easily (with node.js)
-
-In case that npm link doesn't work correctly this boilerplate offer a ready sync mechanism for such as cases.
+In case that the `npm link` doesn't work correctly this boilerplate offers a ready sync unidirectional mechanism.
 
 0. Copy `./syncExternalsList.sample.js` to `./syncExternalsList.js` once only. 
-1. Update the `./syncExternalsList.js` list with external apps you want to keep sync.
+1. Update the `./syncExternalsList.js` list with external apps you want to keep them sync.
 2. Call `npm run sync-externals`
+
+If you use the Ubuntu shell of Win10, in the `./syncExternalsList.js` you can add a windows path prefixing it with the `*tus*`, _which stands for `to ubuntu shell`_.
+
+Example, check the 2nd line of `./syncExternalsList.sample.js`.
+
+**Note:** the `./syncExternalsList.js` is git ignored! 
 
 ## Bundle node_modules
 
