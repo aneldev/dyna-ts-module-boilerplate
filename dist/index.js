@@ -73,16 +73,28 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+if (typeof process !== "undefined") {
+    process.on('unhandledRejection', function (reason, promise) {
+        console.error('Unhandled Rejection', { promise: promise, reason: reason });
+    });
+}
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(0);
 var Person = /** @class */ (function () {
     function Person(name, age) {
         this.name = name;
