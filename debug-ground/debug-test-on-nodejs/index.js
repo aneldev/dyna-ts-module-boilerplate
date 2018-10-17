@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,6 +73,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(4);
 __webpack_require__(3);
 __webpack_require__(2);
 
@@ -99,6 +100,17 @@ describe('Internal module test', function () {
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+if (typeof process !== "undefined") {
+    process.on('unhandledRejection', function (reason, promise) {
+        console.error('Unhandled Rejection', { promise: promise, reason: reason });
+    });
+}
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -258,7 +270,7 @@ function finished() {
 }
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
