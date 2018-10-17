@@ -1,3 +1,5 @@
+import "./utils";
+
 export interface IPerson {
   name: string;
   age: number;
