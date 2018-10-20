@@ -1,3 +1,5 @@
+import "dyna-node-console";
+
 import "../utils/unhandledPromiseRejections";
 
-console.log('Debug application');
+console.log('Debug module');
