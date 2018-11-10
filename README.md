@@ -20,8 +20,6 @@ npm run create
 
 None.
 
-In development time, the `babel-polyfill` is used but it is not included in `dist`ribution script. The reason is that the Application that uses this model should load the polyfills. In order to avoid double load of polyfills in the final Application the polyfills are not included in `dist`.
- 
 # Develop
  
 ## General
@@ -44,7 +42,7 @@ There are several options how to debug your application. You can debug it on nod
  
 Call `npm run debug-dev-browser` to start the builder and open a dev server (via webpack).
  
-Open http://localhost:8027/ address in any browser.
+Open http://localhost:3300/ address in any browser.
  
 _In this case there is no need to start additionally a builder as the other options, webpack takes care of it._
  

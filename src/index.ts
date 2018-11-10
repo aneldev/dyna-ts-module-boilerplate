@@ -22,7 +22,7 @@ export class Person {
   get(): IPerson {
     return {
       name: this.name,
-      age: this.age
-    }
+      age: this.age,
+    };
   }
 }
