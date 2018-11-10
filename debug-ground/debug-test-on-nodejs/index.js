@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "216317abe924c64cab4b";
+/******/ 	var hotCurrentHash = "166eb749d17ef7f3eeb6";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -752,6 +752,19 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar Person =\n/** @class */\nfunction () {\n  function Person(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  Person.prototype.getName = function () {\n    return this.name;\n  };\n\n  Person.prototype.getAge = function () {\n    return this.age;\n  };\n\n  Person.prototype.get = function () {\n    return {\n      name: this.name,\n      age: this.age\n    };\n  };\n\n  return Person;\n}();\n\nexports.Person = Person;\n\n//# sourceURL=webpack:///./src/index.ts?");
+
+/***/ }),
+
 /***/ "./tests/index.ts":
 /*!************************!*\
   !*** ./tests/index.ts ***!
@@ -771,9 +784,10 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
   \************************************/
 /*! no static exports found */
 /*! all exports used */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000; // help: https://facebook.github.io/jest/docs/expect.html\n\ndescribe('Internal module test', function () {\n  it('should do this', function () {\n    expect(true).toBe(true);\n  });\n});\n\n//# sourceURL=webpack:///./tests/scripts/main.test.ts?");
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar src_1 = __webpack_require__(/*! ../../src */ \"./src/index.ts\");\n\nif (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000; // help: https://facebook.github.io/jest/docs/expect.html\n\ndescribe('Internal module test', function () {\n  it('Person', function () {\n    var n = new src_1.Person(\"John\", 32);\n    expect(n.getName()).toBe(\"John\");\n    expect(n.getAge()).toBe(32);\n  });\n});\n\n//# sourceURL=webpack:///./tests/scripts/main.test.ts?");
 
 /***/ }),
 
