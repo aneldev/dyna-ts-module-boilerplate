@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "d0448398b4ca60924c53";
+/******/ 	var hotCurrentHash = "0675af79a783bc8f8e42";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -787,7 +787,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar src_1 = __webpack_require__(/*! ../../src */ \"./src/index.ts\");\n\nif (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000; // help: https://facebook.github.io/jest/docs/expect.html\n\ndescribe('Internal module test', function () {\n  it('Person', function () {\n    var n = new src_1.Person(\"John\", 32);\n    expect(n.getName()).toBe(\"John\");\n    expect(n.getAge()).toBe(32);\n  });\n});\n\n//# sourceURL=webpack:///./tests/scripts/main.test.ts?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\n__webpack_require__(/*! jest */ \"jest\");\n\nif (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;\n\nvar src_1 = __webpack_require__(/*! ../../src */ \"./src/index.ts\"); // help: https://facebook.github.io/jest/docs/expect.html\n\n\ndescribe('Internal module test', function () {\n  it('Person', function () {\n    var n = new src_1.Person(\"John\", 32);\n    expect(n.getName()).toBe(\"John\");\n    expect(n.getAge()).toBe(32);\n  });\n});\n\n//# sourceURL=webpack:///./tests/scripts/main.test.ts?");
 
 /***/ }),
 
@@ -836,6 +836,18 @@ eval("module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-ts-mo
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"dyna-node-console\");\n\n//# sourceURL=webpack:///external_%22dyna-node-console%22?");
+
+/***/ }),
+
+/***/ "jest":
+/*!***********************!*\
+  !*** external "jest" ***!
+  \***********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"jest\");\n\n//# sourceURL=webpack:///external_%22jest%22?");
 
 /***/ })
 

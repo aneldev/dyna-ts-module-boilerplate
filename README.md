@@ -8,6 +8,14 @@ This boilerplate consist of minimum configuration and dependencies to create a M
  
 **Have fun!**
 
+# Features
+
+- Write in Typescript, .tsx, .ts, but also .jsx & .js are supported
+- Test with Jest, snapshots are also supported
+- Distribute as module with TypeScript Definitions (ready to import)
+- Distributed versions works in Javascript and Typescript projects
+- Detect circular dependencies (where leads to import `undefined` or `null` values)
+
 # Install
 
 ```
