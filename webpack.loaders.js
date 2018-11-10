@@ -7,7 +7,6 @@ module.exports = [
 	{
 		test: /\.js$/,
 		use: ['babel-loader', 'source-map-loader'],
-		exclude: /node_modules/,
 	},
 	{
 		// typescript loader
