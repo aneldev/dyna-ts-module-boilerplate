@@ -7,7 +7,7 @@
 		exports["dyna-ts-module-boilerplate"] = factory();
 	else
 		root["dyna-ts-module-boilerplate"] = factory();
-})(window, function() {
+})(global, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -87,11 +87,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/web.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -164,31 +164,8 @@ function () {
 
 exports.Person = Person;
 
-/***/ }),
-
-/***/ "./src/web.ts":
-/*!********************!*\
-  !*** ./src/web.ts ***!
-  \********************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function __export(m) {
-  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__export(__webpack_require__(/*! ./ */ "./src/index.ts"));
-
 /***/ })
 
 /******/ });
 });
-//# sourceMappingURL=web.js.map
+//# sourceMappingURL=index.js.map

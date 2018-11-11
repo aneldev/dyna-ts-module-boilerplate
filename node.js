@@ -136,7 +136,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__export(__webpack_require__(/*! ./ */ "./src/index.ts")); // export the node version, use the `build-node` `release-node`, both output to /dist/node.js
+__export(__webpack_require__(/*! ./ */ "./src/index.ts"));
 
 /***/ }),
 
