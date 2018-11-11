@@ -21,9 +21,9 @@ const config = {
 	},
 	devtool: "source-map",     // help: https://webpack.js.org/configuration/devtool/
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, './'),
 		filename: '[name].js',
-		publicPath: '/dist/',
+		publicPath: '/',
 		library: package_.name,
 		libraryTarget: 'umd',
 		umdNamedDefine: true
