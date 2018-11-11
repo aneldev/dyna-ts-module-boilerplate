@@ -21,7 +21,9 @@
     ]
   },
   "files": [
-    "src/index.ts"
+    "src/index.ts",
+    "src/node.ts",
+    "src/web.ts"
   ],
   "compileOnSave": false
 }

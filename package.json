@@ -38,7 +38,7 @@
     "build-tsc-watch": "tsc -w",
     "build": "rimraf ./dist/ && npm run .build-index.d.ts && npm run .build-dist",
     "build-web-node": "rimraf ./dist/ && npm run .build-index.d.ts && npm run .build-dist-web-node",
-    ".build-index.d.ts": "tsc && rm ./dist/index.js; npm run .build-index.d.ts-clear",
+    ".build-index.d.ts": "tsc && npm run .build-index.d.ts-clear",
     ".build-index.d.ts-clear": "cd dist/ && find . -name \\*.js -delete && cd .. && rimraf temp",
     ".build-dist": "set NODE_ENV=development && webpack --config webpack.dist.config.js",
     ".build-dist-web-node": "set NODE_ENV=development && webpack --config webpack.dist.node.config.js && webpack --config webpack.dist.web.config.js",
