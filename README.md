@@ -14,6 +14,7 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 - Test with Jest, snapshots are also supported
 - Distribute as module with TypeScript Definitions (ready to import)
 - Distributed versions works in Javascript and Typescript projects
+- Export version for web and node with the same base code
 - Detect circular dependencies (where leads to import `undefined` or `null` values)
 
 # Install
@@ -23,7 +24,13 @@ git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
 npm run create
 ```
- 
+
+# Target the output
+
+The webpack output be default is 'web'. This is useful if the module is universal.
+
+To turn it to node, edit the `webpack.dist.config.js` and change the `target` to `node`.
+
 # Dependencies
 
 None.
@@ -141,7 +148,37 @@ under the `dist/` folder.
 The package configuration exports the `dist/` folder so you have to call the `npm run build` every time you want to publish this package. The typescript declarations are there out of the box.
 
 Call `npm run release` to build, publish to npm and push to your repo.
-  	
+
+# Target the output to `web` and `node`.
+
+## Why this?
+
+If you want to create a module that will run in both web and node environments with slightly different dependencies and resources.
+
+This is against the universal modules nature! Is for modules that we want to run in both environments but with slightly different implementation.
+
+The import of the module is different per environment and because of that the module is not universal.
+
+## General
+
+Be default, the target is `web` (according the `webpack.dist.config.js` configuration).
+
+This boilerplate exports by default 2 more variations of your module a `web` and and a `node` version.
+
+|Source file|Target|Import example|
+|----|----|----|
+|`src/index.ts`|web|import {DynaNodeClient} from "dyna-node";|
+|`src/web.ts`|web|import {DynaNodeClient} from "dyna-node/web";|
+|`src/node.ts`|node|import {DynaNodeClient} from "dyna-node/web";|
+
+## How to implement
+
+- Implement your module in a way to accept callbacks when is wants dependencies or resources according the web or node environment.
+- Import you module in `src/web.ts`.
+- Import your module in `src/web.ts` the web environments dependencies, attach then on your module and export it.
+- Do the save for the `src/node.ts` for the node environment.
+- Edit the `src/index.ts` and `export * from "./web.ts"` or `export * from "./node.js` or, place a `console.error` asking to use on the two variations.
+
 # Others
 
 ## Link your modules easily

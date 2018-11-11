@@ -11,7 +11,7 @@ const plugins = require('./webpack.plugins');
 
 const config = {
 	mode: "development",  // do not minify the code, this part of the app, not of the module
-	target: 'node',       // help: https://webpack.github.io/docs/configuration.html#target
+	target: 'web',        // help: https://webpack.github.io/docs/configuration.html#target
 	entry: {
 		index: './src/index.ts',
 	},
