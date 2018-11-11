@@ -7,7 +7,7 @@
 		exports["dyna-ts-module-boilerplate"] = factory();
 	else
 		root["dyna-ts-module-boilerplate"] = factory();
-})(global, function() {
+})(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
