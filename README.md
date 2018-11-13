@@ -1,11 +1,11 @@
 ﻿# About
  
-Webpack configuration for ES5/ES6 for Typescript Library or Module.
- 
+Universal Webpack setup for ES5/ES6 for Typescript Module.
+
 Debug with devTools and test with Jest.
  
 This boilerplate consist of minimum configuration and dependencies to create a Module written in Typescript.
- 
+
 **Have fun!**
 
 # Features
@@ -14,7 +14,8 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 - Test with Jest, snapshots are also supported
 - Distribute as module with TypeScript Definitions (ready to import)
 - Distributed versions works in Javascript and Typescript projects
-- Export version for web and node with the same base code
+- Export default version targeting web or not
+- Export additional version for web and node
 - Detect circular dependencies (where leads to import `undefined` or `null` values)
 
 # Install
@@ -25,15 +26,31 @@ cd my-ts-module
 npm run create
 ```
 
-# Target the output
+# Zero-Configuration
 
-The webpack output be default is 'web'. This is useful if the module is universal.
+No need to configure anything!
 
-To turn it to node, edit the `webpack.dist.config.js` and change the `target` to `node`.
+But if there is need, you have to edit only these point:
 
-# Dependencies
+## Webpack Loaders/Rules
 
-None.
+Add them in `/webpack.loaders.js`.
+
+## Webpack Plugins
+
+Add them in `/webpack.plugins.js`.
+
+## Outputs, universalize your module
+
+Edit the `/module-setup.js` to configure the target of your module and multiple outputs.
+
+Be default these versions are exported
+
+- "my-module" where targets to web
+- "my-module/web" where targets to web
+- "my-module/node" where targets to node
+
+For more read the "Universal stories" next in this text.
 
 # Develop
  
@@ -149,35 +166,78 @@ The package configuration exports the `dist/` folder so you have to call the `np
 
 Call `npm run release` to build, publish to npm and push to your repo.
 
-# Target the output to `web` and `node`.
+# Universal stories
 
-## Why this?
+## Webpack `target: "universal"`
 
-If you want to create a module that will run in both web and node environments with slightly different dependencies and resources.
+Webpack `target: "universal"` **doesn't exist** for far.
 
-This is against the universal modules nature! Is for modules that we want to run in both environments but with slightly different implementation.
+It's a [big story](https://github.com/webpack/webpack/issues/6525) and the core problem is not the output itself but the `libraryTarget`. How universal will be the output of the libraryTarget?
 
-The import of the module is different per environment and because of that the module is not universal.
+Till the above issue is solved, we have to export two versions, one for web and one for node and import each time the proper version according the environment.
 
-## General
+Target the output to `web` and `node`.
 
-Be default, the target is `web` (according the `webpack.dist.config.js` configuration).
+## Why this separation?
+
+There are two limitations:
+- Webpack builds different the registration of your module per environment.
+- You module itself might need different resources per environment.
+
+## Setup
+
+Open the `/module-setup.js` and configure which versions will be exported.
 
 This boilerplate exports by default 2 more variations of your module a `web` and and a `node` version.
 
 |Source file|Target|Import example|
 |----|----|----|
-|`src/index.ts`|web|import {DynaNodeClient} from "dyna-node";|
-|`src/web.ts`|web|import {DynaNodeClient} from "dyna-node/web";|
-|`src/node.ts`|node|import {DynaNodeClient} from "dyna-node/web";|
+|`src/index.ts`|module-setup.jsdefaultTarget|import {...} from "dyna-node";|
+|`src/web.ts`|web|import {...} from "dyna-node/web";|
+|`src/node.ts`|node|import {...} from "dyna-node/web";|
 
-## How to implement
+If you focus for only one environment, edit the `/module-setup.js`.
 
-- Implement your module in a way to accept callbacks when is wants dependencies or resources according the web or node environment.
-- Import you module in `src/web.ts`.
-- Import your module in `src/web.ts` the web environments dependencies, attach then on your module and export it.
-- Do the save for the `src/node.ts` for the node environment.
-- Edit the `src/index.ts` and `export * from "./web.ts"` or `export * from "./node.js` or, place a `console.error` asking to use on the two variations.
+## How to import
+
+The user of your module can import() conditionally your web and node exports.
+
+```
+// Import the default export, this will be used only for types and will be not bundled.
+import {MyModule} from "my-module";
+
+// Import the module, the web or the node version according the environment
+const importMyModule = async (): Promise<any> => {
+  const isNode = !!(typeof process !== 'undefined' && process.versions && process.versions.node);
+  return isNode
+    ? await import("my-module/node")
+    : await import("my-module/web");
+};
+
+// Generic function to extract the exported stuff of the module with types!
+const importFrom = async <TExportMember>(importModule: () => Promise<any>, exportName: string): Promise<TExportMember> => {
+  const module = await importModule();
+  const output = module[exportName];
+  if (!output) console.error(`internal error: cannot get the import member [${exportName}]`, {module});
+  return output;
+};
+
+// Somewhere in your code import (async) from the loaded module
+const _MyClass = await importFrom<typeof MyClass>(importMyModule, "MyClass");
+
+// and that's it, now instantiate it (plus, we have types for it)
+const myClass = new _MyClass();
+```
+
+## Real example
+
+A live and working example for it is the `dyna-disk-memory`. This module when it runs on node it saves the data to disk while when it runs on web browse it uses the localstorage. The implementation for both environments is completetelly different but the API is the exactly the same.
+
+The `dyna-queue-handler` is handling a job queue and it uses the `dyna-disk-memory` to save the queue (to reduce the ram resources).
+
+The export of `dyna-disk-memory` is done [here](https://github.com/aneldev/dyna-disk-memory/tree/master/src).
+
+The import of it in `dyna-queue-handler` is done [here](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L6) and the instantiation in the `_initialize()` is [here](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L6) .
 
 # Others
 
