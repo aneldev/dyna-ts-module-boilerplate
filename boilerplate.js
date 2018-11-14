@@ -25,4 +25,3 @@ console.log('      vv');
 console.log('vv   vv');
 console.log(' vv vv');
 console.log('  vvv      module ' + projectName + ' is created successfully');
-ä
