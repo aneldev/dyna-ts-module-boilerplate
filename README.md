@@ -11,7 +11,7 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 # Features
 
 - Write in Typescript, .tsx, .ts, but also .jsx & .js are supported
-- Test with Jest, snapshots are also supported
+- Test and debug Jest, snapshots are also supported
 - Distribute as module with TypeScript Definitions (ready to import)
 - Distributed versions works in Javascript and Typescript projects
 - Export default version targeting web or not
@@ -62,8 +62,6 @@ Under the `dev` folder you create a demo application that uses module.
 
 Under the `tests` folder you create the tests for your module.
 
-You can debug both `dev` and `tests` (the last one with some limitations) on browser and node enviroments. 
- 
 ## Debug
  
 Create an demo application under the `dev` folder that uses your module.
