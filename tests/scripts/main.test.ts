@@ -10,6 +10,5 @@ describe('Internal module test', () => {
     const n = new Person("John", 32);
     expect(n.getName()).toBe("John");
     expect(n.getAge()).toBe(32);
-    debugger;
 	});
 });
