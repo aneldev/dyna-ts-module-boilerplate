@@ -79,41 +79,22 @@ Open http://localhost:3300/ address in any browser.
 _In this case there is no need to start additionally a builder as the other options, webpack takes care of it._
  
 You can use any web browser to test it.
- 
-### Debug on nodeJs with devTools (via node --inspector)
- 
+
+### Debug on nodeJs with devTools
+
 Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
- 
+
 Call `npm run debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
- 
+
 Alternatively, you can call `npm run debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
- 
+
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost, you should see your app there to debug it.
- 
-Alternatively, copy paste the link generated from `debug-dev-devtools`;
-it is something like this: chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/659747f3-20d7-45d9-8f8d-48c707d6f5eb
- 
-The debugger is the debugger of your Chrome's browser, you should have Chrome to use.
- 
-### Debug on nodeJs with node-debug
- 
-**Dependency**, you have to `npm install -g node-inspector`.
- 
-Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
- 
-Call `npm run debug-dev-inspector` to start and node-debug your app.
- 
-You can close the devTools and this script will be called again to instantiate new devTools (changes in your code will be loaded at this point).
- 
-Alternatively, can call `npm run debug-dev-inspector-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
- 
-The debugger will start automatically (as web page) in your default browser. The debugger works **only** in Chrome.
- 
+
 ### Run debug code
 
 Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 
-Call `npm run run-debug-dev-build` and will run you debug application on node.js.
+Call `npm run debug-dev-run` and will run you debug application on node.js.
 
 The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.  
  
@@ -123,7 +104,7 @@ The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` pat
  
 For tests the [Jest](https://facebook.github.io/jest) is used, check the documentation.
  
-Test files can be everywhere but they should have name `*.(test|spec).(ts|tsx|js|jsx)`. There is `tests/` folder if you want to use it but this is not a limitation.
+Test files can be everywhere but they should have name `*.(test|spec).(ts|js)`. There is `tests/` folder if you want to use it but this is not a limitation.
  
 ## Run tests
  
@@ -132,30 +113,13 @@ Call `npm run test` to run your tests and coverage. This test also builds your a
 Call `npm run test-only` to run your tests only including coverage, no build no ts errors.
  
 Call `npm run test-watch` to run your tests on any changes, no build, no ts errors, no coverage.
- 
-## Debug tests (experimental)
- 
-There is a small mock library where works like Jest but supports only some of the Jest functions. This is the `test/mock-jest.js` file where behave like Jest and can run on any browser and of course under node.js.
- 
-It doesn't support all the comparisons and features of the Jest but it helps to debug the test files. Feel free to fork it or suggest another way how to debug Jest test files.
- 
-The debug test commands are similar to the debug app commands. 
-
-### Debug test in any browser
-
-- Run `debug-tests-browser`
-- The browser will be opened at `http://localhost:3300`
 
 ### Debug test with devtools
 
-- Run `debug-tests-build` _where builds your test code_
-- Run `debug-tests-devtools` or `debug-tests-devtools-brk`
+- Run `debug-tests`
 
-### Debug test with node-inspector
+You may pass any Jest arguments
 
-- Run `debug-tests-build` _where builds your test code_
-- Run `debug-tests-inspector` or `debug-tests-inspector-brk`
- 
 # Dist / Release
  
 Call `npm run build`
