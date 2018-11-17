@@ -49,7 +49,7 @@
     "test-publish-push": "yarn test && yarn version --patch && npm publish && git push && git push --tags",
     "update-release": "yarn update && git add -u && git add -A && git commit -m \"last minute update-release changes\"; yarn run release",
     "reinstall": "rm ./package-lock.json; rm -rf ./node_modules; yarn install",
-    "reinstall-dyna": "rm ./package-lock.json; rm -rf ./node_modules/dyna-*; yarn install"
+    "reinstall-dyna": "rm ./yarn.lock; rm -rf ./node_modules/dyna-*; yarn install"
   },
   "keywords": [],
   "author": "Anel dev",
