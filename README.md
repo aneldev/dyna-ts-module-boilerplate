@@ -23,7 +23,7 @@ This boilerplate consist of minimum configuration and dependencies to create a M
 ```
 git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
-npm run create
+yarn run create
 ```
 
 # Zero-Configuration
@@ -70,7 +70,7 @@ There are several options how to debug your application. You can debug it on nod
  
 ### Debug on any web browser with browser's debugger
  
-Call `npm run debug-dev-browser` to start the builder and open a dev server (via webpack).
+Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
  
 Open http://localhost:3300/ address in any browser.
  
@@ -80,19 +80,19 @@ You can use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
-Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 
-Call `npm run debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
+Call `yarn debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
 
-Alternatively, you can call `npm run debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
+Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on startup of the app to catch early points.
 
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost, you should see your app there to debug it.
 
 ### Run debug code
 
-Call `npm run debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 
-Call `npm run debug-dev-run` and will run you debug application on node.js.
+Call `yarn debug-dev-run` and will run you debug application on node.js.
 
 The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.  
  
@@ -106,11 +106,11 @@ Test files can be everywhere but they should have name `*.(test|spec).(ts|js)`. 
  
 ## Run tests
  
-Call `npm run test` to run your tests and coverage. This test also builds your application, ts errors can be shown here.
+Call `yarn test` to run your tests and coverage. This test also builds your application, ts errors can be shown here.
 
-Call `npm run test-only` to run your tests only including coverage, no build no ts errors.
+Call `yarn test-only` to run your tests only including coverage, no build no ts errors.
  
-Call `npm run test-watch` to run your tests on any changes, no build, no ts errors, no coverage.
+Call `yarn test-watch` to run your tests on any changes, no build, no ts errors, no coverage.
 
 ### Debug test with devtools
 
@@ -120,13 +120,13 @@ You may pass any Jest arguments
 
 # Dist / Release
  
-Call `npm run build`
+Call `yarn build`
 to create a distributable version of your project
 under the `dist/` folder.
  
-The package configuration exports the `dist/` folder so you have to call the `npm run build` every time you want to publish this package. The typescript declarations are there out of the box.
+The package configuration exports the `dist/` folder so you have to call the `yarn build` every time you want to publish this package. The typescript declarations are there out of the box.
 
-Call `npm run release` to build, publish to npm and push to your repo.
+Call `yarn release` to build, publish to npm and push to your repo.
 
 # Universal stories
 
@@ -205,11 +205,11 @@ The import of it in `dyna-queue-handler` is done [here](https://github.com/aneld
 
 ## Link your modules easily
 
-In case that the `npm link` doesn't work correctly this boilerplate offers a ready sync unidirectional mechanism.
+In case that the `yarn link` doesn't work correctly this boilerplate offers a ready sync unidirectional mechanism.
 
 0. Copy `./syncExternalsList.sample.js` to `./syncExternalsList.js` once only. 
 1. Update the `./syncExternalsList.js` list with external apps you want to keep them sync.
-2. Call `npm run sync-externals`
+2. Call `yarn sync-externals`
 
 If you use the Ubuntu shell of Win10, in the `./syncExternalsList.js` you can add a windows path prefixing it with the `*tus*`, _which stands for `to ubuntu shell`_.
 
