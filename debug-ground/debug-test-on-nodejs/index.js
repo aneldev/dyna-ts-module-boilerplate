@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "0675af79a783bc8f8e42";
+/******/ 	var hotCurrentHash = "c016568fd82d458a3c04";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -752,16 +752,75 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.ts":
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
+/***/ "./src/node.ts":
+/*!*********************!*\
+  !*** ./src/node.ts ***!
+  \*********************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar Person =\n/** @class */\nfunction () {\n  function Person(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  Person.prototype.getName = function () {\n    return this.name;\n  };\n\n  Person.prototype.getAge = function () {\n    return this.age;\n  };\n\n  Person.prototype.get = function () {\n    return {\n      name: this.name,\n      age: this.age\n    };\n  };\n\n  return Person;\n}();\n\nexports.Person = Person;\n\n//# sourceURL=webpack:///./src/index.ts?");
+
+
+function __export(m) {
+  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__export(__webpack_require__(/*! ./person/Person */ "./src/person/Person.ts"));
+
+/***/ }),
+
+/***/ "./src/person/Person.ts":
+/*!******************************!*\
+  !*** ./src/person/Person.ts ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var Person =
+/** @class */
+function () {
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  Person.prototype.getName = function () {
+    return this.name;
+  };
+
+  Person.prototype.getAge = function () {
+    return this.age;
+  };
+
+  Person.prototype.get = function () {
+    return {
+      name: this.name,
+      age: this.age
+    };
+  };
+
+  Person.prototype.console = function () {
+    console.log("Person " + this.name + " " + this.age);
+  };
+
+  return Person;
+}();
+
+exports.Person = Person;
 
 /***/ }),
 
@@ -774,7 +833,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\n__webpack_require__(/*! dyna-node-console */ \"dyna-node-console\");\n\n__webpack_require__(/*! ./utils/mock-jest */ \"./tests/utils/mock-jest.js\");\n\n__webpack_require__(/*! ../utils/unhandledPromiseRejections */ \"./utils/unhandledPromiseRejections.ts\");\n\n__webpack_require__(/*! ./scripts/main.test */ \"./tests/scripts/main.test.ts\");\n\n//# sourceURL=webpack:///./tests/index.ts?");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(/*! dyna-node-console */ "dyna-node-console");
+
+__webpack_require__(/*! ./utils/mock-jest */ "./tests/utils/mock-jest.js");
+
+__webpack_require__(/*! ../utils/unhandledPromiseRejections */ "./utils/unhandledPromiseRejections.ts");
+
+__webpack_require__(/*! ./scripts/main.test */ "./tests/scripts/main.test.ts");
 
 /***/ }),
 
@@ -787,7 +858,26 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\n__webpack_require__(/*! jest */ \"jest\");\n\nif (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;\n\nvar src_1 = __webpack_require__(/*! ../../src */ \"./src/index.ts\"); // help: https://facebook.github.io/jest/docs/expect.html\n\n\ndescribe('Internal module test', function () {\n  it('Person', function () {\n    var n = new src_1.Person(\"John\", 32);\n    expect(n.getName()).toBe(\"John\");\n    expect(n.getAge()).toBe(32);\n  });\n});\n\n//# sourceURL=webpack:///./tests/scripts/main.test.ts?");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(/*! jest */ "jest");
+
+if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
+
+var node_1 = __webpack_require__(/*! ../../src/node */ "./src/node.ts"); // help: https://facebook.github.io/jest/docs/expect.html
+
+
+describe('Internal module test', function () {
+  it('Person', function () {
+    var n = new node_1.Person("John", 32);
+    expect(n.getName()).toBe("John");
+    expect(n.getAge()).toBe(32);
+  });
+});
 
 /***/ }),
 
@@ -799,7 +889,155 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /*! all exports used */
 /***/ (function(module, exports) {
 
-eval("// Dev node: Come on!!! this is super ugly...\n// If you find a stable way to debug the jest tests please fork me!\n// As documented here: https://facebook.github.io/jest/docs/troubleshooting.html is not working as far of May/17\nif (typeof global === 'undefined' && typeof window !== 'undefined') global = window;\nlet HIDE_SUCCESS_VALIDATION = true; // init section\n\nglobal._mockJest = null;\n\nglobal.clearTest = () => {\n  global._mockJest = {\n    errors: 0,\n    passed: 0,\n    descriptions: []\n  };\n};\n\nglobal.clearTest();\n\nglobal.describe = (description, cbDefineIts) => {\n  global._mockJest.descriptions.push({\n    description,\n    its: []\n  });\n\n  cbDefineIts();\n  startTests();\n};\n\nglobal.describe.skip = description => global.describe(description, () => console.log('               --> skipped'));\n\nglobal.it = (description, cbTest) => {\n  global._mockJest.descriptions[global._mockJest.descriptions.length - 1].its.push({\n    description,\n    cbTest\n  });\n\n  startTests();\n};\n\nglobal.it.skip = description => global.it(description, () => console.log('          --> skipped'));\n\nglobal.expect = expectValue => {\n  return comparisons(expectValue);\n}; // start and functions section\n\n\nlet comparisons = (expectValue, not = false) => {\n  return {\n    get not() {\n      return comparisons(expectValue, true);\n    },\n\n    toBe: toBeValue => {\n      let result = expectValue === toBeValue;\n      if (not) result = !result;\n\n      if (result) {\n        if (!HIDE_SUCCESS_VALIDATION) console.log(`        Success, equal value [${expectValue} === ${toBeValue}]`);\n        global._mockJest.passed++;\n      } else {\n        console.log(`        FAILED, ${not ? \"not \" : \"\"}expected [${toBeValue}] but received [${expectValue}]`);\n        global._mockJest.errors++;\n      }\n    }\n  };\n};\n\nlet startTimer = null;\n\nfunction startTests() {\n  if (startTimer) clearTimeout(startTimer);\n  startTimer = setTimeout(executeTests, 100);\n}\n\nfunction executeTests() {\n  let descriptions = [].concat(global._mockJest.descriptions);\n\n  const processTheNextDescription = () => {\n    let description = descriptions.shift();\n\n    if (description) {\n      executeADescription(description, () => {\n        processTheNextDescription();\n      });\n    } else {\n      finished();\n    }\n  }; // start\n\n\n  processTheNextDescription();\n}\n\nfunction executeADescription(description, cbCompleted) {\n  console.log('Description::: Start:', description.description);\n  let its = [].concat(description.its);\n  executeIts(its, () => {\n    console.log('Description::: Finished:', description.description);\n    console.log('');\n    cbCompleted();\n  });\n}\n\nfunction executeIts(its, cbCompleted) {\n  let it = its.shift();\n\n  if (!it) {\n    cbCompleted();\n    return;\n  }\n\n  console.log('    it:::', it.description);\n\n  if (it.cbTest.length === 0) {\n    it.cbTest();\n    executeIts(its, cbCompleted);\n  } else {\n    it.cbTest(() => {\n      executeIts(its, cbCompleted);\n    });\n  }\n}\n\nfunction exit(code) {\n  if (typeof process !== 'undefined' && typeof process.exit !== 'undefined') {\n    process.exit(code);\n  }\n}\n\nfunction finished() {\n  let report = 'All TEST finished, results:' + ' ' + 'errors:' + ' ' + global._mockJest.errors + ' ' + 'passed:' + ' ' + global._mockJest.passed;\n  console.log('');\n\n  if (global._mockJest.errors) {\n    console.log(' xx   xx ');\n    console.log('  xx xx  ');\n    console.log('   xxx   ');\n    console.log('  xx xx  ');\n    console.log(' xx   xx ' + report);\n    exit(100);\n  } else {\n    console.log('      vv');\n    console.log('     vv');\n    console.log('vv  vv');\n    console.log(' vvvv');\n    console.log('  vv      ' + report);\n    exit(0);\n  }\n}\n\n//# sourceURL=webpack:///./tests/utils/mock-jest.js?");
+// Dev node: Come on!!! this is super ugly...
+// If you find a stable way to debug the jest tests please fork me!
+// As documented here: https://facebook.github.io/jest/docs/troubleshooting.html is not working as far of May/17
+if (typeof global === 'undefined' && typeof window !== 'undefined') global = window;
+let HIDE_SUCCESS_VALIDATION = true; // init section
+
+global._mockJest = null;
+
+global.clearTest = () => {
+  global._mockJest = {
+    errors: 0,
+    passed: 0,
+    descriptions: []
+  };
+};
+
+global.clearTest();
+
+global.describe = (description, cbDefineIts) => {
+  global._mockJest.descriptions.push({
+    description,
+    its: []
+  });
+
+  cbDefineIts();
+  startTests();
+};
+
+global.describe.skip = description => global.describe(description, () => console.log('               --> skipped'));
+
+global.it = (description, cbTest) => {
+  global._mockJest.descriptions[global._mockJest.descriptions.length - 1].its.push({
+    description,
+    cbTest
+  });
+
+  startTests();
+};
+
+global.it.skip = description => global.it(description, () => console.log('          --> skipped'));
+
+global.expect = expectValue => {
+  return comparisons(expectValue);
+}; // start and functions section
+
+
+let comparisons = (expectValue, not = false) => {
+  return {
+    get not() {
+      return comparisons(expectValue, true);
+    },
+
+    toBe: toBeValue => {
+      let result = expectValue === toBeValue;
+      if (not) result = !result;
+
+      if (result) {
+        if (!HIDE_SUCCESS_VALIDATION) console.log(`        Success, equal value [${expectValue} === ${toBeValue}]`);
+        global._mockJest.passed++;
+      } else {
+        console.log(`        FAILED, ${not ? "not " : ""}expected [${toBeValue}] but received [${expectValue}]`);
+        global._mockJest.errors++;
+      }
+    }
+  };
+};
+
+let startTimer = null;
+
+function startTests() {
+  if (startTimer) clearTimeout(startTimer);
+  startTimer = setTimeout(executeTests, 100);
+}
+
+function executeTests() {
+  let descriptions = [].concat(global._mockJest.descriptions);
+
+  const processTheNextDescription = () => {
+    let description = descriptions.shift();
+
+    if (description) {
+      executeADescription(description, () => {
+        processTheNextDescription();
+      });
+    } else {
+      finished();
+    }
+  }; // start
+
+
+  processTheNextDescription();
+}
+
+function executeADescription(description, cbCompleted) {
+  console.log('Description::: Start:', description.description);
+  let its = [].concat(description.its);
+  executeIts(its, () => {
+    console.log('Description::: Finished:', description.description);
+    console.log('');
+    cbCompleted();
+  });
+}
+
+function executeIts(its, cbCompleted) {
+  let it = its.shift();
+
+  if (!it) {
+    cbCompleted();
+    return;
+  }
+
+  console.log('    it:::', it.description);
+
+  if (it.cbTest.length === 0) {
+    it.cbTest();
+    executeIts(its, cbCompleted);
+  } else {
+    it.cbTest(() => {
+      executeIts(its, cbCompleted);
+    });
+  }
+}
+
+function exit(code) {
+  if (typeof process !== 'undefined' && typeof process.exit !== 'undefined') {
+    process.exit(code);
+  }
+}
+
+function finished() {
+  let report = 'All TEST finished, results:' + ' ' + 'errors:' + ' ' + global._mockJest.errors + ' ' + 'passed:' + ' ' + global._mockJest.passed;
+  console.log('');
+
+  if (global._mockJest.errors) {
+    console.log(' xx   xx ');
+    console.log('  xx xx  ');
+    console.log('   xxx   ');
+    console.log('  xx xx  ');
+    console.log(' xx   xx ' + report);
+    exit(100);
+  } else {
+    console.log('      vv');
+    console.log('     vv');
+    console.log('vv  vv');
+    console.log(' vvvv');
+    console.log('  vv      ' + report);
+    exit(0);
+  }
+}
 
 /***/ }),
 
@@ -811,7 +1049,14 @@ eval("// Dev node: Come on!!! this is super ugly...\n// If you find a stable way
 /*! all exports used */
 /***/ (function(module, exports) {
 
-eval("if (typeof process !== \"undefined\") {\n  process.on('unhandledRejection', function (reason, promise) {\n    console.error('Unhandled Rejection', {\n      promise: promise,\n      reason: reason\n    });\n  });\n}\n\n//# sourceURL=webpack:///./utils/unhandledPromiseRejections.ts?");
+if (typeof process !== "undefined") {
+  process.on('unhandledRejection', function (reason, promise) {
+    console.error('Unhandled Rejection', {
+      promise: promise,
+      reason: reason
+    });
+  });
+}
 
 /***/ }),
 
@@ -823,7 +1068,8 @@ eval("if (typeof process !== \"undefined\") {\n  process.on('unhandledRejection'
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-ts-module-boilerplate/tests/index.ts */\"./tests/index.ts\");\n\n\n//# sourceURL=webpack:///multi_./tests/index.ts?");
+module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-ts-module-boilerplate/tests/index.ts */"./tests/index.ts");
+
 
 /***/ }),
 
@@ -835,7 +1081,7 @@ eval("module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-ts-mo
 /*! all exports used */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"dyna-node-console\");\n\n//# sourceURL=webpack:///external_%22dyna-node-console%22?");
+module.exports = require("dyna-node-console");
 
 /***/ }),
 
@@ -847,8 +1093,9 @@ eval("module.exports = require(\"dyna-node-console\");\n\n//# sourceURL=webpack:
 /*! all exports used */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"jest\");\n\n//# sourceURL=webpack:///external_%22jest%22?");
+module.exports = require("jest");
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=index.js.map
