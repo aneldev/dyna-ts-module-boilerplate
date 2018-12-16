@@ -1,10 +1,10 @@
 export const importUniversal = <TModule>(moduleName: string): TModule => {
   const universalImports =
-    (process && (process as any).universalImports) ||
-    (window && (window as any).universalImports);
+    (typeof process !== "undefined" && (process as any).universalImports) ||
+    (typeof window !== "undefined" && (window as any).universalImports);
 
   if (!universalImports) {
-    console.error(`importUniversal error: no exports found, user exportUniversalToNode/exportUniversalToWeb to export universal modules`);
+    console.error(`importUniversal error: no exports found, use exportUniversalNode/exportUniversalWeb to export universal modules`);
   }
 
   const runningEnvironment: string =
