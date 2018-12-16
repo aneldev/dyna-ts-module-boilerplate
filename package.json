@@ -38,7 +38,7 @@
     ".build-index.d.ts": "tsc && yarn run .build-index.d.ts-clear",
     ".build-index.d.ts-clear": "cd dist/ && find . -name \\*.js -delete && cd .. && rimraf temp",
     ".build-dist": "set NODE_ENV=development && webpack --config webpack.dist.config.js && yarn run .build-disable-imports",
-    ".build-disable-imports": "node ./dyna-scripts/disableImportsFromBundles.js",
+    ".build-disable-imports": "node ./dyna/disableImportsFromBundles.js",
     "release": "yarn run build && yarn run publish-push",
     "test": "jest --coverage --no-cache --runInBand",
     "test-only": "jest --coverage --verbose --no-cache --runInBand",
