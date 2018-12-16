@@ -201,33 +201,7 @@ The export of `dyna-disk-memory` is done [here](https://github.com/aneldev/dyna-
 
 The import of it in `dyna-queue-handler` is done [here](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L6) and the instantiation in the `_initialize()` is [here](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L6) .
 
-# Others
-
-## Link your modules easily
-
-In case that the `yarn link` doesn't work correctly this boilerplate offers a ready sync unidirectional mechanism.
-
-0. Copy `./syncExternalsList.sample.js` to `./syncExternalsList.js` once only. 
-1. Update the `./syncExternalsList.js` list with external apps you want to keep them sync.
-2. Call `yarn sync-externals`
-
-If you use the Ubuntu shell of Win10, in the `./syncExternalsList.js` you can add a windows path prefixing it with the `*tus*`, _which stands for `to ubuntu shell`_.
-
-Example, check the 2nd line of `./syncExternalsList.sample.js`.
-
-**Note:** the `./syncExternalsList.js` is git ignored! 
-
-## Bundle node_modules
-
-By default all node_modules are excluded from the builder. This means that are not in the bundle. 
-
-For debugging reasons... you might want to include them.
-
-In order to include them, edit the webpack.xxx.config.js and comment the `externals: [nodeExternals()]` line.
-
-If you want to exclude specific modules _while are not so clean like `pg`, `helmet`, `express`_, exclude them like this: `externals: ['helmet', 'pg', 'express']`. 
-
-# Universal imports
+# Universal imports (for current module)
 
 You can conditionally `import()` with ES6 `import` proposal where returns a Promise.
 
@@ -247,6 +221,29 @@ Both the `node.ts` and `web.ts` are importing exporting from the universal implm
 
 In the universal application we import the _conditional references_ with the `universalImport()` like [this](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L30).
 
+# Disable imports from bundle
+
+**Note: this is experimental**
+
+This excludes built deps that are imported conditionally in this module. This helps user's wepback to do not import them but the ES6 will import them when are needed only.
+
+Define the package names under `"package.json".dyna.disableImportsFromBundles`
+
+# Others
+
+## Link your modules easily
+
+In case that the `yarn link` doesn't work correctly this boilerplate offers a ready sync unidirectional mechanism.
+
+0. Copy `./syncExternalsList.sample.js` to `./syncExternalsList.js` once only. 
+1. Update the `./syncExternalsList.js` list with external apps you want to keep them sync.
+2. Call `yarn sync-externals`
+
+If you use the Ubuntu shell of Win10, in the `./syncExternalsList.js` you can add a windows path prefixing it with the `*tus*`, _which stands for `to ubuntu shell`_.
+
+Example, check the 2nd line of `./syncExternalsList.sample.js`.
+
+**Note:** the `./syncExternalsList.js` is git ignored! 
 
 # References
 
