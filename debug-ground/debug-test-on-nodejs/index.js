@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5ad2b777b904ab6b43ae";
+/******/ 	var hotCurrentHash = "98530f704eeeca88a853";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -752,139 +752,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/node.ts":
-/*!*********************!*\
-  !*** ./src/node.ts ***!
-  \*********************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function __export(m) {
-  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__export(__webpack_require__(/*! ./person/Person */ "./src/person/Person.ts"));
-
-/***/ }),
-
-/***/ "./src/person/Person.ts":
-/*!******************************!*\
-  !*** ./src/person/Person.ts ***!
-  \******************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var Person =
-/** @class */
-function () {
-  function Person(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  Person.prototype.getName = function () {
-    return this.name;
-  };
-
-  Person.prototype.getAge = function () {
-    return this.age;
-  };
-
-  Person.prototype.get = function () {
-    return {
-      name: this.name,
-      age: this.age
-    };
-  };
-
-  Person.prototype.console = function () {
-    console.log("Person " + this.name + " " + this.age);
-  };
-
-  return Person;
-}();
-
-exports.Person = Person;
-
-/***/ }),
-
-/***/ "./tests/index.ts":
-/*!************************!*\
-  !*** ./tests/index.ts ***!
-  \************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__webpack_require__(/*! dyna-node-console */ "dyna-node-console");
-
-__webpack_require__(/*! ./utils/mock-jest */ "./tests/utils/mock-jest.js");
-
-__webpack_require__(/*! ../utils/unhandledPromiseRejections */ "./utils/unhandledPromiseRejections.ts");
-
-__webpack_require__(/*! ./scripts/main.test */ "./tests/scripts/main.test.ts");
-
-/***/ }),
-
-/***/ "./tests/scripts/main.test.ts":
-/*!************************************!*\
-  !*** ./tests/scripts/main.test.ts ***!
-  \************************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__webpack_require__(/*! jest */ "jest");
-
-if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
-
-var node_1 = __webpack_require__(/*! ../../src/node */ "./src/node.ts"); // help: https://facebook.github.io/jest/docs/expect.html
-
-
-describe('Internal module test', function () {
-  it('Person', function () {
-    var n = new node_1.Person("John", 32);
-    expect(n.getName()).toBe("John");
-    expect(n.getAge()).toBe(32);
-  });
-});
-
-/***/ }),
-
-/***/ "./tests/utils/mock-jest.js":
-/*!**********************************!*\
-  !*** ./tests/utils/mock-jest.js ***!
-  \**********************************/
+/***/ "./dyna/mock-jest.js":
+/*!***************************!*\
+  !*** ./dyna/mock-jest.js ***!
+  \***************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -1041,10 +912,10 @@ function finished() {
 
 /***/ }),
 
-/***/ "./utils/unhandledPromiseRejections.ts":
-/*!*********************************************!*\
-  !*** ./utils/unhandledPromiseRejections.ts ***!
-  \*********************************************/
+/***/ "./dyna/unhandledPromiseRejections.ts":
+/*!********************************************!*\
+  !*** ./dyna/unhandledPromiseRejections.ts ***!
+  \********************************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -1057,6 +928,193 @@ if (typeof process !== "undefined") {
     });
   });
 }
+
+/***/ }),
+
+/***/ "./dyna/universalImport.ts":
+/*!*********************************!*\
+  !*** ./dyna/universalImport.ts ***!
+  \*********************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.importUniversal = function (moduleName) {
+  var universalImports = process && process.universalImports || window && window.universalImports;
+
+  if (!universalImports) {
+    console.error("importUniversal error: no exports found, user exportUniversalToNode/exportUniversalToWeb to export universal modules");
+  }
+
+  var runningEnvironment = process && process.universalImports ? "node" : "web";
+
+  if (!universalImports[moduleName]) {
+    console.error("importUniversal error: module [" + moduleName + "] not found, seems that is not exported for running Environment [" + runningEnvironment + "]");
+  }
+
+  return universalImports[moduleName];
+};
+
+exports.exportNode = function (modules) {
+  process.universalImports = __assign({}, process.universalImports || {}, modules);
+};
+
+exports.exportWeb = function (modules) {
+  window.universalImports = __assign({}, window.universalImports || {}, modules);
+};
+
+/***/ }),
+
+/***/ "./src/node.ts":
+/*!*********************!*\
+  !*** ./src/node.ts ***!
+  \*********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function __export(m) {
+  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var universalImport_1 = __webpack_require__(/*! ../dyna/universalImport */ "./dyna/universalImport.ts");
+
+universalImport_1.exportNode({// ExternalModule,        // Export for this module node dependencies
+});
+
+__export(__webpack_require__(/*! ./person/Person */ "./src/person/Person.ts"));
+
+/***/ }),
+
+/***/ "./src/person/Person.ts":
+/*!******************************!*\
+  !*** ./src/person/Person.ts ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+}); // const universalDep = importUniversal<TModule>("ExternalModule");
+// For more how to import universal deps https://github.com/aneldev/dyna-ts-module-boilerplate#universal-imports
+
+var Person =
+/** @class */
+function () {
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  Person.prototype.getName = function () {
+    return this.name;
+  };
+
+  Person.prototype.getAge = function () {
+    return this.age;
+  };
+
+  Person.prototype.get = function () {
+    return {
+      name: this.name,
+      age: this.age
+    };
+  };
+
+  Person.prototype.console = function () {
+    console.log("Person " + this.name + " " + this.age);
+  };
+
+  return Person;
+}();
+
+exports.Person = Person;
+
+/***/ }),
+
+/***/ "./tests/index.ts":
+/*!************************!*\
+  !*** ./tests/index.ts ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(/*! dyna-node-console */ "dyna-node-console");
+
+__webpack_require__(/*! ../dyna/mock-jest */ "./dyna/mock-jest.js");
+
+__webpack_require__(/*! ../dyna/unhandledPromiseRejections */ "./dyna/unhandledPromiseRejections.ts");
+
+__webpack_require__(/*! ./scripts/main.test */ "./tests/scripts/main.test.ts");
+
+/***/ }),
+
+/***/ "./tests/scripts/main.test.ts":
+/*!************************************!*\
+  !*** ./tests/scripts/main.test.ts ***!
+  \************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
+
+var node_1 = __webpack_require__(/*! ../../src/node */ "./src/node.ts"); // help: https://facebook.github.io/jest/docs/expect.html
+
+
+describe('Internal module test', function () {
+  it('Person', function () {
+    var n = new node_1.Person("John", 32);
+    expect(n.getName()).toBe("John");
+    expect(n.getAge()).toBe(32);
+  });
+});
 
 /***/ }),
 
@@ -1082,18 +1140,6 @@ module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-ts-module-b
 /***/ (function(module, exports) {
 
 module.exports = require("dyna-node-console");
-
-/***/ }),
-
-/***/ "jest":
-/*!***********************!*\
-  !*** external "jest" ***!
-  \***********************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports) {
-
-module.exports = require("jest");
 
 /***/ })
 

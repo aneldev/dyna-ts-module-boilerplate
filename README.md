@@ -227,6 +227,27 @@ In order to include them, edit the webpack.xxx.config.js and comment the `extern
 
 If you want to exclude specific modules _while are not so clean like `pg`, `helmet`, `express`_, exclude them like this: `externals: ['helmet', 'pg', 'express']`. 
 
+# Universal imports
+
+You can conditionally `import()` with ES6 `import` proposal where returns a Promise.
+
+In some cases, this async is not what we really want. Especially is we need something on constructor.
+
+This boiler plate supports universal imports with the scripts under `/dyna/universalImports.ts`.
+
+You can import conditionally and have the reference you want according the running environment **synchronously** without Promise.
+
+**Live example**
+
+In the node implementation, we import the mode deps like [this](https://github.com/aneldev/dyna-queue-handler/blob/master/src/node.ts). 
+
+For the web we do the same like this [this](https://github.com/aneldev/dyna-queue-handler/blob/master/src/web.ts).
+
+Both the `node.ts` and `web.ts` are importing exporting from the universal implmentation _under the `src/`_. 
+
+In the universal application we import the _conditional references_ with the `universalImport()` like [this](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L30).
+
+
 # References
 
 [Webpack configuration](https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli)

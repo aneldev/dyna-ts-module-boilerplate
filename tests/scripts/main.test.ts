@@ -1,4 +1,4 @@
-import "jest";
+declare let jasmine: any, describe:any, expect:any, it: any;
 if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
 
 import {Person} from "../../src/node"
