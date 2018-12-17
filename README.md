@@ -221,14 +221,6 @@ Both the `node.ts` and `web.ts` are importing exporting from the universal implm
 
 In the universal application we import the _conditional references_ with the `universalImport()` like [this](https://github.com/aneldev/dyna-queue-handler/blob/master/src/DynaQueueHandler.ts#L30).
 
-# Disable imports from bundle
-
-**Note: this is experimental**
-
-This excludes built deps that are imported conditionally in this module. This helps user's wepback to do not import them but the ES6 will import them when are needed only.
-
-Define the package names under `"package.json".dyna.disableImportsFromBundles`
-
 # Others
 
 ## Link your modules easily

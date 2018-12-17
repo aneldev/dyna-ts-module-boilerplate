@@ -96,10 +96,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.ts":
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
+/***/ "./dyna/universalImport.ts":
+/*!*********************************!*\
+  !*** ./dyna/universalImport.ts ***!
+  \*********************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -107,18 +107,47 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-function __export(m) {
-  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
-}); // Export always from here for the types
+});
 
-__export(__webpack_require__(/*! ./person/Person */ "./src/person/Person.ts")); // In case you want to dictate the users to use one of the two versions
+exports.importUniversal = function (moduleName) {
+  var universalImports = typeof process !== "undefined" && process.universalImports || typeof window !== "undefined" && window.universalImports;
 
+  if (!universalImports) {
+    console.error("importUniversal error: no exports found, use exportUniversalNode/exportUniversalWeb to export universal modules");
+  }
 
-console.error("\nmy-module: Import error\nYou should import with lazy load (webpack's import()) the \"my-module/web\" or the \"my-module/node\" version according the runtime environment.\nFor typescript, you should import also on top the \"my-module\" but on runtime you shouldn't see this error since this import is not part of the compiled code.\n");
+  var runningEnvironment = process && process.universalImports ? "node" : "web";
+
+  if (!universalImports[moduleName]) {
+    console.error("importUniversal error: module [" + moduleName + "] not found, seems that is not exported for running Environment [" + runningEnvironment + "]");
+  }
+
+  return universalImports[moduleName];
+};
+
+exports.exportNode = function (modules) {
+  process.universalImports = __assign({}, process.universalImports || {}, modules);
+};
+
+exports.exportWeb = function (modules) {
+  window.universalImports = __assign({}, window.universalImports || {}, modules);
+};
 
 /***/ }),
 
@@ -141,7 +170,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__export(__webpack_require__(/*! ./ */ "./src/index.ts"));
+var universalImport_1 = __webpack_require__(/*! ../dyna/universalImport */ "./dyna/universalImport.ts"); // import {ExternalModule} from "super-universal-module/node";
+
+
+universalImport_1.exportNode({// ExternalModule,        // Export for this module node dependencies
+});
+
+__export(__webpack_require__(/*! ./person/Person */ "./src/person/Person.ts"));
 
 /***/ }),
 
@@ -158,7 +193,8 @@ __export(__webpack_require__(/*! ./ */ "./src/index.ts"));
 
 Object.defineProperty(exports, "__esModule", {
   value: true
-});
+}); // const _ExternalModule = importUniversal<typeof ExternalModule>("ExternalModule");
+// For more how to import universal deps https://github.com/aneldev/dyna-ts-module-boilerplate#universal-imports
 
 var Person =
 /** @class */

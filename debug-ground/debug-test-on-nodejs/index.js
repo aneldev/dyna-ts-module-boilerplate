@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "98530f704eeeca88a853";
+/******/ 	var hotCurrentHash = "04f3695e070321ec9d2b";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -961,10 +961,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.importUniversal = function (moduleName) {
-  var universalImports = process && process.universalImports || window && window.universalImports;
+  var universalImports = typeof process !== "undefined" && process.universalImports || typeof window !== "undefined" && window.universalImports;
 
   if (!universalImports) {
-    console.error("importUniversal error: no exports found, user exportUniversalToNode/exportUniversalToWeb to export universal modules");
+    console.error("importUniversal error: no exports found, use exportUniversalNode/exportUniversalWeb to export universal modules");
   }
 
   var runningEnvironment = process && process.universalImports ? "node" : "web";
@@ -1005,7 +1005,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var universalImport_1 = __webpack_require__(/*! ../dyna/universalImport */ "./dyna/universalImport.ts");
+var universalImport_1 = __webpack_require__(/*! ../dyna/universalImport */ "./dyna/universalImport.ts"); // import {ExternalModule} from "super-universal-module/node";
+
 
 universalImport_1.exportNode({// ExternalModule,        // Export for this module node dependencies
 });
@@ -1027,7 +1028,7 @@ __export(__webpack_require__(/*! ./person/Person */ "./src/person/Person.ts"));
 
 Object.defineProperty(exports, "__esModule", {
   value: true
-}); // const universalDep = importUniversal<TModule>("ExternalModule");
+}); // const _ExternalModule = importUniversal<typeof ExternalModule>("ExternalModule");
 // For more how to import universal deps https://github.com/aneldev/dyna-ts-module-boilerplate#universal-imports
 
 var Person =
