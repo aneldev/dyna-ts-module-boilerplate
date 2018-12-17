@@ -5,7 +5,7 @@ export interface IPerson {
   age: number;
 }
 
-// const universalDep = importUniversal<TModule>("ExternalModule");
+// const _ExternalModule = importUniversal<typeof ExternalModule>("ExternalModule");
 // For more how to import universal deps https://github.com/aneldev/dyna-ts-module-boilerplate#universal-imports
 
 export class Person {
