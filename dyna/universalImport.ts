@@ -23,7 +23,7 @@ export const exportNode = (modules: { [moduleName: string]: any }): void => {
   (process as any).universalImports = {
     ...((process as any).universalImports || {}),
     ...modules,
-  }
+  };
 };
 
 
@@ -31,6 +31,6 @@ export const exportWeb = (modules: { [moduleName: string]: any }): void => {
   (window as any).universalImports = {
     ...((window as any).universalImports || {}),
     ...modules,
-  }
+  };
 };
 
