@@ -19,18 +19,19 @@ export const importUniversal = <TModule>(moduleName: string): TModule => {
   return universalImports[moduleName];
 };
 
-export const exportNode = (modules: { [moduleName: string]: any }): void => {
-  (process as any).universalImports = {
-    ...((process as any).universalImports || {}),
-    ...modules,
-  };
+export const exportNode = (references: { [refName: string]: any }): void => {
+  exportTo("node", references);
 };
 
 
-export const exportWeb = (modules: { [moduleName: string]: any }): void => {
-  (window as any).universalImports = {
-    ...((window as any).universalImports || {}),
-    ...modules,
-  };
+export const exportWeb = (references: { [refName: string]: any }): void => {
+  exportTo("web", references);
 };
 
+const exportTo = (target: "web" | "node", references: { [refName: string]: any }): void => {
+  const ground = target === "web" ? (window as any) : (process as any);
+  ground.universalImports = {
+    ...(ground.universalImports || {}),
+    ...references,
+  };
+};
