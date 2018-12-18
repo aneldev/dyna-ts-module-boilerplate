@@ -141,12 +141,17 @@ exports.importUniversal = function (moduleName) {
   return universalImports[moduleName];
 };
 
-exports.exportNode = function (modules) {
-  process.universalImports = __assign({}, process.universalImports || {}, modules);
+exports.exportNode = function (references) {
+  exportTo("node", references);
 };
 
-exports.exportWeb = function (modules) {
-  window.universalImports = __assign({}, window.universalImports || {}, modules);
+exports.exportWeb = function (references) {
+  exportTo("web", references);
+};
+
+var exportTo = function (target, references) {
+  var ground = target === "web" ? window : process;
+  ground.universalImports = __assign({}, ground.universalImports || {}, references);
 };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
