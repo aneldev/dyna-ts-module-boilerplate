@@ -8,7 +8,7 @@
   },
   "sideEffects": false,
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/src/index.d.ts",
   "scripts": {
     "create": "yarn run .creation-prepare",
     ".creation-prepare": "rm -rf .git; git init && rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md && yarn run .creation-install",
