@@ -106,11 +106,9 @@ Test files can be everywhere but they should have name `*.(test|spec).(ts|js)`. 
  
 ## Run tests
  
-Call `yarn test` to run your tests and coverage. This test also builds your application, ts errors can be shown here.
+Call `yarn test` to run your tests and coverage.
 
-Call `yarn test-only` to run your tests only including coverage, no build no ts errors.
- 
-Call `yarn test-watch` to run your tests on any changes, no build, no ts errors, no coverage.
+Call `yarn test-watch` to run your tests on any changes.
 
 ### Debug test with devtools
 
