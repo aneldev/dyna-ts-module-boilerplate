@@ -1,5 +1,7 @@
 // Export always from here for the types
-export * from "./person/Person";
+export {
+  Person, IPerson,
+} from "./person/Person";
 
 console.error(`
 my-module: Import error
