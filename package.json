@@ -35,6 +35,8 @@
     "sync-externals": "node syncExternals.js",
     "build-analyze": "set NODE_ENV=development && webpack --config webpack.dist.analyze.config.js",
     "build": "rm -rf ./dist && tsc --p tsconfig.commonJs.json && tsc --p tsconfig.esNext.json",
+    "build-watch-commonJs": "rm -rf ./dist && tsc --watch --p tsconfig.commonJs.json",
+    "build-watch-esNext": "rm -rf ./dist && tsc --watch --p tsconfig.esNext.json",
     "release": "yarn run build && yarn run publish-push",
     "test": "jest --coverage --no-cache --runInBand",
     "test-watch": "jest --watch --verbose --runInBand",
