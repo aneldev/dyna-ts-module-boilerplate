@@ -40,15 +40,15 @@ Add them in `/webpack.loaders.js`.
 
 Add them in `/webpack.plugins.js`.
 
-## Outputs, universalize your module
+## Distributions
 
-Edit the `/module-setup.js` to configure the target of your module and multiple outputs.
+By default these versions are exported
 
-Be default these versions are exported
-
-- "my-module" where targets to web
-- "my-module/web" where targets to web
-- "my-module/node" where targets to node
+- "my-module" used only to import types
+- "my-module/commonJs/web" commonJs version where targets to web
+- "my-module/commonJs/node" commonJs version where targets to node
+- "my-module/esNext/web" es version where targets to web
+- "my-module/esNext/node" es version where targets to node
 
 For more read the "Universal stories" next in this text.
 
@@ -142,52 +142,7 @@ Target the output to `web` and `node`.
 
 There are two limitations:
 - Webpack builds different the registration of your module per environment.
-- You module itself might need different resources per environment.
-
-## Setup
-
-Open the `/module-setup.js` and configure which versions will be exported.
-
-This boilerplate exports by default 2 more variations of your module a `web` and and a `node` version.
-
-|Source file|Target|Import example|
-|----|----|----|
-|`src/index.ts`|module-setup.jsdefaultTarget|import {...} from "dyna-node";|
-|`src/web.ts`|web|import {...} from "dyna-node/web";|
-|`src/node.ts`|node|import {...} from "dyna-node/web";|
-
-If you focus for only one environment, edit the `/module-setup.js`.
-
-## How to import
-
-The user of your module can import() conditionally your web and node exports.
-
-```
-// Import the default export, this will be used only for types and will be not bundled.
-import {MyModule} from "my-module";
-
-// Import the module, the web or the node version according the environment
-const importMyModule = async (): Promise<any> => {
-  const isNode = !!(typeof process !== 'undefined' && process.versions && process.versions.node);
-  return isNode
-    ? await import("my-module/node")
-    : await import("my-module/web");
-};
-
-// Generic function to extract the exported stuff of the module with types!
-const importFrom = async <TExportMember>(importModule: () => Promise<any>, exportName: string): Promise<TExportMember> => {
-  const module = await importModule();
-  const output = module[exportName];
-  if (!output) console.error(`internal error: cannot get the import member [${exportName}]`, {module});
-  return output;
-};
-
-// Somewhere in your code import (async) from the loaded module
-const _MyClass = await importFrom<typeof MyClass>(importMyModule, "MyClass");
-
-// and that's it, now instantiate it (plus, we have types for it)
-const myClass = new _MyClass();
-```
+- Your module itself might need different resources per environment.
 
 ## Real example
 
