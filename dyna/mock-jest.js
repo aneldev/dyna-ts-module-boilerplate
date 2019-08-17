@@ -44,6 +44,11 @@ global.expect = (expectValue) => {
 	return comparisons(expectValue);
 };
 
+global.fail = (error) => {
+  console.log(`        FAILED, by error`, error);
+  global._mockJest.errors++;
+};
+
 // start and functions section
 
 let comparisons = (expectValue, not = false) => {
