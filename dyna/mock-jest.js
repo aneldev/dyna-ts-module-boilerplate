@@ -1,6 +1,3 @@
-// Dev node: Come on!!! this is super ugly...
-// If you find a stable way to debug the jest tests please fork me!
-// As documented here: https://facebook.github.io/jest/docs/troubleshooting.html is not working as far of May/17
 if (typeof global === 'undefined' && typeof window !== 'undefined') global = window;
 
 let HIDE_SUCCESS_VALIDATION = true;
