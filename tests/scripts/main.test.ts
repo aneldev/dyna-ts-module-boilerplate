@@ -1,7 +1,7 @@
 import "jest";
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 4000;
 
-import {Person} from "../../src"
+import {Person} from "../../src/node"
 
 // help: https://facebook.github.io/jest/docs/expect.html
 
