@@ -1,5 +1,9 @@
 let HIDE_SUCCESS_VALIDATION = true;
 
+export const jasmine = {
+  DEFAULT_TIMEOUT_INTERVAL: 2000, // todo: timeout interval is not checked
+};
+
 // init section
 
 let _mockJest: any = null;
@@ -23,7 +27,11 @@ export const describe = (description: string, cbDefineIts: () => void) => {
   startTests();
 };
 
-describe.skip = (description: string) => describe(description, () => console.log('               --> skipped'));
+describe.skip = (
+  description: string,
+  run?: (() => void) | ((done: () => void) => void),
+) =>
+  describe(description, () => console.log('               --> skipped'));
 
 export const it = (
   description: string,
@@ -40,7 +48,11 @@ export const it = (
   startTests();
 };
 
-it.skip = (description: string) => it(description, () => console.log('          --> skipped'));
+it.skip = (
+  description: string,
+  run?: (() => void) | ((done: () => void) => void),
+) =>
+  it(description, () => console.log('          --> skipped'));
 
 export const expect = (expectValue: any) => {
   return comparisons(expectValue);
