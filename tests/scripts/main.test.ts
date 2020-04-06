@@ -1,7 +1,7 @@
-declare let jasmine: any, describe:any, expect:any, it: any;
-if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
+import "jest";
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 4000;
 
-import {Person} from "../../src"
+import {Person} from "../../src/node"
 
 // help: https://facebook.github.io/jest/docs/expect.html
 

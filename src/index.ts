@@ -5,7 +5,7 @@ export {
 
 console.error(`
 my-module: Import error
-    You should import "my-module/web" or "my-module/node" (with lazy load or not) according the runtime environment.
-    For typescript, you should import the types from "my-module" but functional code from "web" or "node" versions.
-    More for how to import with conditional lazy load: https://github.com/aneldev/dyna-ts-module-boilerplate#how-to-import
+    You should import "my-module/dist/commonJs/web" or "my-module/dist/commonJs/node" (with lazy load or not) according the runtime environment.
+    There is also am es version instead of commonJs, there imports are "my-module/dist/esNext/web" and "my-module/dist/esNext/node". 
+    For typescript, you are free to import the types from "my-module" but functional code from "web" or "node" versions.
 `);
