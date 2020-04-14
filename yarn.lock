@@ -3196,12 +3196,24 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+dyna-interfaces@^4.0.0:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/dyna-interfaces/-/dyna-interfaces-4.2.2.tgz#3d5b7c0eb582d7fdd905c12b33df0fddcaaeaa4a"
+  integrity sha512-7r0R8RlpBlEF4fvvHhUuUie+2lkKQH/OHrEP7lwI5AVfUItbOx/oMljinxMKhmF/zk2bhzFhx8ROxLIRCceEPQ==
+
 dyna-node-console@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/dyna-node-console/-/dyna-node-console-1.0.7.tgz#948adbe8f907fa09f9897353d0522a992926d78e"
   integrity sha512-PaqumOZsFDXPBrPsEIo3DJ54RvqZfmntDAX422ym6r0osvjEqyUYkK6W+kNTgDkWjKya/WrJwu0NGKSpe4kwMQ==
   dependencies:
     chalk "^2.4.1"
+
+dyna-node-fs@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/dyna-node-fs/-/dyna-node-fs-1.0.4.tgz#553f43577049c4e8d5fb49c6b80bb6b0269ac4ff"
+  integrity sha512-kQRlMQTn42GK5i9znkNicn/ZrWXzP3DnSZM6ZL6kfnbNdNAddfqZZOUw0YPDxfL/B8pp0lE7u23mOR4753s+xw==
+  dependencies:
+    dyna-interfaces "^4.0.0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
