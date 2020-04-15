@@ -12,10 +12,10 @@
   "main": "dist/commonJs/index.js",
   "esnext": "dist/esNext/index.ts",
   "scripts": {
-    "create": "yarn run .creation-prepare",
-    ".creation-prepare": "rm -rf .git; git init && rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md && yarn run .creation-install",
+    "create": "echo Creation started... && yarn run .creation-prepare && echo --- module created",
+    ".creation-prepare": "rm -rf .git; rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md && yarn run .creation-install",
     ".creation-install": "yarn install && yarn run .creation-done",
-    ".creation-done": "node boilerplate.js && echo --- module created, set the name, version and repo address in package.json",
+    ".creation-done": "node _boilerplate.js && echo --- module created, set the name, version and repo address in package.json",
     "clear": "rimraf build temp",
     "lint": "tslint './src/**/*.ts*' --format stylish --force",
     "debug-dev-browser": "webpack-dev-server --config webpack.debug-dev.browser.config.js --devtool eval --progress --hot --open --content-base debug-ground/debug-dev-on-browser --host 127.0.0.1 --port 3300",
