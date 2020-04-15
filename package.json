@@ -47,7 +47,7 @@
     "commit": "git add -u && git add -A && git commit -m",
     "commit-amend": "git add -u && git add -A && git commit --amend --no-edit",
     "publish-push": "yarn publish --non-interactive && git push && git push --tags",
-    "upgrade-release": "yarn upgrade && yarn run build && yarn test && node dyna/updateChangeId.js && git add -u && git add -A && git commit -m \"Upgrade/Release\" && yarn version --patch && yarn run release"
+    "upgrade-release": "yarn upgrade && yarn run release"
   },
   "keywords": [],
   "author": "Anel dev",
