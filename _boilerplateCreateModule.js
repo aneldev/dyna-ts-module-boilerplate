@@ -18,7 +18,7 @@ _package.description = 'The ' + projectName;
 _package.repository.url = 'http://github.com/YOUR_ACCOUNT/' + projectName;
 
 fs.writeFileSync('./package.json', JSON.stringify(_package, null, 2));
-fs.unlinkSync('./_boilerplate.js');
+fs.unlinkSync('./_boilerplateCreateModule.js');
 
 console.log('       vv');
 console.log('      vv');

@@ -3,8 +3,8 @@ export interface IPerson {
     age: number;
 }
 export declare class Person {
-    private name;
-    private age;
+    private readonly name;
+    private readonly age;
     constructor(name: string, age: number);
     getName(): string;
     getAge(): number;
