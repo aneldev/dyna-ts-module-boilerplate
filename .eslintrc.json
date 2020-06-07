@@ -1,35 +1,47 @@
 {
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 11
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "rules": {
-    "class-name": false,
+    "class-name": 2,
     "comment-format": [
-      true,
+      2,
       "check-space"
     ],
     "indent": [
-      true,
-      "spaces"
+      2,
+      2
     ],
-    "no-eval": true,
-    "no-internal-module": true,
-    "no-trailing-whitespace": true,
-    "no-unsafe-finally": true,
-    "no-var-keyword": true,
+    "no-eval": 2,
+    "no-internal-module": 2,
+    "no-trailing-whitespace": 2,
+    "no-unsafe-finally": 2,
+    "no-var-keyword": 2,
     "one-line": [
-      true,
+      2,
       "check-open-brace",
       "check-whitespace"
     ],
     "semicolon": [
-      true,
+      2,
       "always",
       "strict-bound-class-methods"
     ],
     "triple-equals": [
-      true,
+      2,
       "allow-null-check"
     ],
     "typedef-whitespace": [
-      true,
+      2,
       {
         "call-signature": "nospace",
         "index-signature": "nospace",
@@ -39,24 +51,24 @@
       }
     ],
     "variable-name": [
-      true,
+      2,
       "ban-keywords"
     ],
     "trailing-comma": [
-      true,
+      2,
       {
         "multiline": "always",
         "singleline": "never"
       }
     ],
     "whitespace": [
-      true,
+      2,
       "check-branch",
       "check-decl",
       "check-operator",
       "check-separator",
       "check-type"
     ],
-    "allowMultiplePropertiesPerLine": false
+    "allowMultiplePropertiesPerLine": 2
   }
 }
