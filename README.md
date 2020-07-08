@@ -139,6 +139,8 @@ The default export of the `package.json` is ts `commonJs` build.
 
 One of the big differences between these two versions is that `esNext` improves the [Webpack's shake tree](https://webpack.js.org/guides/tree-shaking/).
 
+`yarn build` uses the TSC compiler
+
 # Others
 
 ## Link your modules easily
