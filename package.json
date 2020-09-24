@@ -18,7 +18,6 @@
     ".creation-install": "yarn install && yarn run .creation-done",
     ".creation-done": "node _boilerplateCreateModule.js && echo --- module created, set the name, version and repo address in package.json",
     "lint": "tslint './src/**/*.ts*' --format stylish --force",
-    "_bu001": "rm -rf ./debug-ground/debug-test-on-browser; rm -rf ./debug-ground/debug-test-on-nodejs;  rm ./tests/index.ts; rm ./webpack.debug-test.browser.config.js; rm ./webpack.debug-test.nodejs.config.js",
     "debug-dev-browser": "webpack-dev-server --config webpack.debug-dev.browser.config.js --devtool eval --progress --hot --open --content-base debug-ground/debug-dev-on-browser --host 127.0.0.1 --port 3300",
     "debug-dev-browser-at": "webpack-dev-server --config webpack.debug-dev.browser.config.js --devtool eval --progress --hot --open --content-base debug-ground/debug-dev-on-browser --host 127.0.0.1 --port",
     "debug-dev-build": "rm -r ./debug-ground/debug-dev-on-nodejs/*; webpack --config webpack.debug-dev.nodejs.config.js --watch",
