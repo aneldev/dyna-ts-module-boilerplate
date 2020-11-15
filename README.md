@@ -15,7 +15,7 @@ This boilerplate consists of minimum configuration and dependencies to create a 
 - Distribute as a module with TypeScript Definitions (ready to import)
 - Distributed versions work in Javascript and Typescript projects
 - Export default version targeting web or not
-- Export additional version for web and node
+- Export separated versions for web and node (optional)
 - Export in commonJs and esNext module together
 - Detect circular dependencies (where leads to import `undefined` or `null` values)
 
@@ -141,21 +141,32 @@ One of the big differences between these two versions is that `esNext` improves 
 
 `yarn build` uses the TSC compiler
 
-# Others
+# Features (tips)
 
-## Link your modules easily
+## Link with `sync-usages-watch`
 
-In case that the `yarn link` doesn't work correctly, this boilerplate offers a ready sync unidirectional mechanism.
+### About
 
-0. Copy `./syncExternalsList.sample.js` to `./syncExternalsList.js` once only. 
-1. Update the `./syncExternalsList.js` list with external apps you want to keep them sync.
-2. Call `yarn sync-externals`
+Link your modules easily with the `sync-usages-watch` watcher script.
 
-If you use the Ubuntu shell of Win10, in the `./syncExternalsList.js` you can add a windows path prefixing it with the `*tus*`, _which stands for `to ubuntu shell`_.
+In case that the `yarn link` doesn't work for any reason, this boilerplate offers a "copy" approach to update the packages.
 
-For example, check the 2nd line of `./syncExternalsList.sample.js`.
+This script is doing:
 
-**Note:** the `./syncExternalsList.js` is git ignored! 
+- Scans deeply for usages of this package in all siblings folders
+- Updates all usages with the content of this package, excluding the `node_modules` of this package
+- Before the copy clears the target `src` && `dist` folders
+
+### Run
+
+- Call `yarn sync-usages-watch`
+
+### Prerequisite
+
+You have to install the `rsync` on your system.
+- For Mac you don't need to do anything, it is already there.
+- For Linux [follow this guide](https://www.hostinger.com/tutorials/how-to-use-rsync)
+- For Windows's _not a clear guid ahs been found, feel free to fork this doc._ 
 
 # References
 
