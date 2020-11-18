@@ -36,6 +36,7 @@
     "commit": "git add -u && git add -A && git commit -m",
     "commit-amend": "git add -u && git add -A && git commit --amend --no-edit",
     "publish-push": "yarn publish --non-interactive && git push && git push --tags",
+    "sync-file-deps-watch": "node sync-file-deps-watch.js",
     "sync-externals": "node syncExternals.js",
     "release": "yarn test && yarn run build && node dyna/updateChangeId.js && git add -u && git add -A && git commit -m \"Build\" && yarn version --patch && yarn run publish-push",
     "upgrade-release": "yarn upgrade && yarn run release"
