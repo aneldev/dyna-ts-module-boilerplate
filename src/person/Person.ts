@@ -1,11 +1,9 @@
-
 export interface IPerson {
   name: string;
   age: number;
 }
 
 export class Person {
-
   constructor(private readonly name: string, private readonly age: number) {
   }
 
