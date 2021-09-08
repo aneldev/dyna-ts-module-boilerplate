@@ -54,7 +54,6 @@
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
     "autoprefixer": "^7.2.6",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.1.0",
     "chokidar": "^3.4.0",
@@ -78,6 +77,7 @@
     "jsdom-global": "^3.0.2",
     "source-map-loader": "0.1.5",
     "ts-jest": "^26.4.3",
+    "ts-loader": "^9.2.5",
     "typescript": "^4.3.2",
     "webpack": "^4.25.1",
     "webpack-bundle-analyzer": "^3.3.2",
@@ -189,7 +189,9 @@
       "indent": [
         1,
         2,
-        {"SwitchCase": 1}
+        {
+          "SwitchCase": 1
+        }
       ],
       "no-eval": "error",
       "no-mixed-operators": "error",
@@ -199,7 +201,8 @@
       "no-var": "warn",
       "semi": "warn",
       "object-curly-spacing": [
-        "warn", "never"
+        "warn",
+        "never"
       ],
       "spaced-comment": [
         "warn",
@@ -215,9 +218,12 @@
         {
           "after": true,
           "before": false
-  }
+        }
       ]
     }
   },
-  "eslintIgnore": ["*.js", "*.d.ts"]
+  "eslintIgnore": [
+    "*.js",
+    "*.d.ts"
+  ]
 }
