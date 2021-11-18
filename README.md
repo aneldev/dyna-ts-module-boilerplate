@@ -32,7 +32,7 @@ git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
 yarn run create
 ```
-## Multiple modules (default)
+## Multiple modules
 ```
 git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
