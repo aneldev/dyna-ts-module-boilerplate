@@ -26,7 +26,7 @@
     "debug-dev-run": "node --expose-gc --expose-gc --optimize_for_size --max_old_space_size=460 --gc_interval=100 --trace-warnings ./debug-ground/debug-dev-on-nodejs/index.js",
     "debug-tests": "yarn debug-jest",
     "debug-jest": "node --inspect-brk node_modules/.bin/jest --runInBand",
-    "build-analyze": "set NODE_ENV=development && webpack --config webpack.dist.analyze.config.js",
+    "analyze": "set NODE_ENV=development && webpack --config webpack.dist.analyze.config.js",
     "build": "rm -rf ./dist && tsc --p tsconfig.commonJs.json && tsc --p tsconfig.esNext.json",
     "build-watch-commonJs": "rm -rf ./dist/commonJs && tsc --watch --p tsconfig.commonJs.json",
     "build-watch-esNext": "rm -rf ./dist/esNext && tsc --watch --p tsconfig.esNext.json",

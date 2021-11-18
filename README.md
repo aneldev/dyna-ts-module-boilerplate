@@ -61,21 +61,15 @@ If you don't want web/node different versions but only one, edit the `tsconfig.j
  
 The source code of your module is under the `src/` folder.
 
-Under the `dev` folder, you create a demo application that uses the module.
-
 Under the `tests` folder, you create the tests for your module.
 
 ## Debug
  
-Create a demo application under the `dev` folder that uses your module.
-
-There are several options on how to debug your application. You can debug it on nodeJs or in any web browser.
- 
 ### Debug on any web browser with browser's debugger
  
-Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
- 
-Open http://localhost:3300/ address in any browser.
+1. Import in `webpack-debug-browser.index.ts` the part that will run for the Browser debugging
+2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack). 
+3. Open http://localhost:3300/ address in any browser.
  
 _In this case, there is no need to start adding a builder as the other options, webpack takes care of it._
  
@@ -83,22 +77,27 @@ You can use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
-Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-
-Call `yarn debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
+1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging 
+2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders. 
+3. Call `yarn debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
 
 Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
 
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost. You should see your app there to debug it.
 
-### Run debug code
+### Run code & restart on changes
 
-Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging 
+2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders. 
+3. Call `yarn debug-dev-run` and will run your debug application on node.js.
 
-Call `yarn debug-dev-run` and will run your debug application on node.js.
+The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.
 
-The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.  
- 
+# Analyse
+
+1. Import in `webpack-analyse.index.ts` the part to analyse the dependencies
+2. Call `yarn analyse`
+
 # Test
  
 ## Write tests
@@ -139,7 +138,7 @@ The default export of the `package.json` is ts `commonJs` build.
 
 One of the big differences between these two versions is that `esNext` improves the [Webpack's shake tree](https://webpack.js.org/guides/tree-shaking/).
 
-`yarn build` uses the TSC compiler
+`yarn build` uses the TSC compiler only (not Webpack).
 
 # Features
 
@@ -162,13 +161,8 @@ The script performs:
 - Call `yarn sync-usages` to sync it once
 - Call `yarn sync-usages --watch` for run in watcher mode
 
-### Prerequisite
+### `sync-usages` prerequisite
 
-For all except Mac desktops, you have to install the `rsync` on your system. _See below how to do it._
-
-## About the `rsync` prerequisite
-
-You have to install the `rsync` on your system.
 - For Mac, you don't need to do anything. It is already there.
 - For Linux [follow this guide](https://www.hostinger.com/tutorials/how-to-use-rsync)
 - For Windows's _not a clear guid has been found, feel free to fork this doc._ 

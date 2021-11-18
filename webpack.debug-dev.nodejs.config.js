@@ -11,7 +11,7 @@ const plugins = require('./webpack.plugins');
 const config = {
   mode: "development",
   target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
-  entry: './dev/index.ts',
+  entry: './src/webpack-debug-node.index.ts',
   optimization: {
     usedExports: true,       // true to remove the dead code, for more https://webpack.js.org/guides/tree-shaking/
   },

@@ -18,7 +18,7 @@ const config = {
   entry: [
     'webpack-dev-server/client?http://localhost:' + serverPort, // bundle the client for webpack-dev-server and connect to the provided endpoint
     'webpack/hot/only-dev-server',                              // bundle the client for hot reloading, only- means to only hot reload for successful updates
-    path.resolve(__dirname, 'dev/index.ts')
+    path.resolve(__dirname, 'src/webpack-debug-browser.index.ts')
   ],
   optimization: {
     usedExports: true,       // true to remove the dead code, for more https://webpack.js.org/guides/tree-shaking/
