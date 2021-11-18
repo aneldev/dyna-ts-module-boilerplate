@@ -1,30 +1,42 @@
 ﻿# About
- 
+
 Universal Webpack setup for ES5/ES6 for Typescript Module.
 
-Debug with devTools and test with Jest.
- 
-This boilerplate consists of minimum configuration and dependencies to create a Module written in Typescript.
+Debug and test Typescript modules in
+
+- Debugger of any browser
+- Chrome Dev Tools (for nodeJs apps)
+- Jest tests
+
+This boilerplate consists of minimum configuration and dependencies to create one or multiple Modules are written in Typescript.
+
+It can export one module or multiple independents.
 
 **Have fun!**
 
 # Features
 
-- Write in Typescript, .tsx, .ts, but also .jsx & .js are supported
-- Test and debug Jest
+- Write in Typescript, .tsx, .ts.
+- Test and Debug on Browser, NodeJs env, or Jest test suite
 - Distribute as a module with TypeScript Definitions (ready to import)
-- Distributed versions work in Javascript and Typescript projects
-- Export default version targeting web or not
-- Export separated versions for web and node (optional)
+- Distribute one or multiple modules
+- Export separated versions for web and node using multiple modules
 - Export in commonJs and esNext module together
 - Detect circular dependencies (where leads to import `undefined` or `null` values)
 
 # Install
 
+## Single module (default)
 ```
 git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
 yarn run create
+```
+## Multiple modules (default)
+```
+git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
+cd my-ts-module
+yarn run create-multi
 ```
 
 # Zero-Configuration
@@ -41,44 +53,82 @@ Add them in `/webpack.loaders.js`.
 
 Add them in `/webpack.plugins.js`.
 
-## Distributions
+# Distributions
 
-By default, these versions exported:
+This boilerplate can export one module or multiple independents. It doesn't matter if you run the `create` or `create-multi` initially, it can be switched easily.
 
-- "my-module" used only to import types
-- "my-module/commonJs/web" commonJs version where targets to web
-- "my-module/commonJs/node" commonJs version where targets to node
-- "my-module/esNext/web" es version where targets to web
-- "my-module/esNext/node" es version where targets to node
+## Single module
 
-The `node` and `web` are JS files produced by the root files of the src.
+If the boilerplate finds the `src/index.ts` file, then this module is considered *Single*.
 
-If you don't want web/node different versions but only one, edit the `tsconfig.json` at `files` to build only the `src/index.tsx`. No other change needed.
+**For example:**
+
+Content of `src/index.ts`:
+```
+export class Invoice {...}
+```
+Then from another package, you can import this module like this:
+```
+import {Invoice} from "my-ts-module";
+```
+
+## Multi modules
+
+If the boilerplate cannot find the `src/index.ts` file, this module is considered *Multi*. In this case, the `/src` folder should contain folders that each one is a module.
+
+**For example:**
+
+Imagine this folder structure:
+```
+src/Invoice/index.ts	// content: export class Invoice {...}
+src/Person/index.ts	// content: export class Person {...}
+```
+Then from another package, you can import this module like this:
+```
+import {Invoice} from "my-ts-module/dist/Invoice";
+import {Person} from "my-ts-module/dist/Person";
+```
+Similarly, you can dist module for a specific environment, Web or Node, and the only thing you have to take care of is to import dependencies compatible with the target environment.
+
+The dist folder is only javascript code (ES5), without webpack module loaders so that the code can work everywhere as ES5.
+
+## Switching from Single to Multi
+
+1. The `/src` should contain only folders
+1. Each folder is considered an independent module
+1. Each one should have an `/index.ts` that exports what needed
+1. Delete the `src/index.ts`
+
+## Switching from Multi to Single
+
+1. Create the `src/index.ts`
+1. Export from is what is needed
+1. The folder structure would be anything
 
 # Develop
- 
+
 ## General
- 
+
 The source code of your module is under the `src/` folder.
 
 Under the `tests` folder, you create the tests for your module.
 
 ## Debug
- 
-### Debug on any web browser with browser's debugger
- 
+
+### Debug on any web browser with Browser's debugger
+
 1. Import in `webpack-debug-browser.index.ts` the part that will run for the Browser debugging
-2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack). 
+2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
- 
+
 _In this case, there is no need to start adding a builder as the other options, webpack takes care of it._
- 
+
 You can use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
-1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging 
-2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders. 
+1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging
+2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 3. Call `yarn debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
 
 Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
@@ -87,8 +137,8 @@ Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggab
 
 ### Run code & restart on changes
 
-1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging 
-2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders. 
+1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging
+2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 3. Call `yarn debug-dev-run` and will run your debug application on node.js.
 
 The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.
@@ -99,15 +149,15 @@ The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` pat
 2. Call `yarn analyse`
 
 # Test
- 
+
 ## Write tests
- 
+
 For tests, the [Jest](https://facebook.github.io/jest) used, check the documentation.
- 
+
 Test files can be everywhere, but they should have the name `*.(test|spec).(ts|js)`. There is `tests/` folder if you want to use it but this is not a limitation.
- 
+
 ## Run tests
- 
+
 Call `yarn test` to run your tests and coverage.
 
 Call `yarn test-watch` to run your tests on any changes.
@@ -121,11 +171,11 @@ You may pass any Jest arguments.
 # Dist / Release
 
 ## General
- 
+
 Call `yarn build`
 to create a distributable version of your project
 under the `dist/` folder.
- 
+
 The package configuration exports the `dist/` folder so you have to call the `yarn build` every time you want to publish this package. The typescript declarations are there out of the box.
 
 Call `yarn release` to build, publish to npm and push to your repo.
@@ -165,7 +215,7 @@ The script performs:
 
 - For Mac, you don't need to do anything. It is already there.
 - For Linux [follow this guide](https://www.hostinger.com/tutorials/how-to-use-rsync)
-- For Windows's _not a clear guid has been found, feel free to fork this doc._ 
+- For Windows's _not a clear guid has been found, feel free to fork this doc._
 
 # References
 

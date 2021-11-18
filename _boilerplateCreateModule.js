@@ -5,8 +5,9 @@ const _package = JSON.parse(fs.readFileSync('./package.json').toString());
 
 const scriptsToRemove = [
 	'create',
+	'create-multi',
 	'.creation-prepare',
-	'.creation-install',
+	'.creation-prepare-for-single',
 	'.creation-done',
 ];
 scriptsToRemove.forEach(scriptName => delete _package.scripts[scriptName]);
