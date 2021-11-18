@@ -33,14 +33,7 @@ const distConfig = {
   module: {
     rules,
   },
-  node: {
-    // universal app? place here your conditional imports for node env
-    fs: "empty",
-    path: "empty",
-    child_process: "empty",
-  },
   plugins: [
-    new webpack.NamedModulesPlugin(),             // prints more readable module names in the browser console on HMR updates
   ].concat(plugins),
 };
 

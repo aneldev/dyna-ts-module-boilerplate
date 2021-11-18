@@ -25,12 +25,10 @@ const config = {
   },
   devtool: "source-map",     // help: https://webpack.js.org/configuration/devtool/
   devServer: {
-    hot: true,
     port: serverPort,
   },
   externals: [],
   output: {
-    path: path.resolve(__dirname, 'debug-ground/debug-dev-on-browser'),
     filename: 'debug-dev-browser.js'
   },
   resolve: {
@@ -40,15 +38,8 @@ const config = {
   module: {
     rules,
   },
-  node: {
-    // universal app? place here your conditional imports for node env
-    fs: "empty",
-    path: "empty",
-    child_process: "empty",
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),     // enable HMR globally
-    new webpack.NamedModulesPlugin(),             // prints more readable module names in the browser console on HMR updates
   ].concat(plugins),
 };
 
