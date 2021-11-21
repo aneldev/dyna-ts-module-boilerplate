@@ -16,7 +16,7 @@
     "create": "echo Creation started... && yarn run .creation-prepare && yarn run .creation-prepare-for-single && yarn install && yarn run .creation-done && echo --- module created",
     "create-multi": "echo Creation started... && yarn run .creation-prepare && yarn install && yarn run .creation-done && echo --- module created",
     ".creation-prepare": "rm -rf .git; rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md",
-    ".creation-prepare-for-single": "rm -rf ./src && mkdir ./src && echo \"console.log('Hello world');\" > ./src/index.ts && yarn build",
+    ".creation-prepare-for-single": "rm -rf ./src/node ./src/web ./src/person ./src/utils; echo \"console.log('Hello world');\" > ./src/index.ts && yarn build",
     ".creation-done": "node _boilerplateCreateModule.js && echo --- module created, set the name, version and repo address in package.json",
     "tttest": "",
     "lint": "eslint .",
