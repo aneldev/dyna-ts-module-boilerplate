@@ -41,6 +41,7 @@
   "files": [
     "./src/node/index.ts",
     "./src/person/index.ts",
+    "./src/utils/index.ts",
     "./src/web/index.ts"
   ],
   "exclude": [
