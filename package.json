@@ -18,7 +18,6 @@
     ".creation-prepare": "rm -rf .git; rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md",
     ".creation-prepare-for-single": "rm -rf ./src/node ./src/web ./src/person ./src/utils; echo \"console.log('Hello world');\" > ./src/index.ts && yarn build",
     ".creation-done": "node _boilerplateCreateModule.js && echo --- module created, set the name, version and repo address in package.json",
-    "tttest": "",
     "lint": "eslint .",
     "debug-dev-browser": "webpack-dev-server --config webpack.debug-dev.browser.config.js --devtool eval --progress --open / --host 127.0.0.1 --port 3300",
     "debug-dev-browser-at": "yarn debug-dev-browser --port",
