@@ -3,6 +3,10 @@
     "browser": false,
     "es2021": true
   },
+  "plugins": [
+    "modules-newline",
+    "etc"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended"
@@ -12,10 +16,9 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
   "rules": {
+    "modules-newline/import-declaration-newline": "warn",
+    "modules-newline/export-declaration-newline": "warn",
     "@typescript-eslint/member-delimiter-style": [
       "warn",
       {
@@ -74,6 +77,7 @@
       1,
       2,
       {
+        "ImportDeclaration": 1,
         "SwitchCase": 1
       }
     ],
@@ -84,7 +88,59 @@
     "no-unsafe-finally": "error",
     "no-var": "warn",
     "semi": "warn",
+    "curly": [
+      "warn",
+      "multi-line"
+    ],
+    "object-curly-newline": [
+      "warn",
+      {
+        "ImportDeclaration": {
+          "minProperties": 2,
+          "consistent": true,
+          "multiline": true
+        },
+        "ObjectExpression": {
+          "multiline": true,
+          "minProperties": 2
+        },
+        "ObjectPattern": {
+          "multiline": true,
+          "minProperties": 2
+        },
+        "ExportDeclaration": {
+          "multiline": true,
+          "minProperties": 1
+        }
+      }
+    ],
     "object-curly-spacing": [
+      "warn",
+      "always"
+    ],
+    "object-property-newline": [
+      "warn",
+      {
+        "allowAllPropertiesOnSameLine": false,
+        "allowMultiplePropertiesPerLine": false
+      }
+    ],
+    "keyword-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "space-before-blocks": [
+      "warn",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "warn",
+      "never"
+    ],
+    "computed-property-spacing": [
       "warn",
       "never"
     ],
@@ -103,6 +159,11 @@
         "after": true,
         "before": false
       }
+    ],
+    "etc/no-commented-out-code": "warn",
+    "capitalized-comments": [
+      "warn",
+      "always"
     ]
   }
 }

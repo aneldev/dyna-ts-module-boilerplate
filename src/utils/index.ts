@@ -1,1 +1,3 @@
-export {clear} from "./clear";
+export {
+  clear,
+} from "./clear";
