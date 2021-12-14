@@ -1,23 +1,27 @@
 "use strict";
 module.exports = {
+  root: true,
   env: {
     "browser": false,
     "es2021": true,
+    "jest/globals": true,
   },
   parser: "@typescript-eslint/parser",
   plugins: [
     "modules-newline",
-    "etc"
+    "etc",
+    "jest",
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
   ],
   overrides: [
     {
       files: [
-        "./src/**/*.ts",
-        "./src/**/*.tsx"
+        "*.ts",
+        "*.tsx",
       ],
       rules: {
         "space-infix-ops": [
@@ -153,7 +157,7 @@ module.exports = {
         ],
         "object-curly-spacing": [
           "error",
-          "always"
+          "never"
         ],
         "object-property-newline": [
           "error",
