@@ -208,7 +208,8 @@ module.exports = {
         "capitalized-comments": [
           "error",
           "always",
-        ]
+        ],
+        "jest/no-conditional-expect": "off",
       }
     },
     {
