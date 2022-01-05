@@ -24,6 +24,23 @@ module.exports = {
         "*.tsx",
       ],
       rules: {
+        "no-console": [
+          "error",
+          {
+            allow: [
+              "log",
+              "warn",
+              "error",
+              "time",
+              // But not "debug"
+            ],
+          },
+        ],
+
+        "no-case-declarations": "off",
+
+        "@typescript-eslint/no-non-null-assertion": "off",
+
         "space-infix-ops": [
           "error",
           {
@@ -61,7 +78,6 @@ module.exports = {
           {
             selector: "interface",
             format: [
-              "PascalCase"
             ],
             custom: {
               regex: "^I[A-Z]",
@@ -71,7 +87,8 @@ module.exports = {
           {
             selector: "enum",
             format: [
-              "PascalCase"
+              "PascalCase",
+              "UPPER_CASE",
             ],
             custom: {
               regex: "^E[A-Z]",
