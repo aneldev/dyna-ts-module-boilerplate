@@ -8,7 +8,6 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   plugins: [
-    "modules-newline",
     "etc",
     "jest",
   ],
@@ -53,18 +52,16 @@ module.exports = {
           "warn",
           "always",
         ],
-        "modules-newline/import-declaration-newline": "warn",
-        "modules-newline/export-declaration-newline": "warn",
         "@typescript-eslint/member-delimiter-style": [
           "warn",
           {
             multiline: {
               delimiter: "semi",
-              requireLast: true
+              requireLast: true,
             },
             singleline: {
               delimiter: "semi",
-              requireLast: false
+              requireLast: false,
             }
           }
         ],
@@ -82,7 +79,7 @@ module.exports = {
             ],
             custom: {
               regex: "^I[A-Z]",
-              match: true
+              match: true,
             }
           },
           {
