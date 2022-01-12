@@ -25,7 +25,7 @@ module.exports = {
       ],
       rules: {
         "no-console": [
-          "error",
+          "warn",
           {
             allow: [
               "log",
@@ -43,20 +43,20 @@ module.exports = {
         "@typescript-eslint/no-non-null-assertion": "off",
 
         "space-infix-ops": [
-          "error",
+          "warn",
           {
             "int32Hint": false,
           },
         ],
 
         "eol-last": [
-          "error",
+          "warn",
           "always",
         ],
-        "modules-newline/import-declaration-newline": "error",
-        "modules-newline/export-declaration-newline": "error",
+        "modules-newline/import-declaration-newline": "warn",
+        "modules-newline/export-declaration-newline": "warn",
         "@typescript-eslint/member-delimiter-style": [
-          "error",
+          "warn",
           {
             multiline: {
               delimiter: "semi",
@@ -73,9 +73,9 @@ module.exports = {
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/no-inferrable-types": "off",
-        "@typescript-eslint/prefer-namespace-keyword": "error",
+        "@typescript-eslint/prefer-namespace-keyword": "warn",
         "@typescript-eslint/naming-convention": [
-          "error",
+          "warn",
           {
             selector: "interface",
             format: [
@@ -98,29 +98,29 @@ module.exports = {
           }
         ],
         "@typescript-eslint/semi": [
-          "error",
+          "warn",
           "always"
         ],
-        "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/type-annotation-spacing": "warn",
         "@typescript-eslint/no-unused-expressions": "off",
         "brace-style": [
-          "error",
+          "warn",
           "stroustrup"
         ],
         "no-extra-boolean-cast": [
-          "error"
+          "warn"
         ],
         "comma-dangle": [
-          "error",
+          "warn",
           "always-multiline"
         ],
         "eqeqeq": [
           // https://eslint.org/docs/rules/eqeqeq
-          "error",
+          "warn",
           "smart"
         ],
         "id-blacklist": [
-          "error",
+          "warn",
           "any",
           "Number",
           "number",
@@ -131,7 +131,7 @@ module.exports = {
           "Undefined",
           "undefined"
         ],
-        "id-match": "error",
+        "id-match": "warn",
         indent: [
           1,
           2,
@@ -140,19 +140,19 @@ module.exports = {
             SwitchCase: 1
           }
         ],
-        "no-eval": "error",
-        "no-mixed-operators": "error",
-        "no-trailing-spaces": "error",
+        "no-eval": "warn",
+        "no-mixed-operators": "warn",
+        "no-trailing-spaces": "warn",
         "no-underscore-dangle": "off",
-        "no-unsafe-finally": "error",
-        "no-var": "error",
-        semi: "error",
+        "no-unsafe-finally": "warn",
+        "no-var": "warn",
+        semi: "warn",
         curly: [
-          "error",
+          "warn",
           "multi-line"
         ],
         "object-curly-newline": [
-          "error",
+          "warn",
           {
             ImportDeclaration: {
               minProperties: 2,
@@ -174,37 +174,37 @@ module.exports = {
           }
         ],
         "object-curly-spacing": [
-          "error",
+          "warn",
           "never"
         ],
         "object-property-newline": [
-          "error",
+          "warn",
           {
             allowAllPropertiesOnSameLine: false,
             allowMultiplePropertiesPerLine: false,
           }
         ],
         "keyword-spacing": [
-          "error",
+          "warn",
           {
             before: true,
             after: true,
           }
         ],
         "space-before-blocks": [
-          "error",
+          "warn",
           "always"
         ],
         "array-bracket-spacing": [
-          "error",
+          "warn",
           "never"
         ],
         "computed-property-spacing": [
-          "error",
+          "warn",
           "never"
         ],
         "spaced-comment": [
-          "error",
+          "warn",
           "always",
           {
             markers: [
@@ -213,7 +213,7 @@ module.exports = {
           }
         ],
         "switch-colon-spacing": [
-          "error",
+          "warn",
           {
             after: true,
             before: false
@@ -221,10 +221,10 @@ module.exports = {
         ],
         "function-call-argument-newline": "off",
         "function-paren-newline": "off",
-        "newline-per-chained-call": "error",
-        "etc/no-commented-out-code": "error",
+        "newline-per-chained-call": "warn",
+        "etc/no-commented-out-code": "warn",
         "capitalized-comments": [
-          "error",
+          "warn",
           "always",
         ],
         "jest/no-conditional-expect": "off",
