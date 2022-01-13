@@ -29,7 +29,7 @@
     "debug-tests": "yarn debug-jest",
     "debug-jest": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "analyze": "set NODE_ENV=development && webpack --config webpack.dist.analyze.config.js",
-    "build": "rm -rf ./dist; node tsconfig.update.js && tsc --p tsconfig.commonJs.json && tsc --p tsconfig.esNext.json",
+    "build": "yarn lint && set NODE_ENV=production && rm -rf ./dist; node tsconfig.update.js && tsc --p tsconfig.commonJs.json && tsc --p tsconfig.esNext.json",
     "build-watch-commonJs": "rm -rf ./dist/commonJs; node tsconfig.update.js && tsc --watch --p tsconfig.commonJs.json",
     "build-watch-esNext": "rm -rf ./dist/esNext; node tsconfig.update.js && tsc --watch --p tsconfig.esNext.json",
     "lint": "eslint -c .eslintrc.js ./src ./tests",
@@ -42,7 +42,7 @@
     "publish-push": "yarn version --patch && yarn publish --non-interactive && git push && git push --tags",
     "sync-usages": "node sync-usages.js",
     "sync-usages-watch": "node sync-usages.js --watch",
-    "release": "yarn lint && yarn build && yarn test && git add -u && git add -A && git commit --allow-empty -m \"Build changes\" && yarn publish-push",
+    "release": "yarn build && yarn test && git add -u && git add -A && git commit --allow-empty -m \"Build changes\" && yarn publish-push",
     "upgrade-release": "yarn upgrade && yarn release"
   },
   "keywords": [],
