@@ -13,7 +13,7 @@
   "main": "dist/commonJs/index.js",
   "esnext": "dist/esNext/index.ts",
   "scripts": {
-    "create": "echo Creation started... && yarn .creation-prepare && yarn .creation-prepare-for-single && yarn install && yarn .creation-done && echo --- module created",
+    "create": "echo Creation started... && yarn .creation-prepare && yarn install && yarn .creation-prepare-for-single && yarn .creation-done && echo --- module created",
     "create-multi": "echo Creation started... && yarn .creation-prepare && yarn install && yarn .creation-done && echo --- module created",
     ".creation-prepare": "rm -rf .git; rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md",
     ".creation-prepare-for-single": "rm -rf ./src/node ./src/web ./src/person ./src/utils; echo \"console.log('Hello world');\" > ./src/index.ts && yarn build",

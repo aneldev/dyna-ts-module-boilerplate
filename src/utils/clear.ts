@@ -1,1 +1,1 @@
-export const clear = (): void => console.clear();
+export const clear = (): void => console.log('Clear');

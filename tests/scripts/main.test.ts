@@ -1,14 +1,7 @@
-import "jest";
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 4000;
+// Help: https://facebook.github.io/jest/docs/expect.html
 
-import {Person} from "../../src/person";
-
-// help: https://facebook.github.io/jest/docs/expect.html
-
-describe('Internal module test', () => {
-  it('Person', () => {
-    const n = new Person("John", 32);
-    expect(n.getName()).toBe("John");
-    expect(n.getAge()).toBe(32);
+describe('Unit test', () => {
+  it('Ecaple', () => {
+    expect(true).toBe(true);
   });
 });
