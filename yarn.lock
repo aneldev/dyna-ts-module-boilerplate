@@ -3731,10 +3731,10 @@ duplexer@^0.1.2:
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
   integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
-dyna-guid@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/dyna-guid/-/dyna-guid-1.0.10.tgz#0aab519f22ef399ef43aed44f9bf905d609b4bc8"
-  integrity sha512-3dzl1B2+9VUM1zaPXiMaVCSH+oS6JYHp/0iwI25qbj0NpHFHagLgDWkkDGSXTT+vMQFHb8CPIDrDjRMFnFwMuQ==
+dyna-guid@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/dyna-guid/-/dyna-guid-2.1.2.tgz#dc5227c98924c920966855591b0135929ac157b1"
+  integrity sha512-MbjMqO72PyQ1TLmuhBWB18RY4HQVrX83eE/bj5DAvmA9SJLf/es27ZpRnjNIENA+W1fMr6sjQ7bf1fjfcPZ0fA==
 
 dyna-interfaces@^4.0.0:
   version "4.2.2"
