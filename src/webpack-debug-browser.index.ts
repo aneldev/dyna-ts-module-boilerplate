@@ -1,4 +1,3 @@
-// Import what to debug on browser
-// Used by the script `debug-dev-browser`
+import {sayHelloWorld} from "./index";
 
-import "./web";
+sayHelloWorld();

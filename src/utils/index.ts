@@ -1,3 +1,0 @@
-export {
-  clear,
-} from "./clear";

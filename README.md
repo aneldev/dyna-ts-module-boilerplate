@@ -1,12 +1,13 @@
 ﻿# About
 
-Universal Webpack setup for ES5/ES6 for Typescript Module.
+Webpack setup for ES5/ES6 for Typescript Module.
 
-Debug and test Typescript modules in
+Debug and dev Typescript modules in
 
 - Debugger of any browser
 - Chrome Dev Tools (for nodeJs apps)
-- Jest tests
+- 
+Write tests in jests.
 
 This boilerplate consists of minimum configuration and dependencies to create one or multiple Modules are written in Typescript.
 
@@ -26,19 +27,11 @@ It can export one module or multiple independents.
 
 # Install
 
-## Single module (default)
 ```
 git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
-yarn run create
+yarn bootstrap
 ```
-## Multiple modules
-```
-git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
-cd my-ts-module
-yarn run create-multi
-```
-
 # Zero-Configuration
 
 No need to configure anything!
@@ -55,7 +48,7 @@ Add them in `/webpack.plugins.js`.
 
 # Distributions
 
-This boilerplate can export one module or multiple independents. It doesn't matter if you run the `create` or `create-multi` initially, it can be switched easily.
+This boilerplate can export one module or multiple independents.
 
 ## Single module
 
@@ -81,7 +74,7 @@ If the boilerplate cannot find the `src/index.ts` file, this module is considere
 Imagine this folder structure:
 ```
 src/Invoice/index.ts	// content: export class Invoice {...}
-src/Person/index.ts	// content: export class Person {...}
+src/Person/index.ts	    // content: export class Person {...}
 ```
 Then from another package, you can import this module like this:
 ```
@@ -117,19 +110,17 @@ Under the `tests` folder, you create the tests for your module.
 
 ### Debug on any web browser with Browser's debugger
 
-1. Import in `webpack-debug-browser.index.ts` the part that will run for the Browser debugging
+1. In `webpack-debug-browser.index.ts` write a small code to debug your module
 2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
 
-_In this case, there is no need to start adding a builder as the other options, webpack takes care of it._
-
-You can use any web browser to test it.
+Use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
-1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging
+1. Import in `webpack-debug-node.index.ts` write a small code to debug your module
 2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-dev-devtools` to start and debug with the devTools debugger of your Chrome browser.
+3. Call `yarn debug-dev-devtools-brk` to start and debug with the devTools debugger of your Chrome browser.
 
 Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
 
@@ -137,7 +128,7 @@ Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggab
 
 ### Run code & restart on changes
 
-1. Import in `webpack-debug-node.index.ts` the part that will run for the NodeJs debugging
+1. Import in `webpack-debug-node.index.ts` write a small code to debug your module
 2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 3. Call `yarn debug-dev-run` and will run your debug application on node.js.
 
@@ -145,8 +136,7 @@ The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` pat
 
 # Analyse
 
-1. Import in `webpack-analyse.index.ts` the part to analyse the dependencies
-2. Call `yarn analyse`
+1. Call `yarn analyse`
 
 # Test
 
@@ -164,7 +154,7 @@ Call `yarn test-watch` to run your tests on any changes.
 
 ### Debug test with devtools
 
-- Run `debug-tests`
+- Run `debug-jest`
 
 You may pass any Jest arguments.
 

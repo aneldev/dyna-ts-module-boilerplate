@@ -1,7 +1,8 @@
 // Help: https://facebook.github.io/jest/docs/expect.html
+import {sayHelloWorld} from "../../src";
 
 describe('Unit test', () => {
-  it('Ecaple', () => {
-    expect(true).toBe(true);
+  it('Sample', () => {
+    expect(typeof sayHelloWorld).toBe('function');
   });
 });
