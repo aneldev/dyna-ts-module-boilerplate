@@ -29,7 +29,7 @@ const config = {
   },
   externals: [],
   output: {
-    filename: 'debug-dev-browser.js'
+    filename: 'debug-in-browser.js'
   },
   resolve: {
     alias: {},

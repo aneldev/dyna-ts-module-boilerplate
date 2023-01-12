@@ -116,7 +116,7 @@ Under the `tests` folder, you create the tests for your module.
 ### Debug on any web browser with Browser's debugger
 
 1. In `/debug/in-browser.ts` write a small code to debug your module
-2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
+2. Call `yarn debug-in-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
 
 > After you finish, `yarn build` is required to clean up the `dist` folder.
