@@ -126,10 +126,10 @@ Use any web browser to test it.
 ### Debug on nodeJs with devTools
 
 1. Import in `/debug/in-node.ts` write a small code to debug your module
-2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-dev-devtools-brk` to start and debug with the devTools debugger of your Chrome browser.
+2. Call `yarn debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+3. Call `yarn debug-in-devtools` to start and debug with the devTools debugger of your Chrome browser.
 
-Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
+Alternatively, you can call `yarn debug-in-devtools` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
 
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost. You should see your app there to debug it.
 
@@ -138,8 +138,8 @@ Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggab
 ### Run code & restart on changes
 
 1. Import in `/debug/in-node-ts` write a small code to debug your module
-2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-dev-run` and will run your debug application on node.js.
+2. Call `yarn debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+3. Call `yarn debug-run` and will run your debug application on node.js.
 
 The built code, ready to run is under the `debug/build/debug-dev-on-nodejs` path.
 
@@ -167,7 +167,7 @@ Call `yarn test-watch` to run your tests on any changes.
 
 - Run `debug-jest`
 
-You may pass any Jest arguments.
+You may pass any Jest arguments like the test name to debug specific test.
 
 # Dist / Release
 
