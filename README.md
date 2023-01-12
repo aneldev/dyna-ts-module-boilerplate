@@ -108,9 +108,14 @@ Under the `tests` folder, you create the tests for your module.
 
 ## Debug
 
+### Debug Jest Tests
+
+1. Write your jest tests under `/test` folder or everywhere else
+2. Call `yarn test-debug <name of the test file>`
+
 ### Debug on any web browser with Browser's debugger
 
-1. In `webpack-debug-browser.index.ts` write a small code to debug your module
+1. In `/debug/in-browser.ts` write a small code to debug your module
 2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
 
@@ -118,7 +123,7 @@ Use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
-1. Import in `webpack-debug-node.index.ts` write a small code to debug your module
+1. Import in `/debug/in-node.ts` write a small code to debug your module
 2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 3. Call `yarn debug-dev-devtools-brk` to start and debug with the devTools debugger of your Chrome browser.
 
