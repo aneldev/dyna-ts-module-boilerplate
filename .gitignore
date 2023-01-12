@@ -3,7 +3,7 @@
 .vscode/
 .DS_Store
 coverage/
-debug-ground/debug-dev-on-nodejs/
+debug/build/debug-dev-on-nodejs/
 node_modules/
 temp/
 /npm-debug.log

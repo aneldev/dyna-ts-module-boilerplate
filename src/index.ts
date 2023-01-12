@@ -1,1 +1,3 @@
-export const sayHelloWorld = () => console.log('Hello world');
+import "./utils/unhandledPromiseRejectionsInNode";
+
+export const sayHelloWorld = () => console.log('sayHelloWorld(): Hello world');

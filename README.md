@@ -108,31 +108,42 @@ Under the `tests` folder, you create the tests for your module.
 
 ## Debug
 
+### Debug Jest Tests
+
+1. Write your jest tests under `/test` folder or everywhere else
+2. Call `yarn test-debug <name of the test file>`
+
 ### Debug on any web browser with Browser's debugger
 
-1. In `webpack-debug-browser.index.ts` write a small code to debug your module
-2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
+1. In `/debug/in-browser.ts` write a small code to debug your module
+2. Call `yarn debug-in-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
+
+> After you finish, `yarn build` is required to clean up the `dist` folder.
 
 Use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
-1. Import in `webpack-debug-node.index.ts` write a small code to debug your module
-2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-dev-devtools-brk` to start and debug with the devTools debugger of your Chrome browser.
+1. Import in `/debug/in-node.ts` write a small code to debug your module
+2. Call `yarn debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+3. Call `yarn debug-in-devtools` to start and debug with the devTools debugger of your Chrome browser.
 
-Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
+Alternatively, you can call `yarn debug-in-devtools` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
 
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost. You should see your app there to debug it.
 
+> After you finish, `yarn build` is required to clean up the `dist` folder.
+
 ### Run code & restart on changes
 
-1. Import in `webpack-debug-node.index.ts` write a small code to debug your module
-2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-dev-run` and will run your debug application on node.js.
+1. Import in `/debug/in-node-ts` write a small code to debug your module
+2. Call `yarn debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+3. Call `yarn debug-run` and will run your debug application on node.js.
 
-The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.
+The built code, ready to run is under the `debug/build/debug-dev-on-nodejs` path.
+
+> After you finish, `yarn build` is required to clean up the `dist` folder.
 
 # Analyse
 
@@ -156,7 +167,7 @@ Call `yarn test-watch` to run your tests on any changes.
 
 - Run `debug-jest`
 
-You may pass any Jest arguments.
+You may pass any Jest arguments like the test name to debug specific test.
 
 # Dist / Release
 
