@@ -119,6 +119,8 @@ Under the `tests` folder, you create the tests for your module.
 2. Call `yarn debug-dev-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
 
+> After you finish, `yarn build` is required to clean up the `dist` folder.
+
 Use any web browser to test it.
 
 ### Debug on nodeJs with devTools
@@ -131,13 +133,17 @@ Alternatively, you can call `yarn debug-dev-devtools-brk` (with -brk at the end)
 
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost. You should see your app there to debug it.
 
+> After you finish, `yarn build` is required to clean up the `dist` folder.
+
 ### Run code & restart on changes
 
-1. Import in `webpack-debug-node.index.ts` write a small code to debug your module
+1. Import in `/debug/in-node-ts` write a small code to debug your module
 2. Call `yarn debug-dev-build` to start the builder. This builder watches your changes made in debug/ & src/ folders.
 3. Call `yarn debug-dev-run` and will run your debug application on node.js.
 
-The built code, ready to run is under the `debug-ground/debug-dev-on-nodejs` path.
+The built code, ready to run is under the `debug/build/debug-dev-on-nodejs` path.
+
+> After you finish, `yarn build` is required to clean up the `dist` folder.
 
 # Analyse
 

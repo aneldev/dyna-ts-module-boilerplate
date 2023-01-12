@@ -20,7 +20,7 @@ const config = {
   },
   externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   output: {
-    path: path.resolve(__dirname, 'debug-ground/debug-dev-on-nodejs'),
+    path: path.resolve(__dirname, 'debug/build/debug-dev-on-nodejs'),
     filename: 'index.js',
   },
   resolve: {
