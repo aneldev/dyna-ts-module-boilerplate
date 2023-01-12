@@ -1,2 +1,2 @@
-export var sayHelloWorld = function () { return console.log('Hello world'); };
+export var sayHelloWorld = function () { return console.debug('Hello world'); };
 //# sourceMappingURL=index.js.map
