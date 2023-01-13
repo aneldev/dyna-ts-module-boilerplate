@@ -11,7 +11,7 @@
   "source": "src/index.ts",
   "types": "dist/commonJs/index.d.ts",
   "main": "dist/commonJs/index.js",
-  "esnext": "dist/esNext/index.ts",
+  "esnext": "dist/esNext/index.js",
   "scripts": {
     "bootstrap": "echo Creation started... && yarn _creation-prepare && yarn install && yarn _creation-done && echo --- module created",
     "_creation-prepare": "rm -rf .git; rm -rf yarn.lock mv README.md README.boilerplate.md; echo \\# readme > README.md",
