@@ -6,8 +6,7 @@ Debug and dev Typescript modules in
 
 - Debugger of any browser
 - Chrome Dev Tools (for nodeJs apps)
-- 
-Write tests in jests.
+- Write tests in jests.
 
 This boilerplate consists of minimum configuration and dependencies to create one or multiple Modules are written in Typescript.
 
