@@ -24,13 +24,16 @@ It can export one module or multiple independents.
 - Export in commonJs and esNext module together
 - Detect circular dependencies (where leads to import `undefined` or `null` values)
 
-# Install
+# How to create new module
 
 ```
 git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
 yarn bootstrap
 ```
+
+> The script "bootstrap" is called and used only once for setting up the module. Afterward, the script is no longer available since it is not needed.
+
 # Zero-Configuration
 
 No need to configure anything!
