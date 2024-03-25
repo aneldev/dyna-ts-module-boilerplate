@@ -1,3 +1,5 @@
 import "./utils/unhandledPromiseRejectionsInNode";
 
-export const sayHelloWorld = () => console.log('sayHelloWorld(): Hello world');
+import * as jsonData from "./test.json";
+
+export const sayHelloWorld = () => console.log('sayHelloWorld(): Hello world', {jsonData});
