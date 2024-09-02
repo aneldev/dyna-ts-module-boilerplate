@@ -1,6 +1,6 @@
-﻿# About
+﻿# About dyna-ts-module-boilerplate
 
-Webpack setup for ES5/ES6 for Typescript Module.
+**Boilerplate with Webpack setup for ES6/ESNEXT for Typescript Node Libraries/Packages.**
 
 Debug and dev Typescript modules in
 
@@ -21,7 +21,7 @@ It can export one module or multiple independents.
 - Distribute as a module with TypeScript Definitions (ready to import)
 - Distribute one or multiple modules
 - Export separated versions for web and node using multiple modules
-- Export in commonJs and esNext module together
+- Export esNext module
 - Detect circular dependencies (where leads to import `undefined` or `null` values)
 
 # How to create new module
@@ -29,7 +29,7 @@ It can export one module or multiple independents.
 ```
 git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
 cd my-ts-module
-yarn bootstrap
+pnpm bootstrap
 ```
 
 > The script "bootstrap" is called and used only once for setting up the module. Afterward, the script is no longer available since it is not needed.
@@ -113,43 +113,43 @@ Under the `tests` folder, you create the tests for your module.
 ### Debug Jest Tests
 
 1. Write your jest tests under `/test` folder or everywhere else
-2. Call `yarn test-debug <name of the test file>`
+2. Call `pnpm test-debug <name of the test file>`
 
 ### Debug on any web browser with Browser's debugger
 
 1. In `/debug/in-browser.ts` write a small code to debug your module
-2. Call `yarn debug-in-browser` to start the builder and open a dev server (via webpack).
+2. Call `pnpm debug-in-browser` to start the builder and open a dev server (via webpack).
 3. Open http://localhost:3300/ address in any browser.
 
-> After you finish, `yarn build` is required to clean up the `dist` folder.
+> After you finish, `pnpm build` is required to clean up the `dist` folder.
 
 Use any web browser to test it.
 
 ### Debug on nodeJs with devTools
 
 1. Import in `/debug/in-node.ts` write a small code to debug your module
-2. Call `yarn debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-in-devtools` to start and debug with the devTools debugger of your Chrome browser.
+2. Call `pnpm debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+3. Call `pnpm debug-in-devtools` to start and debug with the devTools debugger of your Chrome browser.
 
-Alternatively, you can call `yarn debug-in-devtools` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
+Alternatively, you can call `pnpm debug-in-devtools` (with -brk at the end) to place a breakpoint on the app's startup to catch early points.
 
 Open [chrome://inspect/#devices](chrome://inspect/#devices) to list the debuggable instances in your localhost. You should see your app there to debug it.
 
-> After you finish, `yarn build` is required to clean up the `dist` folder.
+> After you finish, `pnpm build` is required to clean up the `dist` folder.
 
 ### Run code & restart on changes
 
 1. Import in `/debug/in-node-ts` write a small code to debug your module
-2. Call `yarn debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
-3. Call `yarn debug-run` and will run your debug application on node.js.
+2. Call `pnpm debug-watch` to start the builder. This builder watches your changes made in debug/ & src/ folders.
+3. Call `pnpm debug-run` and will run your debug application on node.js.
 
 The built code, ready to run is under the `debug/build/debug-dev-on-nodejs` path.
 
-> After you finish, `yarn build` is required to clean up the `dist` folder.
+> After you finish, `pnpm build` is required to clean up the `dist` folder.
 
 # Analyse
 
-1. Call `yarn analyse`
+1. Call `pnpm analyse`
 
 # Test
 
@@ -161,9 +161,9 @@ Test files can be everywhere, but they should have the name `*.(test|spec).(ts|j
 
 ## Run tests
 
-Call `yarn test` to run your tests and coverage.
+Call `pnpm test` to run your tests and coverage.
 
-Call `yarn test-watch` to run your tests on any changes.
+Call `pnpm test-watch` to run your tests on any changes.
 
 ### Debug test with devtools
 
@@ -175,13 +175,13 @@ You may pass any Jest arguments like the test name to debug specific test.
 
 ## General
 
-Call `yarn build`
+Call `pnpm build`
 to create a distributable version of your project
 under the `dist/` folder.
 
-The package configuration exports the `dist/` folder so you have to call the `yarn build` every time you want to publish this package. The typescript declarations are there out of the box.
+The package configuration exports the `dist/` folder so you have to call the `pnpm build` every time you want to publish this package. The typescript declarations are there out of the box.
 
-Call `yarn release` to build, publish to npm and push to your repo.
+Call `pnpm release` to build, publish to npm and push to your repo.
 
 ## `commonJs` && `esNext`
 
@@ -191,7 +191,7 @@ The default export of the `package.json` is ts `commonJs` build.
 
 One of the big differences between these two versions is that `esNext` improves the [Webpack's shake tree](https://webpack.js.org/guides/tree-shaking/).
 
-`yarn build` uses the TSC compiler only (not Webpack).
+`pnpm build` uses the TSC compiler only (not Webpack).
 
 # Features
 
@@ -199,9 +199,9 @@ One of the big differences between these two versions is that `esNext` improves 
 
 ### About
 
-Link your modules easily with the `yarn sync-usages --watch` watcher script.
+Link your modules easily with the `pnpm sync-usages --watch` watcher script.
 
-In case that the `yarn link` doesn't work for any reason, this boilerplate offers a "copy" approach to update the packages.
+In case that the `pnpm link` doesn't work for any reason, this boilerplate offers a "copy" approach to update the packages.
 
 The script performs:
 
@@ -211,8 +211,8 @@ The script performs:
 
 ### Run
 
-- Call `yarn sync-usages` to sync it once
-- Call `yarn sync-usages --watch` for run in watcher mode
+- Call `pnpm sync-usages` to sync it once
+- Call `pnpm sync-usages --watch` for run in watcher mode
 
 ### `sync-usages` prerequisite
 
