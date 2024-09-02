@@ -3,6 +3,6 @@ import {sayHelloWorld} from "../../src";
 
 describe('Unit test', () => {
   it('Sample', () => {
-    expect(typeof sayHelloWorld).toBe('function');
+    expect(sayHelloWorld()).toMatchSnapshot();
   });
 });
