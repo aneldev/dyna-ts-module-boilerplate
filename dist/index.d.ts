@@ -1,2 +1,2 @@
 import "./utils/unhandledPromiseRejectionsInNode";
-export declare const sayHelloWorld: () => void;
+export declare const sayHelloWorld: () => Record<string, any>;

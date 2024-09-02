@@ -121,9 +121,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var sayHelloWorld = function sayHelloWorld() {
-  return console.log('sayHelloWorld(): Hello world', {
+  console.log('sayHelloWorld(): Hello world', {
     jsonData: /*#__PURE__*/ (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache || (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache = __webpack_require__.t(_test_json__WEBPACK_IMPORTED_MODULE_0__, 2)))
   });
+  return /*#__PURE__*/ (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache || (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache = __webpack_require__.t(_test_json__WEBPACK_IMPORTED_MODULE_0__, 2)));
 };
 /******/ 	return __webpack_exports__;
 /******/ })()
