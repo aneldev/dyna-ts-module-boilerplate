@@ -26,7 +26,7 @@
     "lint": "eslint -c .eslintrc.js ./src ./tests",
     "lint-fix": "eslint -c .eslintrc.js --fix ./src ./tests",
     "test": "jest --coverage --no-cache --runInBand",
-    "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --verbose --runInBand",
     "test-watch": "jest --watch --verbose --runInBand",
     "test-no-coverage": "jest --collectCoverage=false --no-cache --runInBand",
     "test-update-snapshots": "jest --updateSnapshot --runInBand",
