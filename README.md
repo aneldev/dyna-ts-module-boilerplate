@@ -39,6 +39,8 @@ Then
 
 - Uses the powerful `pnpm` as a packager, but you can easily replace it with another one
 - Written in TypeScript, .tsx, .ts
+- Supports CSS, SCSS & LESS at the same time
+- Advanced ESLint
 - Tested with Jest
 - Debugged with Chrome Dev Tools
 - Distributes with TypeScript definitions
@@ -46,7 +48,9 @@ Then
 - Supports distribution of modules for Web and Node
 - Analyzes the distribution
 - Exports ESNext modules
+- Exports Typescript declarations
 - Detects circular dependencies (which can lead to `undefined` or `null` imports)
+- Monorepo friendly
 
 # Specs
 
@@ -96,6 +100,8 @@ import { Invoice } from "my-ts-module";
 
 If the boilerplate cannot find the `src/index.ts` file, it considers the module *Multi*. In this case, the `/src` folder should contain folders, each representing a module with its own `index.ts` file.
 
+This allows making **explicit imports** from other packages or apps improving the tree shaking.
+
 **For example:**
 
 Folder structure:
@@ -103,7 +109,7 @@ Folder structure:
 src/Invoice/index.ts   // content: export class Invoice {...}
 src/Person/index.ts    // content: export class Person {...}
 ```
-From another package, you can import these modules like this:
+From another package, you can explicit import these modules like this:
 ```
 import { Invoice } from "my-ts-module/dist/Invoice";
 import { Person } from "my-ts-module/dist/Person";
@@ -127,7 +133,7 @@ The `dist` folder contains only JavaScript code (ES5), without Webpack module lo
 
 # Develop
 
-Development is based on [Jest](https://facebook.github.io/jest) tests. After creating something in the `src`, create a Jest test like the [main.test.ts](tests/scripts/main.test.ts) and run or debug it.
+Development is based on [Jest](https://facebook.github.io/jest) tests. After creating something in the `src`, create a Jest test like the [main.test.ts](tests/ui/main.test.ts) and run or debug it.
 
 **Steps:**
 
