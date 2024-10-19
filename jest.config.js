@@ -6,8 +6,8 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
-  transformIgnorePatterns: ["node_modules/(?!(react-native|\\@mui)/)"],
-  testRegex: "(src|tests)/.*\\.(test|spec)\\.(ts|tsx|js|jsx)$",
+  transformIgnorePatterns: ["/node_modules/", "\\.pnp\\.[^\\/]+$"],
+  testRegex: "(src)/.*\\.(test|spec)\\.(ts|tsx)$",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   moduleNameMapper: {
     "\\.(css|less|scss|jpg|png|svg|gif)$": "identity-obj-proxy",
