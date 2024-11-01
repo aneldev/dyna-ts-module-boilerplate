@@ -21,19 +21,22 @@ No, this boilerplate is not designed for developing React components. However, y
 
 To develop React components, use the [dyna-ts-react-module-boilerplate](https://www.npmjs.com/package/dyna-ts-react-module-boilerplate), which is a similar boilerplate but with more infrastructure for React development.
 
-# Usage
+# How to use this boilerplate
 
-```
-git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-ts-module
-cd my-ts-module
+To use it and create your own module:
+
+- Clone it into a folder named after your module, like `my-module`.
+- Run `pnpm bootstrap` to unlink it from this git repo.
+
+Example:
+
+```bash
+git clone https://github.com/aneldev/dyna-ts-module-boilerplate.git my-module
+cd my-module
 pnpm bootstrap
 ```
 
-> Running `bootstrap` is mandatory to remove the bootstrap scripts and files and start with a clean module. It converts the boilerplate package into a module ready for development.
-
-Then
-
-`git init` for versioning
+Your repo will now be ready, and you can `git init` under your own account.
 
 # Features
 
@@ -93,7 +96,7 @@ export class Invoice {...}
 ```
 From another package, you can import this module like this:
 ```
-import { Invoice } from "my-ts-module";
+import { Invoice } from "my-module";
 ```
 
 ## Multi modules
@@ -111,8 +114,8 @@ src/Person/index.ts    // content: export class Person {...}
 ```
 From another package, you can explicit import these modules like this:
 ```
-import { Invoice } from "my-ts-module/dist/Invoice";
-import { Person } from "my-ts-module/dist/Person";
+import { Invoice } from "my-module/dist/Invoice";
+import { Person } from "my-module/dist/Person";
 ```
 Similarly, you can distribute modules for specific environments, such as Web or Node, ensuring you import dependencies compatible with the target environment.
 
