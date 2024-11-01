@@ -12,6 +12,40 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/utils/isNode.ts":
+/*!*****************************!*\
+  !*** ./src/utils/isNode.ts ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isNode: () => (/* binding */ isNode)
+/* harmony export */ });
+var isNode = !!(typeof process !== 'undefined' && process.versions && process.versions.node);
+
+/***/ }),
+
+/***/ "./src/utils/unhandledPromiseRejectionsInNode.ts":
+/*!*******************************************************!*\
+  !*** ./src/utils/unhandledPromiseRejectionsInNode.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+
+/* harmony import */ var _isNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isNode */ "./src/utils/isNode.ts");
+
+if (_isNode__WEBPACK_IMPORTED_MODULE_0__.isNode) {
+  if (typeof process !== "undefined") {
+    process.on('unhandledRejection', function (reason, promise) {
+      console.error('Dyna boilerplate: Unhandled Rejection; you should catch it!', {
+        promise: promise,
+        reason: reason
+      });
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./src/test.json":
 /*!***********************!*\
   !*** ./src/test.json ***!
@@ -112,19 +146,23 @@ var __webpack_exports__ = {};
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-var _test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache;
+var _test_json__WEBPACK_IMPORTED_MODULE_1___namespace_cache;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isNode: () => (/* reexport safe */ _utils_isNode__WEBPACK_IMPORTED_MODULE_2__.isNode),
 /* harmony export */   sayHelloWorld: () => (/* binding */ sayHelloWorld)
 /* harmony export */ });
-/* harmony import */ var _test_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.json */ "./src/test.json");
+/* harmony import */ var _utils_unhandledPromiseRejectionsInNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/unhandledPromiseRejectionsInNode */ "./src/utils/unhandledPromiseRejectionsInNode.ts");
+/* harmony import */ var _test_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.json */ "./src/test.json");
+/* harmony import */ var _utils_isNode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/isNode */ "./src/utils/isNode.ts");
+
 
 
 var sayHelloWorld = function sayHelloWorld() {
   console.log('sayHelloWorld(): Hello world', {
-    jsonData: /*#__PURE__*/ (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache || (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache = __webpack_require__.t(_test_json__WEBPACK_IMPORTED_MODULE_0__, 2)))
+    jsonData: /*#__PURE__*/ (_test_json__WEBPACK_IMPORTED_MODULE_1___namespace_cache || (_test_json__WEBPACK_IMPORTED_MODULE_1___namespace_cache = __webpack_require__.t(_test_json__WEBPACK_IMPORTED_MODULE_1__, 2)))
   });
-  return /*#__PURE__*/ (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache || (_test_json__WEBPACK_IMPORTED_MODULE_0___namespace_cache = __webpack_require__.t(_test_json__WEBPACK_IMPORTED_MODULE_0__, 2)));
+  return /*#__PURE__*/ (_test_json__WEBPACK_IMPORTED_MODULE_1___namespace_cache || (_test_json__WEBPACK_IMPORTED_MODULE_1___namespace_cache = __webpack_require__.t(_test_json__WEBPACK_IMPORTED_MODULE_1__, 2)));
 };
 /******/ 	return __webpack_exports__;
 /******/ })()

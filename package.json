@@ -1,37 +1,36 @@
 {
   "name": "dyna-ts-module-boilerplate",
-  "version": "6.0.3",
+  "version": "18.0.3",
   "description": "Boilerplate for node apps/modules",
   "repository": {
     "type": "git",
     "url": "http://github.com/aneldev/dyna-ts-module-boilerplate"
   },
   "private": false,
-  "sideEffects": false,
+  "sideEffects": true,
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "esnext": "dist/index.js",
   "scripts": {
-    "bootstrap": "echo Bootstrap started... && pnpm _creation-prepare && pnpm install && pnpm _creation-done && echo --- module ready",
-    "_creation-prepare": "rm -rf .git; mv README.md README.boilerplate.md; echo \\# readme > README.md",
-    "_creation-done": "node _boilerplateCreateModule.js && echo --- module created, set the name, version and repo address in package.json",
-    "install-clean": "rm -rf node_modules; pnpm install",
-    "prebuild": "node tsconfig.update.js",
-    "build": "pnpm lint && rm -rf ./dist && webpack --config webpack.dist.config.js",
-    "build-watch": "rm -rf ./dist; pnpm webpack --watch --config webpack.dist.config.js",
+    "bootstrap": "echo Bootstrap started... && rimraf .git && mv README.md README.boilerplate.md && echo \\# readme > README.md && yarn install && node _boilerplateCreateModule.js && echo --- module created, Update the package.json with module's info && echo --- module ready",
+    "install-clean": "rimraf node_modules && pnpm install",
+    "build": "pnpm lint && rimraf ./dist && webpack --config webpack.dist.config.js",
+    "build-watch": "rimraf ./dist && pnpm webpack --watch --config webpack.dist.config.js",
     "build-analyze": "webpack --config webpack.dist.analyze.config.js",
     "commit": "git add -u && git add -A && git commit --allow-empty -m",
     "commit-amend": "git add -u && git add -A && git commit --amend --allow-empty --no-edit",
-    "lint": "eslint -c .eslintrc.js ./src ./tests",
-    "lint-fix": "eslint -c .eslintrc.js --fix ./src ./tests",
+    "lint": "eslint -c .eslintrc.js ./src",
+    "lint-watch": "nodemon --watch src --ext ts,tsx,less,scss --exec \"pnpm lint\"",
+    "lint-fix": "eslint -c .eslintrc.js --fix ./src",
+    "lint-fix-watch": "nodemon --watch src --ext ts,tsx,less,scss --exec \"pnpm lint-fix\"",
     "test": "jest --coverage --no-cache --runInBand",
-    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --verbose --runInBand",
+    "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "test-watch": "jest --watch --verbose --runInBand",
     "test-no-coverage": "jest --collectCoverage=false --no-cache --runInBand",
     "test-update-snapshots": "jest --updateSnapshot --runInBand",
-    "update-deps": "rm rf pnpm-lock.yaml; pnpm update --latest",
-    "publish-push": "pnpm version patch && npm publish --yes && git push && git push --tags",
+    "update-deps": "rimraf pnpm-lock.yaml && pnpm update --latest",
+    "publish-push": "pnpm version patch && pnpm publish --no-git-checks && git push && git push --tags",
     "release": "pnpm build && pnpm test && git add -u && git add -A && git commit --allow-empty -m \"Build changes\" && pnpm publish-push"
   },
   "keywords": [],
@@ -63,7 +62,6 @@
     "dyna-guid": "^2.2.1",
     "dyna-node-arguments": "^2.0.1",
     "dyna-node-fs": "^1.0.4",
-    "dyna-showcase": "^3.0.1",
     "eslint": "^7.32.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-etc": "^2.0.1",
@@ -73,6 +71,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "fake-indexeddb": "^6.0.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "gh-pages": "^6.1.1",
@@ -86,7 +85,7 @@
     "jsdom": "^24.1.1",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
-    "nodemon": "^3.1.4",
+    "nodemon": "^3.1.7",
     "postcss-cli": "^11.0.0",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "^8.1.1",
@@ -95,6 +94,8 @@
     "react-dom": "^18.3.1",
     "react-refresh": "^0.14.2",
     "react-test-renderer": "^18.3.1",
+    "rimraf": "^6.0.1",
+    "sass": "^1.78.0",
     "sass-loader": "^16.0.1",
     "source-map-loader": "5.0.0",
     "style-loader": "^4.0.0",
@@ -110,35 +111,6 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
     "webpack-node-externals": "^3.0.0"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "./tests/setup/testSetup.ts"
-    ],
-    "automock": false,
-    "collectCoverage": false,
-    "testEnvironment": "jest-environment-node",
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|\\@mui)/)"
-    ],
-    "testRegex": "(src|tests)/.*\\.(test|spec)\\.(ts|tsx|js|jsx)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less|scss|jpg|png|svg|gif)$": "identity-obj-proxy"
-    },
-    "coverageDirectory": "coverage",
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx,js,jsx}",
-      "!src/**/*.d.ts"
-    ]
   },
   "engines": {
     "npm": ">=10.0.0 <11.0.0",
