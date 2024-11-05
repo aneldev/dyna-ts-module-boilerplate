@@ -66,6 +66,38 @@ Your repo will now be ready, and you can `git init` under your own account.
 - ESLint configuration for React and rules
 - Webpack analyzer for package content with the [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
 
+# Scripts
+
+| Script                  | Description                                                                                                  | Notes                                                             |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
+| `install-clean`         | Clears all `node_modules` and runs `pnpm install`                                                            |                                                                   |
+| `start`                 | Runs the built application _meaning the `./src.index.ts`_                                                    | You can remove this is this repo nothing starts                   |
+| `start-dev`             | Runs the `build-watch` & `start` parallel _for development_                                                  | You can remove this is this repo nothing starts                   |
+| `build`                 | Builds `.src/index` into the `dist` folder                                                                   |                                                                   |
+| `build`                 | Builds `.src/index` into the `dist` folder                                                                   |                                                                   |
+| `build-watch`           | Runs `build` in watch mode                                                                                   |                                                                   |
+| `build-analyze`         | Shows the Webpack dependencies analyzer                                                                      |                                                                   |
+| `commit`                | Easily commit, including unstaged files                                                                      |                                                                   |
+| `commit-amend`          | Easily amend the previous commit with unstaged files                                                         |                                                                   |
+| `lint`                  | Runs ESLint on your source code                                                                              |                                                                   |
+| `lint-watch`            | Runs ESLint in watch mode                                                                                    |                                                                   |
+| `lint-fix`              | Autofixes issues with ESLint                                                                                 |                                                                   |
+| `lint-fix-watch`        | Autofixes issues with ESLint in watch mode                                                                   |                                                                   |
+| `test`                  | Runs all or filtered tests                                                                                   | Arguments `<filter>`. Example: `test MyService`                   |
+| `test-debug`            | Debugs tests with Dev Tools                                                                                  | Arguments `<filter>`. Example: `test-debug MyService`             |
+| `test-watch`            | Runs all or filtered tests in watch mode                                                                     | Arguments `<filter>`. Example: `test-watch MyService`             |
+| `test-no-coverage`      | Runs all or filtered tests without coverage                                                                  | Arguments `<filter>`. Example: `test-no-coverage MyService`       |
+| `test-update-snapshots` | Updates test snapshots                                                                                       | Arguments `<filter>`. Example: `test-update-snapshots MyService`  |
+| `update-deps`           | Bumps all dependencies to their latest versions based on version definition                                  |                                                                   |
+| `publish-push`          | Bumps the patch version, publishes to npm, and pushes to Git                                                 |                                                                   |
+| `release`               | Runs `build` & `publish-push`                                                                                |                                                                   |
+| `bootstrap`             | Initialization script that prepares the boilerplate and disconnects it from the Anel Dev organization’s Git. | You shouldn't see this script; it's only run right after cloning. |
+
+If you see the `bootstrap` script and you've already run `git init` on your versioning system, you can delete:
+
+- The `bootstrap` script
+- The `bootstrap.js` file
+
 # Configuration
 
 This is a **Zero-Configuration** boilerplate!
@@ -136,6 +168,8 @@ The `dist` folder contains only JavaScript code (ES5), without Webpack module lo
 
 # Develop
 
+## Using Jest tests
+
 Development is based on [Jest](https://facebook.github.io/jest) tests. After creating something in the `src`, create a Jest test like the [main.test.ts](tests/ui/main.test.ts) and run or debug it.
 
 **Steps:**
@@ -150,6 +184,19 @@ Development is based on [Jest](https://facebook.github.io/jest) tests. After cre
 **Note:** You might need to press `Resume script` (the `Play` button) to skip some internal Node lib points.
 
 For more information about the tests, read below.
+
+## Using app
+
+This repo might export modules and/or can start an application from `src/index.ts`.
+
+This app can be built and deployed, so the user of your clone would simply `pnpm start`.
+
+**Steps:**
+
+1. Write your own app that will start from the `./src/index.ts`
+2. Run `pnpm build-watch`
+2. Run `pnpm start`
+3. OR `pnpm start-dev` that execute the above in parallel.
 
 # Analyze
 
