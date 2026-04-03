@@ -70,7 +70,7 @@ Your repo will now be ready, and you can `git init` under your own account.
 
 | Script                  | Description                                                                                                  | Notes                                                             |
 |:------------------------|:-------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
-| `install-clean`         | Clears all `node_modules` and runs `pnpm install`                                                            |                                                                   |
+| `install-clean`         | Clears all `node_modules` and runs `pnpm install`                                                            | You have to call this with `run`, e.g.: `pnpm run install-clean`  |
 | `start`                 | Runs the built application _meaning the `./src.index.ts`_                                                    | You can remove this is this repo nothing starts                   |
 | `start-dev`             | Runs the `build-watch` & `start` parallel _for development_                                                  | You can remove this is this repo nothing starts                   |
 | `build`                 | Builds `.src/index` into the `dist` folder                                                                   |                                                                   |
