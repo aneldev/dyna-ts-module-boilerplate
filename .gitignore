@@ -4,6 +4,7 @@
 .DS_Store
 dev/public/static
 coverage/
+dist/
 tests/setup/testEnvVariables.ts
 node_modules/
 temp/

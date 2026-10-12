@@ -7,6 +7,9 @@
     "url": "http://github.com/aneldev/dyna-ts-module-boilerplate"
   },
   "private": false,
+  "files": [
+    "dist"
+  ],
   "sideEffects": true,
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
@@ -29,6 +32,7 @@
   "scripts": {
     "bootstrap": "echo Bootstrap started... && mv README.md README.boilerplate.md && echo \\# readme > README.md && pnpm install && rimraf .git && node bootstrap.js",
     "install-clean": "rimraf node_modules && pnpm install",
+    "prepublishOnly": "pnpm build",
     "build": "pnpm lint && rimraf ./dist && webpack --config webpack.dist.config.js",
     "build-watch": "rimraf ./dist && pnpm webpack --watch --config webpack.dist.config.js",
     "build-analyze": "webpack --config webpack.dist.analyze.config.js",
